@@ -11,7 +11,7 @@
 <body>
     <div class="container" id="cont">
         <div align="center">
-            <img src="images/San_Miguel_Corporation_logo.webp" id="logo"><br>
+            <img src="images/San_Miguel_Corporation_logo.webp" id="logo-login"><br>
             <h1> SAN MIGUEL <span id="corp">CORPORATION</span></h1>
             <p>Task Management System</p>
 
@@ -73,7 +73,7 @@
       if($count == 1) {
         session_start();
         $_SESSION['uname'] = $uname;
-        header("location: welcomepage.php");
+        header("location: dashboard.php");
      } else {
         echo "<script>alert('Incorrect Username or Password. Please try again.');</script>";
            // echo "<h3>Incorrect Username or Password. Please try again.</h3>";
