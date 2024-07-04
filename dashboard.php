@@ -13,8 +13,6 @@
     include('conn.php');
     include('addData.php');
   ?>
-
-
 </head>
 <body>
   <nav class="navbar navbar-expand-lg bg-body-tertiary"> <!--Navbar-->
@@ -105,15 +103,18 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form action="addData.php" method="POST">
+        <form  method="POST" action="addData.php">
           <div class="input-group mb-3">
             <span class="input-group-text" id="inputGroup-sizing-default">Task ID</span>
             <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="taskid">
           </div>
           <div class="input-group mb-3">
             <span class="input-group-text" id="inputGroup-sizing-default">Start Date</span>
-            <input type="date" name="StartDate" class="form-control" name="date" value="2004-07-04">
-          </div>
+            <input type="text" class="form-control" name="year" placeholder= "YYYY">
+            <input type="text" class="form-control" name="month" placeholder= "MM">
+            <input type="text" class="form-control" name="day" placeholder= "DD">
+
+            </div>
           <div class="input-group mb-3">
             <span class="input-group-text" id="inputGroup-sizing-default">Order Type</span>
             <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="ordertype">
@@ -160,7 +161,7 @@
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" name="close">Close</button>
-            <button type="button" class="btn btn-primary" value="SAVE"  name="save"> SAVE</button>
+            <input type="submit" class="btn btn-primary" name="submit" value="SAVE"> 
           </div>
         </form>
       </div>

@@ -1,11 +1,13 @@
 <?php
-session_start();
 include('conn.php');
 
-
-if(isset($_POST['save'])){
+if(isset($_POST['submit'])){
     $taskid = $_POST['taskid'];
-    $date = date('Y-m-d',strtotime(($_POST['date'])));
+    $year = $_POST['year'];
+    $month = $_POST['month'];
+    $day = $_POST['day'];
+
+    $date = "$year-$month-$day";
     $ordertype = $_POST['ordertype'];
     $orderdesc = $_POST['orderdesc'];
     $mplan = $_POST['mplan'];
@@ -18,8 +20,7 @@ if(isset($_POST['save'])){
     $eqid = $_POST['eqid'];
     $tskstat = $_POST['tskstat'];
 
-    $query = "INSERT INTO `tasks`(`taskID`, `startDate`, `orderType`, `orderDescription`, `maintenance_plan`, `mpDescription`, `mainWorkCtr`, `systemStatus`, `ssDescription`, `plannerGroup`, `costCenter`, `equipmentID`, `TaskStatus`) VALUES 
-    ('$taskid','$date','$ordertype',' $orderdesc','$mplan','$pdesc','$mwctr','$sysstat','$sysdesc','$pgroup','$cstcen','$eqid ','$tskstat')";
+    $query = "INSERT INTO `tasks`(`taskID`, `startDate`, `orderType`, `orderDescription`, `maintenance_plan`, `mpDescription`, `mainWorkCtr`, `systemStatus`, `ssDescription`, `plannerGroup`, `costCenter`, `equipmentID`, `TaskStatus`) VALUES ('$taskid','$date','$ordertype',' $orderdesc','$mplan','$pdesc','$mwctr','$sysstat','$sysdesc','$pgroup','$cstcen','$eqid ','$tskstat')";
    // $query_run = mysqli_query($conn,$query);
 
     if(mysqli_query($conn, $query)){ //If the condition
@@ -30,7 +31,7 @@ if(isset($_POST['save'])){
 
 
     }
-
+?>
 
 
 
