@@ -10,12 +10,14 @@
   <title>Dashboard</title>
 </head>
 <body>
-  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <nav class="navbar navbar-expand-lg bg-body-tertiary"> <!--Navbar-->
     <div class="container-fluid" id="side-menu">
+      <!--Burger in dashboard-->
       <img src="images/menu-bar.png" data-bs-toggle="offcanvas" href="#offcanvasExample" aria-controls="offcanvasExample" id="burger">
       
       <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel"  >
         <div class="offcanvas-header" id="dash">
+          <!--Sidebar Burger-->
           <img src="images/menu-bar.png" data-bs-toggle="offcanvas" href="#offcanvasExample" aria-controls="offcanvasExample" id="burger1">
           DASHBOARD
         </div>
@@ -40,7 +42,7 @@
         </ul>
       </div>
     </div>
-  </nav>
+  </nav><!--End of Navbar-->
 <div>HELLO</div>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
