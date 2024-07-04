@@ -1,0 +1,115 @@
+/* LOGIN CSS */
+
+#smb{
+    font-size: 36px;
+}
+#corp{
+    font-weight: bolder;
+}
+
+#logo{
+    width: 10%;
+
+}
+#cont{
+    font-family: 'Exo 2'; font-size: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+#password{
+    background-color: #D9D9D9;
+    stroke: #A1A1A1;
+    border-radius: 10px;
+    
+}
+#empID {
+    background-color: #D9D9D9;
+    stroke: #A1A1A1;
+    border-radius: 10px;
+
+}
+
+#fget{
+    text-decoration: none;
+    font-size: 16px;
+}
+
+#login{
+    background-color: #D9D9D9;
+    border-radius: 10px;
+    border-color: none;
+    width: 30%;
+    }
+
+    /* LOGIN CSS */
+    /* NAVBAR-SIDEBAR */
+    #navlogo{
+    
+        width: 2.5%;
+
+
+    }
+    
+    #tms{
+        font-family: 'Exo 2'; font-size: 32px;
+        font-weight: bold;
+        text-align: left;
+        margin-left: 1%;
+        color: #000;
+    }
+    #burger{
+        width: 3%;
+        margin-right: 1%;
+    }
+    #burger1{
+        width: 15%;
+    }
+   
+    #side-menu{
+        font-family: 'Exo 2'; 
+ 
+    }
+    #dash{
+        
+        align-items: left;
+        font-size: 40px;
+        color: #FAD716;
+        margin-right: 20%;
+    }
+    #selectedlink{
+        font-size: 24px;
+        margin-left: 17%;
+        text-decoration: none;
+        color: #FAD716;
+    }
+    #hlink{
+        font-size: 24px;
+        margin-left: 17%;
+        text-decoration: none;
+        color: #B43B32;
+        margin-bottom: 10%;
+    }
+    #logo{
+        width: 50px;
+        margin-left: 2%;
+        padding-right: 10%;
+    }
+
+    #navtext{
+        font-size: 32px;
+
+    }
+    #logout{
+        font-family: 'Exo 2'; font-size: 32px;
+        text-align: right;
+        color: #000;
+
+    }
+    #navbarNav{
+        border-bottom: #000;
+        border-width: 1px;
+    }
+
+        /* NAVBAR-SIDEBAR */
