@@ -129,7 +129,7 @@ body{
     }
 
     #notiflist {
-        max-height: 500px;
+        max-height: 450px;
         overflow-y: auto;
         border: 1px solid #ccc;
         border-radius: 10px;
@@ -176,17 +176,6 @@ body{
         margin-bottom: 2%;
     }
     
-
-
-
-
-
-
-
-
-
-
-
 
 
     /* Reports CSS */

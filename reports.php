@@ -1,7 +1,7 @@
 <?php
     include('conn.php');
-    $query = "SELECT * FROM reports";
-    $result = mysqli_query($conn, $query);
+    $selquery = "SELECT * FROM reports";
+    $selresult = mysqli_query($conn, $selquery);
 
 
 ?>
@@ -104,9 +104,9 @@
             </thead>
             <tbody>
             <?php
-    if($result) {
+    if($selresult) {
         // Fetching data row by row
-        while($row = mysqli_fetch_assoc($result)) {
+        while($row = mysqli_fetch_assoc($selresult)) {
             echo '<tr>';
             echo '<td>'.($row['reportID']). '</td>';
             echo '<td>'.($row['taskID']). '</td>';
