@@ -29,7 +29,7 @@ $result = mysqli_query($conn, $query);
       <!--Burger in dashboard-->
       <img src="images/menu-bar.png" data-bs-toggle="offcanvas" href="#offcanvasExample" aria-controls="offcanvasExample" id="burger">
       
-      <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel"  >
+      <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
         <div class="offcanvas-header" id="dash">
           <!--Sidebar Burger-->
           <img src="images/menu-bar.png" data-bs-toggle="offcanvas" href="#offcanvasExample" aria-controls="offcanvasExample" id="burger1">
@@ -40,7 +40,7 @@ $result = mysqli_query($conn, $query);
             <h5><a href="dash.html" id="selectedlink">DASHBOARD</a></h5>
             <h5><a href="#" id="hlink">SCHEDULE</a></h5>
             <h5><a href="#" id="hlink">NOTIFICATIONS</a></h5>
-            <h5><a href="#" id="hlink">REPORTS</a></h5>
+            <h5><a href="reports.php" id="hlink">REPORTS</a></h5>
             <h5><a href="#" id="hlink">USERS</a></h5>
           </div>
         </div>
@@ -58,7 +58,8 @@ $result = mysqli_query($conn, $query);
     </div>
   </nav>
   <!--End of Navbar-->
-
+  <div class="header-divider"></div><br>
+    
   <!--tasks-->
   <div class="container text-center">
     <div class="row">
@@ -221,5 +222,10 @@ $result = mysqli_query($conn, $query);
   </table>
   </div>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  <script>
+    var offcanvasElement = document.getElementById('offcanvasExample');
+    var offcanvas = new bootstrap.Offcanvas(offcanvasElement);
+</script>
+
 </body>
 </html>

@@ -48,35 +48,30 @@
 </html>
 
 <?php
+   session_start();
+   
    define('DB_SERVER', 'localhost');
    define('DB_USERNAME', 'root');
    define('DB_PASSWORD', '');
-   define('DB_DATABASE', 'smb');
+   define('DB_DATABASE', 'smb_db');
    $db = mysqli_connect(DB_SERVER,DB_USERNAME,DB_PASSWORD,DB_DATABASE);
 
-   session_start();
-   
    if($_SERVER["REQUEST_METHOD"] == "POST") {
-      // username and password sent from form 
-      
       $empID = mysqli_real_escape_string($db,$_POST['empID']);
       $password = mysqli_real_escape_string($db,$_POST['password']); 
       
-      $sql = "SELECT employeeID, Password FROM users WHERE employeeID = '$empID' and Password = '$password'";
+      $sql = "SELECT userID FROM users WHERE userID = '$empID' AND Password = '$password'";
       $result = mysqli_query($db,$sql);
       $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
-      //$active = $row['active'];
       
       $count = mysqli_num_rows($result);
       
-		
       if($count == 1) {
-        session_start();
-        $_SESSION['uname'] = $uname;
-        header("location: dashboard.php");
-     } else {
-        echo "<script>alert('Incorrect Username or Password. Please try again.');</script>";
-           // echo "<h3>Incorrect Username or Password. Please try again.</h3>";
-     }
+         $_SESSION['empID'] = $empID;
+         header("Location: dashboard.php");
+         exit();
+      } else {
+         echo "<script>alert('Incorrect Username or Password. Please try again.');</script>";
+      }
    }
 ?>

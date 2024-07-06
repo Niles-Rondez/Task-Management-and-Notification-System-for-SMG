@@ -3,7 +3,7 @@
 $server = "localhost"; //if local
 $uname = "root"; //defualt for localhost
 $pword = ""; //default for localhost
-$db = "task_management_db";
+$db = "smb_db";
 
 $conn = mysqli_connect($server, $uname, $pword, $db);
 

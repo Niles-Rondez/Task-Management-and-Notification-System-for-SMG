@@ -176,3 +176,102 @@ body{
         margin-bottom: 2%;
     }
     
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /* Reports CSS */
+    .header-divider {
+        height: 1px;
+        background-color: #ccc;
+        margin-top: 10px;
+    }
+    
+    .header-reports {
+        padding: 20px;
+        margin-top: 20px; 
+    }
+    
+    .reports-header {
+        margin-bottom: 10px; 
+        font-size: 1.75em; /* Larger font size for Report Types header */
+    }
+    
+    .reports-options {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 20px;
+    }
+    
+    .reports-options select,
+    .search-button {
+        padding: 8px; 
+        border-radius: 10px; 
+        border: 1px solid gray; /* Gray outline */
+        background-color: lightgray; /* Lighter gray fill */
+        width: 18%; /* Adjust width for larger dropdowns */
+        margin-right: 10px; /* Add space between dropdowns */
+    }
+    
+    .search-button {
+        background-color: gray; /* Gray color for search button */
+        color: white;
+        border: none;
+        cursor: pointer;
+    }
+    
+    .reports-table-container {
+        padding: 20px;
+        display: flex;
+        justify-content: center; /* Center the table horizontally */
+    }
+    
+    .reports-table {
+        width: 75%; /* Set the table width to 75% */
+        border-collapse: collapse;
+        margin-bottom: 20px;
+        background-color: #f9f9f9;
+        border-radius: 10px;
+        overflow: hidden;
+    }
+    
+    .reports-table th, 
+    .reports-table td {
+        padding: 12px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+        width: 25%; /* Set equal width for each column */
+        font-size: 1.1em; /* Larger font size for table content */
+    }
+    
+    .reports-table th {
+        background-color: #f2f2f2;
+    }
+    
+    .export-buttons {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        padding: 20px;
+    }
+    
+    .export-buttons button {
+        background-color: gray; /* Gray color for buttons */
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        cursor: pointer;
+        border-radius: 5px;
+        margin-right: 10px;
+    }
+    
