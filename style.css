@@ -117,3 +117,62 @@ body{
     }
 
         /* NAVBAR-SIDEBAR */
+
+        /* Add task CSS */
+
+    #addtask{
+        float: right;
+        background-color: #D9D9D9;
+        stroke: #A1A1A1;
+        color: #000;
+        
+    }
+
+    #notiflist {
+        max-height: 500px;
+        overflow-y: auto;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        box-shadow: 2px 2px 2px 2px #ccc;
+        padding: 10px;
+        padding-bottom: 20px;
+        color: #000;
+    }
+    
+    #notiflist table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 20px; /* Margin bottom for each table */
+    }
+    
+    #notiflist td {
+        background-color: rgba(131, 166, 103, 0.8);
+        padding: 12px;
+        color: #ffffff;
+        border-radius: 10px;
+        box-shadow: 2px 2px 2px 2px #ccc;
+    }
+    
+    #notiflist td .order-type {
+        display: inline-block;
+        margin-right: 10px;
+        font-size: 40px;
+        font-weight: bold;
+    }
+    
+    #notiflist td .main-work-ctr {
+        font-size: 24px;
+        font-weight: bold;
+    }
+    
+    #notiflist td .taskid {
+        font-size: 32px;
+        margin-bottom: 0;
+        font-weight: bold;
+    }
+    
+    #notiflist tr {
+        margin-top: 2%;
+        margin-bottom: 2%;
+    }
+    

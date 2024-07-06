@@ -20,16 +20,16 @@ if(isset($_POST['submit'])){
     $eqid = $_POST['eqid'];
     $tskstat = $_POST['tskstat'];
 
-    $query = "INSERT INTO `tasks`(`taskID`, `startDate`, `orderType`, `orderDescription`, `maintenance_plan`, `mpDescription`, `mainWorkCtr`, `systemStatus`, `ssDescription`, `plannerGroup`, `costCenter`, `equipmentID`, `TaskStatus`) VALUES ('$taskid','$date','$ordertype',' $orderdesc','$mplan','$pdesc','$mwctr','$sysstat','$sysdesc','$pgroup','$cstcen','$eqid ','$tskstat')";
+    $query = "INSERT INTO `tasks`(`taskID`, `startDate`, `orderType`, `orderDescription`, `maintenance_plan`, `mpDescription`, `mainWorkCtr`, `systemStatus`, `ssDescription`, `plannerGroup`, `costCenter`, `equipmentID`, `TaskStatus`) VALUES ('$taskid','$date','$ordertype',' $orderdesc','$mplan','$pdesc','$mwctr','$sysstat','$sysdesc','$pgroup','$cstcen','$eqid ','Pending')";
    // $query_run = mysqli_query($conn,$query);
 
-    if(mysqli_query($conn, $query)){ //If the condition
-        echo "Record inserted!";
-    }else{
-        echo "Failed to insert! ". mysqli_error($conn);
-    }
-
-
+   if(mysqli_query($conn, $query)) {
+    echo "<script>alert('Record inserted!');</script>";
+    echo "<script>window.location='dashboard.php';</script>"; // Redirect to success.php
+} else {
+    echo "<script>alert('Failed to insert record! " . mysqli_error($conn) . "');</script>";
+    // You can optionally handle the error here
+}
     }
 ?>
 
