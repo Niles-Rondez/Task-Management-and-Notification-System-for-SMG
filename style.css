@@ -239,7 +239,7 @@ body{
     .reports-table {
         width: 75%; /* Set the table width to 75% */
         border-collapse: collapse;
-        margin-bottom: 20px;
+                margin-bottom: 20px;
         background-color: #f9f9f9;
         border-radius: 10px;
         overflow: hidden;
@@ -274,4 +274,10 @@ body{
         border-radius: 5px;
         margin-right: 10px;
     }
-    
+    #reports_table{
+        max-height: 500px;
+        overflow-y: auto;
+        padding-bottom: 20px;
+        color: #000;
+   }
+    /* End of Reports CSS */

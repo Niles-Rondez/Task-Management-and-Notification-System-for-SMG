@@ -1,10 +1,11 @@
 <?php
-    include('conn.php');
-    $query = "SELECT * FROM reports";
-    $result = mysqli_query($conn, $query);
-
-
+include('conn.php');
+$query = "SELECT r.reportID, r.taskID, r.userID, r.completionDate, u.firstName, u.lastName
+          FROM reports r
+          INNER JOIN users u ON r.userID = u.userID";
+$result = mysqli_query($conn, $query);
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -103,23 +104,22 @@
                 </tr>
             </thead>
             <tbody>
-            <?php
-    if($result) {
-        // Fetching data row by row
-        while($row = mysqli_fetch_assoc($result)) {
-            echo '<tr>';
-            echo '<td>'.($row['reportID']). '</td>';
-            echo '<td>'.($row['taskID']). '</td>';
-            echo '<td>'.($row['userID']). '</td>';
-            echo '<td>'.($row['completionDate']). '</td>';
-
-            echo '</tr>';
-        }
-    } else {
-        // Query failed
-        echo '<tr><td colspan="2">Failed to fetch data from database.</td></tr>';
+                <?php
+            if($result) {
+    // Fetching data row by row
+    while($row = mysqli_fetch_assoc($result)) {
+        echo '<tr>';
+        echo '<td>'. $row['reportID'] .'</td>';
+        echo '<td>'. $row['taskID'] .'</td>';
+        echo '<td>'. $row['firstName'] .' '. $row['lastName'] .'</td>';
+        echo '<td>'. $row['completionDate'] .'</td>';
+        echo '</tr>';
     }
-          ?>  
+} else {
+    // Query failed
+    echo '<tr><td colspan="4">Failed to fetch data from database.</td></tr>';
+}
+?>
             </tbody>
         </table>
     </div>
