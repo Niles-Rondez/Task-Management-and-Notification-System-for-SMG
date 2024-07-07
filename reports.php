@@ -1,8 +1,8 @@
 <?php
     include('conn.php');
-    $selquery = "SELECT * FROM reports";
+    $selquery = "SELECT * FROM reports WHERE completionDate > '2024-05-16'";
     $selresult = mysqli_query($conn, $selquery);
-
+    
 
 ?>
 
@@ -35,9 +35,9 @@
                 <div class="offcanvas-body">
                     <div>
                         <h5><a href="dashboard.php" id="hlink">DASHBOARD</a></h5>
-                        <h5><a href="#" id="hlink">SCHEDULE</a></h5>
+                        <h5><a href="schedule.php" id="hlink">SCHEDULE</a></h5>
                         <h5><a href="#" id="hlink">NOTIFICATIONS</a></h5>
-                        <h5><a href="#" id="selectedlink">REPORTS</a></h5>
+                        <h5><a href="reports.php" id="selectedlink">REPORTS</a></h5>
                         <h5><a href="#" id="hlink">USERS</a></h5>
                     </div>
                 </div>

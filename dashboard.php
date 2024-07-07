@@ -37,8 +37,8 @@ $result = mysqli_query($conn, $query);
         </div>
         <div class="offcanvas-body">
           <div >
-            <h5><a href="dash.html" id="selectedlink">DASHBOARD</a></h5>
-            <h5><a href="#" id="hlink">SCHEDULE</a></h5>
+            <h5><a href="dashboard.php" id="selectedlink">DASHBOARD</a></h5>
+            <h5><a href="schedule.php" id="hlink">SCHEDULE</a></h5>
             <h5><a href="#" id="hlink">NOTIFICATIONS</a></h5>
             <h5><a href="reports.php" id="hlink">REPORTS</a></h5>
             <h5><a href="#" id="hlink">USERS</a></h5>
@@ -214,7 +214,7 @@ $result = mysqli_query($conn, $query);
     }
     
     // Free result set
-    mysqli_free_result($result);
+    //mysqli_free_result($result);
     
     // Close connection
     mysqli_close($conn);

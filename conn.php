@@ -3,7 +3,7 @@
 $server = "localhost"; //if local
 $uname = "root"; //defualt for localhost
 $pword = ""; //default for localhost
-$db = "smb_db";
+$db = "smb";
 
 $conn = mysqli_connect($server, $uname, $pword, $db);
 
