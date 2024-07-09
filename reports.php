@@ -63,28 +63,28 @@
     <div class="header-reports">
         <h2 class="reports-header fw-bold">Report Types</h2>
         <div class="reports-options">
-            <select class="rounded" id="select-report-1">
-                <option value="Report1">Report1</option>
+            <select class="rounded fw-bold" id="select-report-1">
+                <option value="Report1">REPORT</option>
                 <option value="Report2">Report2</option>
                 <option value="Report3">Report3</option>
             </select>
-            <select class="rounded" id="select-report-2">
-                <option value="Report1">Report1</option>
+            <select class="rounded fw-bold" id="select-report-2">
+                <option value="Report1">TASK</option>
                 <option value="Report2">Report2</option>
                 <option value="Report3">Report3</option>
             </select>
-            <select class="rounded" id="select-report-3">
-                <option value="Report1">Report1</option>
+            <select class="rounded fw-bold" id="select-report-3">
+                <option value="Report1">ASSIGNMENT</option>
                 <option value="Report2">Report2</option>
                 <option value="Report3">Report3</option>
             </select>
-            <select class="rounded" id="select-report-4">
-                <option value="Report1">Report1</option>
+            <select class="rounded fw-bold" id="select-report-4">
+                <option value="Report1">START DATE</option>
                 <option value="Report2">Report2</option>
                 <option value="Report3">Report3</option>
             </select>
-            <select class="rounded" id="select-report-5">
-                <option value="Report1">Report1</option>
+            <select class="rounded fw-bold" id="select-report-5">
+                <option value="Report1">END DATE</option>
                 <option value="Report2">Report2</option>
                 <option value="Report3">Report3</option>
             </select>
@@ -96,10 +96,10 @@
         <table class="reports-table">
             <thead>
                 <tr>
-                    <th>Report Type</th>
-                    <th>Task ID</th>
-                    <th>Assignment</th>
-                    <th>Date</th>
+                    <th>REPORT TYPE</th>
+                    <th>TASK ID</th>
+                    <th>ASSIGNMENT</th>
+                    <th>DATE</th>
                 </tr>
             </thead>
             <tbody>
