@@ -61,7 +61,7 @@
     <div class="header-divider"></div>
     
     <div class="header-reports">
-        <h2 class="reports-header">Report Types</h2>
+        <h2 class="reports-header fw-bold">Report Types</h2>
         <div class="reports-options">
             <select class="rounded" id="select-report-1">
                 <option value="Report1">Report1</option>

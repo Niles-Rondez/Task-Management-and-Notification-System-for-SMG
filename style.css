@@ -220,7 +220,7 @@ body{
     }
     
     .reports-table-container {
-        padding: 20px;
+        padding: 25px;
         display: flex;
         justify-content: center; /* Center the table horizontally */
     }

@@ -66,9 +66,9 @@ $result = mysqli_query($conn, $query);
       <div class="col">
       <div class="card" style="width: 18rem;">
         <div class="card-body">
-          <h5 class="card-title">Total Tasks</h5>
+          <h5 class="card-title fw-bold">Total Tasks</h5>
           <h3>
-           
+           All Task Due this Month
           </h3>
          
       </div>
@@ -77,24 +77,30 @@ $result = mysqli_query($conn, $query);
       <div class="col">
       <div class="card" style="width: 18rem;">
         <div class="card-body">
-          <h5 class="card-title">Pending Tasks</h5>
-          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+          <h5 class="card-title fw-bold">Pending Tasks</h5>
+          <h3>
+          All Task Due this Today
+          </h3>
       </div>
     </div>
       </div>
       <div class="col">
         <div class="card" style="width: 18rem;">
           <div class="card-body">
-            <h5 class="card-title">Upcoming Tasks</h5>
-            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+            <h5 class="card-title fw-bold">Upcoming Tasks</h5>
+            <h3>
+            All Task Due this Tomorrow
+          </h3>
         </div>
     </div>
       </div>
       <div class="col">
         <div class="card" style="width: 18rem;">
           <div class="card-body">
-            <h5 class="card-title">Completed Tasks</h5>
-            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+            <h5 class="card-title fw-bold">Completed Tasks</h5>
+            <h3>
+            All Unfinished Task this Month
+          </h3>
         </div>
     </div>
       </div>
@@ -106,11 +112,11 @@ $result = mysqli_query($conn, $query);
   <div class="container mt-5">
     <div class="row">
       <div class="col">
-      <h4>Notification List</h4>
+      <h4 class="fw-bold">Notification List</h4>
       </div>
       <div class="col">
         <!-- Modal -->
-          <button type="button" class="btn " data-bs-toggle="modal" data-bs-target="#exampleModal" id="addtask"> Add Task </button>
+          <button type="button" class="btn " data-bs-toggle="modal" data-bs-target="#exampleModal" id="addtask"> ADD TASK </button>
           <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
               <div class="modal-content">
