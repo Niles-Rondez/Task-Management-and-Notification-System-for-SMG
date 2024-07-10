@@ -1,0 +1,269 @@
+body {
+  font-family: "Exo 2" !important;
+}
+
+/* LOGIN CSS */
+
+#smb {
+  font-size: 36px;
+}
+#corp {
+  font-weight: bolder;
+}
+
+#logo-login {
+  width: 15%;
+}
+#cont {
+  font-size: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+#password {
+  background-color: #d9d9d9;
+  stroke: #a1a1a1;
+  border-radius: 10px;
+}
+#empID {
+  background-color: #d9d9d9;
+  stroke: #a1a1a1;
+  border-radius: 10px;
+}
+
+#fget {
+  text-decoration: none;
+  font-size: 16px;
+}
+
+#login {
+  background-color: #d9d9d9;
+  border-radius: 10px;
+  border-color: none;
+  width: 30%;
+}
+
+/* LOGIN CSS */
+/* NAVBAR-SIDEBAR */
+#navlogo {
+  width: 40px;
+  min-width: 40px;
+}
+
+#tms {
+  font-size: 32px;
+  font-weight: bold;
+  text-align: left;
+  margin-left: 10px;
+}
+#burger {
+  /*Burger in topbar*/
+  width: 50px;
+  margin-right: 10px;
+  min-width: 50px;
+}
+#burger1 {
+  /*Burger in navbar*/
+  width: 50px;
+  min-width: 50px;
+}
+
+#side-menu {
+  font-family: "Exo 2";
+}
+
+#dash {
+  align-items: left;
+  font-weight: bolder;
+  font-size: 40px;
+  color: black;
+  margin-right: 20%;
+}
+#selectedlink {
+  font-size: 32px;
+  margin-left: 17%;
+  text-decoration: none;
+  color: #fad716;
+  font-weight: bold;
+}
+#hlink {
+  font-size: 32px;
+  margin-left: 17%;
+  margin-bottom: 20%;
+  text-decoration: none;
+  color: #b43b32;
+  margin-bottom: 10%;
+}
+#logo {
+  width: 50px;
+  min-width: 50px;
+  margin-left: 10px;
+  padding-right: 10px;
+  margin-bottom: 20%;
+}
+
+#navtext {
+  font-size: 32px;
+}
+#logout {
+  font-size: 24px;
+  text-align: right;
+  color: #000;
+}
+#navbarNav {
+  border-bottom: #000;
+  border-width: 1px;
+}
+
+/* NAVBAR-SIDEBAR */
+
+/* Add task CSS */
+
+#addtask {
+  float: right;
+  background-color: #d9d9d9;
+  stroke: #a1a1a1;
+  color: #000;
+}
+
+#notiflist {
+  max-height: 450px;
+  overflow-y: auto;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 2px 2px 2px 2px #ccc;
+  padding: 10px;
+  padding-bottom: 20px;
+  color: #000;
+}
+
+#notiflist table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px; /* Margin bottom for each table */
+}
+
+#notiflist td {
+  background-color: rgba(131, 166, 103, 0.8);
+  padding: 12px;
+  color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 2px 2px 2px 2px #ccc;
+}
+
+#notiflist td .order-type {
+  display: inline-block;
+  margin-right: 10px;
+  font-size: 40px;
+  font-weight: bold;
+}
+
+#notiflist td .main-work-ctr {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+#notiflist td .taskid {
+  font-size: 32px;
+  margin-bottom: 0;
+  font-weight: bold;
+}
+
+#notiflist tr {
+  margin-top: 2%;
+  margin-bottom: 2%;
+}
+
+/* Reports CSS */
+.header-divider {
+  height: 1px;
+  background-color: #ccc;
+  margin-top: 10px;
+}
+
+.header-reports {
+  padding: 20px;
+  margin-top: 20px;
+}
+
+.reports-header {
+  margin-bottom: 10px;
+  font-size: 1.75em; /* Larger font size for Report Types header */
+}
+
+.reports-options {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.reports-options select,
+.search-button {
+  padding: 8px;
+  border-radius: 10px;
+  border: 1px solid gray; /* Gray outline */
+  background-color: lightgray; /* Lighter gray fill */
+  width: 18%; /* Adjust width for larger dropdowns */
+  margin-right: 10px; /* Add space between dropdowns */
+}
+
+.search-button {
+  background-color: gray; /* Gray color for search button */
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.reports-table-container {
+  padding: 25px;
+  display: flex;
+  justify-content: center; /* Center the table horizontally */
+}
+
+.reports-table {
+  width: 75%; /* Set the table width to 75% */
+  border-collapse: collapse;
+  margin-bottom: 20px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.reports-table th,
+.reports-table td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+  width: 25%; /* Set equal width for each column */
+  font-size: 1.1em; /* Larger font size for table content */
+}
+
+.reports-table th {
+  background-color: #f2f2f2;
+}
+
+.export-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 20px;
+}
+
+.export-buttons button {
+  background-color: gray; /* Gray color for buttons */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-right: 10px;
+}
+#reports_table {
+  max-height: 500px;
+  overflow-y: auto;
+  padding-bottom: 20px;
+  color: #000;
+}
+/* End of Reports CSS */
