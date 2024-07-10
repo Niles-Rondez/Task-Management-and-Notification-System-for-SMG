@@ -39,9 +39,9 @@ $result = mysqli_query($conn, $query);
           <div >
             <h5><a href="dashboard.php" id="selectedlink">DASHBOARD</a></h5>
             <h5><a href="schedule.php" id="hlink">SCHEDULE</a></h5>
-            <h5><a href="#" id="hlink">NOTIFICATIONS</a></h5>
+            <h5><a href="notification.php" id="hlink">NOTIFICATIONS</a></h5>
             <h5><a href="reports.php" id="hlink">REPORTS</a></h5>
-            <h5><a href="#" id="hlink">USERS</a></h5>
+            <h5><a href="schedule.php" id="hlink">USERS</a></h5>
           </div>
         </div>
       </div>
@@ -131,7 +131,7 @@ $result = mysqli_query($conn, $query);
                       <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="taskid">
                     </div>
                     <div class="input-group mb-3">
-                      <span class="input-group-text" id="inputGroup-sizing-default">Start Date</span>
+                      <span class="input-group-text" id="inputGroup-sizing-default">Due Date</span>
                       <input type="text" class="form-control" name="year" placeholder= "YYYY">
                       <input type="text" class="form-control" name="month" placeholder= "MM">
                       <input type="text" class="form-control" name="day" placeholder= "DD">
