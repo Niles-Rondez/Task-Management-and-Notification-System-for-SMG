@@ -48,8 +48,15 @@ body, html {
     border-radius: 10px;
     border-color: none;
     width: 30%;
+    cursor: pointer; /* Change cursor on hover */
+    transition: background-color 0.3s ease; /* Smooth transition */
     }
 
+
+.submit-button:hover {
+    background-color: #D9D9D9; /* Change to your desired hover color */
+    color: rgb(0, 140, 255); /* Text color on hover */
+}
     /* LOGIN CSS */
     /* NAVBAR-SIDEBAR */
     #navlogo{

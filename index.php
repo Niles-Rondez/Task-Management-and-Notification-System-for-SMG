@@ -9,7 +9,7 @@
  <title>Log in</title>
 </head>
 <body>
-    <div class="container" id="cont">
+    <div class="container user-select-none" id="cont">
         <div align="center">
             <img src="images/San_Miguel_Corporation_logo.webp" id="logo-login"><br>
             <h1> SAN MIGUEL <span id="corp">CORPORATION</span></h1>
@@ -34,7 +34,7 @@
                     </div>
                     <a href="#" id="fget" align="right"> Forget Password?</a>
                 </div>
-                <input type="submit" value="Log In"  class="submit-button w-button" id = "login">
+                <input type="submit" value="Log In"  class="submit-button w-button border-0 mt-2 p-1" id = "login">
 
             </form>
 
