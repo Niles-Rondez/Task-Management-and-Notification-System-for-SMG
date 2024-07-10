@@ -43,12 +43,13 @@
 
 <div class="header-notification">
     <h2 class="notification-header">Notification Types</h2>
+    <h3 class="text-end pe-5 me-5">Alert for scheduled maintenance activities</h3>
     
 
-    <div class="notification-type">
+    <div class="notification-type pt-3">
         <div class="options">
-            <input type="checkbox" id="toggle-maintenance-alerts">
-            <label for="toggle-maintenance-alerts"></label>
+            <input class="form-check-input" type="checkbox" role="switch" id="maintenancealert" checked>
+            <label class="form-check-label" for="maintenancealert"></label>
             <div class="notification-header">
                 <h3 class="notification-title">Maintenance Due Alerts</h3>
                 <p class="sub-header">Alerts for scheduled maintenance activities.</p>
@@ -73,8 +74,8 @@
 
     <div class="notification-type">
         <div class="options">
-            <input type="checkbox" id="toggle-part-replacement-alerts">
-            <label for="toggle-part-replacement-alerts"></label>
+        <input class="form-check-input" type="checkbox" role="switch" id="replacementalert" checked>
+        <label class="form-check-label" for="replacementalert"></label>
             <div class="notification-header">
                 <h3 class="notification-title">Part Replacement Alerts</h3>
                 <p class="sub-header">Notifications for when specific parts need to be replaced.</p>
@@ -98,8 +99,8 @@
     
     <div class="notification-type">
         <div class="options">
-            <input type="checkbox" id="toggle-cleaning-alerts">
-            <label for="toggle-cleaning-alerts"></label>
+        <input class="form-check-input" type="checkbox" role="switch" id="cleaningalert" checked>
+        <label class="form-check-label" for="cleaningalert"></label>
             <div class="notification-header">
                 <h3 class="notification-title">Cleaning Alerts</h3>
                 <p class="sub-header">Notifications for when specific parts need to be replaced.</p>
@@ -124,8 +125,8 @@
 
     <div class="notification-type">
         <div class="options">
-            <input type="checkbox" id="toggle-performance-degradation-alerts">
-            <label for="toggle-performance-degradation-alerts"></label>
+        <input class="form-check-input" type="checkbox" role="switch" id="performancealert" checked>
+        <label class="form-check-label" for="performancealert"></label>
             <div class="notification-header">
                 <h3 class="notification-title">Performance Degradation Alerts</h3>
                 <p class="sub-header">Notifications for when specific parts need to be replaced.</p>
@@ -150,8 +151,8 @@
    
     <div class="notification-type">
         <div class="options">
-            <input type="checkbox" id="toggle-emergency-alerts">
-            <label for="toggle-emergency-alerts"></label>
+        <input class="form-check-input" type="checkbox" role="switch" id="emergencyalert" checked>
+        <label class="form-check-label" for="emergencyalert"></label>
             <div class="notification-header">
                 <h3 class="notification-title">Emergency Alerts</h3>
                 <p class="sub-header">Notifications for when specific parts need to be replaced.</p>
@@ -175,8 +176,8 @@
     
     <div class="notification-type">
         <div class="options">
-            <input type="checkbox" id="toggle-inspection-alerts">
-            <label for="toggle-inspection-alerts"></label>
+        <input class="form-check-input" type="checkbox" role="switch" id="inspectionalert" checked>
+        <label class="form-check-label" for="inspectionalert"></label>
             <div class="notification-header">
                 <h3 class="notification-title">Inspection Alerts</h3>
                 <p class="sub-header">Notifications for when specific parts need to be replaced.</p>
@@ -201,8 +202,8 @@
  
     <div class="notification-type">
         <div class="options">
-            <input type="checkbox" id="toggle-custom-alerts">
-            <label for="toggle-custom-alerts"></label>
+        <input class="form-check-input" type="checkbox" role="switch" id="customalert" checked>
+        <label class="form-check-label" for="customalert"></label>
             <div class="notification-header">
                 <h3 class="notification-title">Custom Alerts</h3>
                 <p class="sub-header">Notifications for when specific parts need to be replaced.</p>
@@ -226,8 +227,8 @@
 
     <div class="notification-type">
         <div class="options">
-            <input type="checkbox" id="toggle-custom-alerts">
-            <label for="toggle-custom-alerts"></label>
+        <input class="form-check-input" type="checkbox" role="switch" id="downalert" checked>
+        <label class="form-check-label" for="downalert"></label>
             <div class="notification-header">
                 <h3 class="notification-title">Downtime Alerts</h3>
                 <p class="sub-header">Notifications for when specific parts need to be replaced.</p>
