@@ -70,9 +70,9 @@ mysqli_close($conn);
           <div >
             <h5><a href="dashboard.php" id="selectedlink">DASHBOARD</a></h5>
             <h5><a href="schedule.php" id="hlink">SCHEDULE</a></h5>
-            <h5><a href="#" id="hlink">NOTIFICATIONS</a></h5>
+            <h5><a href="notification.php" id="hlink">NOTIFICATIONS</a></h5>
             <h5><a href="reports.php" id="hlink">REPORTS</a></h5>
-            <h5><a href="#" id="hlink">USERS</a></h5>
+            <h5><a href="user.php" id="hlink">USERS</a></h5>
           </div>
         </div>
       </div>
