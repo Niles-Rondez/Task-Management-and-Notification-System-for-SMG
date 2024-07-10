@@ -1,5 +1,8 @@
-body{
+body, html {
+    height: 100%;
+    margin: 0;
     font-family: 'Exo 2' !important;
+    
 }
 
 /* LOGIN CSS */
@@ -120,7 +123,7 @@ body{
 
         /* Add task CSS */
 
-    #addtask{
+    #addtask, #sortDropdown{
         float: right;
         background-color: #D9D9D9;
         stroke: #A1A1A1;
@@ -176,8 +179,12 @@ body{
         margin-bottom: 2%;
     }
     
-
-
+    #notiflist a, #notiflist p {
+        text-decoration: none; /* Remove underline */
+        color: inherit; /* Use the default text color */
+    }
+    
+   
     /* Reports CSS */
     .header-divider {
         height: 1px;
@@ -212,7 +219,7 @@ body{
         margin-right: 10px; /* Add space between dropdowns */
     }
     
-    .search-button {
+    #search-button {
         background-color: gray; /* Gray color for search button */
         color: white;
         border: none;
@@ -270,3 +277,70 @@ body{
         color: #000;
    }
     /* End of Reports CSS */
+
+
+    /*Calendar*/
+
+
+/* Calendar */
+/* Calendar Container */
+#calendar-container {
+    display: flex;
+    height: calc(100vh - 120px); /* Adjust as needed based on your layout */
+    padding-right: 10px; /* Add space to the right */
+}
+
+/* Calendar */
+#calendar {
+    max-width: 70%; /* Adjust max-width as needed */
+    width: 100%;
+    margin-left: auto; /* Push calendar to the right */
+    height: 100%; /* Fill available height */
+}
+
+/* Month Title */
+.fc-toolbar h2 {
+    font-weight: bold; /* Ensure the month title is bold */
+    text-align: center; /* Center align the month title */
+    font-size: 36px; /* Larger font size */
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+/* Event Styling */
+.fc-event-container a {
+    background-color: rgba(131, 166, 103, 0.8); /* Background color */
+    border: 1px solid #ccc; /* Border color */
+    border-radius: 10px; /* Rounded corners */
+    padding: 5px; /* Padding inside the event box */
+    color: rgb(255, 255, 255); /* Text color */
+    font-weight: bold; /* Bold text */
+    text-align: center; /* Center align text */
+    display: block; /* Block element */
+    overflow: hidden; /* Prevent overflow */
+    white-space: nowrap; /* Prevent line breaks */
+    text-overflow: ellipsis; /* Show ellipsis for overflow text */
+}
+
+/* Ensure no overflow and prevent scrolling */
+#calendar .header-divider,
+#calendar .fc-view-container,
+#calendar .fc-scroller {
+    flex: 1;
+    overflow: hidden;
+}
+
+/* Table Cell and Header Borders */
+.fc-unthemed td,
+.fc-unthemed th,
+.fc td.fc-today {
+    border-color: #000; /* Border color */
+    border-width: 2px; /* Border width */
+    border-style: solid; /* Border style */
+}
+
+/* Additional Styling (example) */
+.fc-right {
+    color: red; /* Example: change text color */
+    margin-top: 50px; /* Example: adjust margin */
+}

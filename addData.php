@@ -1,5 +1,5 @@
 <?php
-include('conn.php'); // Ensure this file includes your database connection details
+include('conn.php'); 
 
 if(isset($_POST['submit'])){
     $taskid = $_POST['taskid'];
@@ -24,10 +24,9 @@ if(isset($_POST['submit'])){
     
     if(mysqli_query($conn, $query)) {
         echo "<script>alert('Record inserted!');</script>";
-        echo "<script>window.location='dashboard.php';</script>"; // Redirect to dashboard after successful insertion
+        echo "<script>window.location='dashboard.php';</script>"; 
     } else {
         echo "<script>alert('Failed to insert record! " . mysqli_error($conn) . "');</script>";
-        // Optionally display the error directly on the page
         echo "Error: " . $query . "<br>" . mysqli_error($conn);
     }
 }
