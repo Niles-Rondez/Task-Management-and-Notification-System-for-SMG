@@ -34,7 +34,7 @@
       
       <div class="collapse navbar-collapse" id="navbarNav">
         <img src="images/San_Miguel_Corporation_logo.webp" id="navlogo"><br>
-        <a class="navbar-brand" id="tms">Task Management System</a>
+        <a class="navbar-brand" id="tms" href="dashboard.php">Task Management System</a>
         <ul class="navbar-nav ms-auto">
           <li class="nav-item">
             <a class="nav-link" href="index.php" id="logout">Log Out</a>
