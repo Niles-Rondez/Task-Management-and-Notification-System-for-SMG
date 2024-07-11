@@ -324,7 +324,7 @@ html {
 #calendar {
   max-width: 70%; /* Adjust max-width as needed */
   width: 100%;
-  margin-left: auto; /* Push calendar to the right */
+  margin-left: 50px; /* Push calendar to the right */
   height: 100%; /* Fill available height */
 }
 

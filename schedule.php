@@ -80,9 +80,9 @@
        
         <div class="col-2 mt-5" id = "leftCal">
           <div class="btn-group my-1">
-                  <button type="button" class="btn btn-primary ps-4" id="btnMonth">Month</button>
-                  <button type="button" class="btn btn-primary ps-4" id="btnWeek">Week</button>
-                  <button type="button" class="btn btn-primary ps-4" id="btnDay">Day</button>
+                  <button type="button" class="btn btn-primary px-3" id="btnMonth">Month</button>
+                  <button type="button" class="btn btn-primary px-3" id="btnWeek">Week</button>
+                  <button type="button" class="btn btn-primary px-3" id="btnDay">Day</button>
           </div>
             <!-- Modal -->
           <button type="button" class="btn my-2" data-bs-toggle="modal" data-bs-target="#exampleModal" id="addtaskSched"> Add Task </button>
