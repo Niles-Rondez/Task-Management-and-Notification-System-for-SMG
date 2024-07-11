@@ -31,13 +31,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Event Calendar</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.0/fullcalendar.min.css">
-    <link href='https://fonts.googleapis.com/css?family=Exo 2' rel='stylesheet'>
-    <link rel="stylesheet" href="style.css">
+    <?php
+    include('conn.php');
+    include('header.php');
+  ?>
 </head>
 <body>
     <!--Navbar-->
@@ -50,12 +48,12 @@
                 <div class="offcanvas-header" id="dash">
                     <!--Sidebar Burger-->
                     <img src="images/menu-bar.png" data-bs-toggle="offcanvas" href="#offcanvasExample" aria-controls="offcanvasExample" id="burger1">
-                    DASHBOARD
+                    SCHEDULE
                 </div>
                 <div class="offcanvas-body">
                     <div>
-                        <h5><a href="dashboard.php" id="selectedlink">DASHBOARD</a></h5>
-                        <h5><a href="schedule.php" id="hlink">SCHEDULE</a></h5>
+                        <h5><a href="dashboard.php" id="hlink">DASHBOARD</a></h5>
+                        <h5><a href="schedule.php" id="selectedlink">SCHEDULE</a></h5>
                         <h5><a href="#" id="hlink">NOTIFICATIONS</a></h5>
                         <h5><a href="reports.php" id="hlink">REPORTS</a></h5>
                         <h5><a href="#" id="hlink">USERS</a></h5>

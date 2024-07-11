@@ -1,45 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
-    <link href='https://fonts.googleapis.com/css?family=Exo 2' rel='stylesheet'>
-    <link rel="stylesheet" href="notification.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>Notification Settings</title>
+    <?php
+    include('conn.php');
+    include('header.php');
+  ?>
 </head>
 <body>
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
+ <!--Navbar-->
+ <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid" id="side-menu">
-        <img src="images/menu-bar.png" data-bs-toggle="offcanvas" href="#offcanvasExample" aria-controls="offcanvasExample" id="burger">
+      <!--Burger in dashboard-->
+      <img src="images/menu-bar.png" data-bs-toggle="offcanvas" href="#offcanvasExample" aria-controls="offcanvasExample" id="burger">
       
-        <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
-            <div class="offcanvas-header" id="dash">
-                <img src="images/menu-bar.png" data-bs-toggle="offcanvas" href="#offcanvasExample" aria-controls="offcanvasExample" id="burger1">
-                DASHBOARD
-            </div>
-            <div class="offcanvas-body">
-                <div>
-                    <h5><a href="dash.html" id="hlink">DASHBOARD</a></h5>
-                    <h5><a href="schedule.php" id="hlink">SCHEDULE</a></h5>
-                    <h5><a href="notification.php" id="selectedlink">NOTIFICATIONS</a></h5>
-                    <h5><a href="reports.php" id="hlink">REPORTS</a></h5>
-                    <h5><a href="user.php" id="hlink">USERS</a></h5>
-                </div>
-            </div>
+      <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+        <div class="offcanvas-header" id="dash">
+          <!--Sidebar Burger-->
+          <img src="images/menu-bar.png" data-bs-toggle="offcanvas" href="#offcanvasExample" aria-controls="offcanvasExample" id="burger1">
+          NOTIFICATIONS
         </div>
+        <div class="offcanvas-body">
+          <div >
+            <h5><a href="dashboard.php" id="hlink">DASHBOARD</a></h5>
+            <h5><a href="schedule.php" id="hlink">SCHEDULE</a></h5>
+            <h5><a href="notification.php" id="selectedlink">NOTIFICATIONS</a></h5>
+            <h5><a href="reports.php" id="hlink">REPORTS</a></h5>
+            <h5><a href="user.php" id="hlink">USERS</a></h5>
+          </div>
+        </div>
+      </div>
       
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <img src="images/San_Miguel_Corporation_logo.webp" id="navlogo">
-            <a class="navbar-brand" id="tms">Task Management System</a>
-            <ul class="navbar-nav ms-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="#" id="logout">Log Out</a>
-                </li>
-            </ul>
-        </div>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <img src="./images/San_Miguel_Corporation_logo.webp" id="navlogo"><br>
+        <a class="navbar-brand" id="tms">Task Management System</a>
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="index.php" id="logout">Log Out</a>
+          </li>
+        </ul>
+      </div>
     </div>
-</nav>
+  </nav>
+  <!--End of Navbar-->
 
 <div class="header-notification">
     <h2 class="notification-header">Notification Types</h2>

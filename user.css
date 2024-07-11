@@ -1,126 +1,127 @@
 body {
-    font-family: 'Exo 2', Arial, sans-serif;
-    margin: 0;
-    padding: 0;
+  font-family: "Exo 2", Arial, sans-serif;
+  margin: 0;
+  padding: 0;
 }
 
 .navbar {
-    background-color: white; 
-    color: black; 
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1); 
+  background-color: white;
+  color: black;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-#burger, #burger1 {
-    width: 3%;
-    margin-right: 1%;
+#burger,
+#burger1 {
+  width: 3%;
+  margin-right: 1%;
 }
 
 #navlogo {
-    width: 50px;
-    margin-left: 2%;
-    padding-right: 10%;
+  width: 50px;
+  margin-left: 2%;
+  padding-right: 10%;
 }
 
 #tms {
-    font-family: 'Exo 2';
-    font-size: 32px;
-    font-weight: bold;
-    text-align: left;
-    margin-left: 1%;
-    color: #000;
+  font-family: "Exo 2";
+  font-size: 32px;
+  font-weight: bold;
+  text-align: left;
+  margin-left: 1%;
+  color: #000;
 }
 
 #logout {
-    font-family: 'Exo 2';
-    font-size: 32px;
-    text-align: right;
-    color: #000;
+  font-family: "Exo 2";
+  font-size: 32px;
+  text-align: right;
+  color: #000;
 }
 
 .header-divider {
-    height: 1px;
-    background-color: #ccc;
-    margin-top: 10px;
+  height: 1px;
+  background-color: #ccc;
+  margin-top: 10px;
 }
 
 .header-reports {
-    padding: 20px;
-    margin-top: 20px; 
+  padding: 20px;
+  margin-top: 20px;
 }
 
 .reports-header {
-    margin-bottom: 10px; 
-    font-size: 1.75em; /* Larger font size for header */
+  margin-bottom: 10px;
+  font-size: 1.75em; /* Larger font size for header */
 }
 
 .reports-options {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
 }
 
 .add-button,
 .search-bar {
-    padding: 8px; 
-    border-radius: 10px; 
-    border: 1px solid gray; /* Gray outline */
+  padding: 8px;
+  border-radius: 10px;
+  border: 1px solid gray; /* Gray outline */
 }
 
 .add-button {
-    background-color: gray; /* Gray color for add button */
-    color: white;
-    border: none;
-    cursor: pointer;
+  background-color: gray; /* Gray color for add button */
+  color: white;
+  border: none;
+  cursor: pointer;
 }
 
 .search-bar {
-    background-color: lightgray; /* Lighter gray fill */
-    width: 200px; /* Adjust width for search bar */
-    margin-left: auto; /* Align to the right */
+  background-color: lightgray; /* Lighter gray fill */
+  width: 200px; /* Adjust width for search bar */
+  margin-left: auto; /* Align to the right */
 }
 
 .reports-table-container {
-    padding: 20px;
-    display: flex;
-    justify-content: center; /* Center the table horizontally */
+  padding: 20px;
+  display: flex;
+  justify-content: center; /* Center the table horizontally */
 }
 
 .reports-table {
-    width: 100%; /* Set the table width to 100% */
-    border-collapse: collapse;
-    margin-bottom: 20px;
-    background-color: #f9f9f9;
-    border-radius: 10px;
-    overflow: hidden;
+  width: 100%; /* Set the table width to 100% */
+  border-collapse: collapse;
+  margin-bottom: 20px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  overflow: hidden;
 }
 
-.reports-table th, 
+.reports-table th,
 .reports-table td {
-    padding: 12px;
-    text-align: left;
-    border-bottom: 1px solid #ddd;
-    font-size: 1.1em; /* Larger font size for table content */
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+  font-size: 1.1em; /* Larger font size for table content */
 }
 
 .reports-table th {
-    background-color: #f2f2f2;
+  background-color: #f2f2f2;
 }
 
 .edit-button {
-    background-color: green;
-    color: white;
-    border: none;
-    padding: 5px 10px;
-    border-radius: 5px;
-    cursor: pointer;
+  background-color: green;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
 .delete-button {
-    background-color: red;
-    color: white;
-    border: none;
-    padding: 5px 10px;
-    border-radius: 5px;
-    cursor: pointer;
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
 }
