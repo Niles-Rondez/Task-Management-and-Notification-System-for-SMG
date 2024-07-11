@@ -1,6 +1,6 @@
 <?php
     include('conn.php');
-    $selquery = "SELECT * FROM reports WHERE completionDate > '2024-05-16'";
+    $selquery = "SELECT * FROM reports";
     $selresult = mysqli_query($conn, $selquery);
     
 

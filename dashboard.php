@@ -90,7 +90,7 @@ mysqli_close($conn);
   <!--tasks-->
   <div class="container text-center">
     <div class="row">
-        <div class="col">
+        <div class="col mx-2">
             <div class="card" style="width: 18rem;">
                 <div class="card-body">
                     <h5 class="card-title fw-bold">Total Tasks</h5>
@@ -99,7 +99,7 @@ mysqli_close($conn);
                 </div>
             </div>
         </div>
-        <div class="col">
+        <div class="col mx-2">
             <div class="card" style="width: 18rem;">
                 <div class="card-body">
                     <h5 class="card-title fw-bold">Pending Tasks</h5>
@@ -108,7 +108,7 @@ mysqli_close($conn);
                 </div>
             </div>
         </div>
-        <div class="col">
+        <div class="col mx-2">
             <div class="card" style="width: 18rem;">
                 <div class="card-body">
                     <h5 class="card-title fw-bold">Upcoming Tasks</h5>
@@ -117,7 +117,7 @@ mysqli_close($conn);
                 </div>
             </div>
         </div>
-        <div class="col">
+        <div class="col mx-2">
             <div class="card" style="width: 18rem;">
                 <div class="card-body">
                     <h5 class="card-title fw-bold">Completed Tasks</h5>
@@ -131,7 +131,7 @@ mysqli_close($conn);
   <!--end of tasks-->
 
   <!--Notification and add task-->
-  <div class="container mt-5">
+  <div class="mx-4 mt-5">
     <div class="row">
       <div class="col">
       <h4 class="fw-bold">Notification List</h4>
@@ -234,7 +234,7 @@ mysqli_close($conn);
   </div>
   <!--End of Notification and add task-->
 
-  <div class="container mt-3" id="notiflist">
+  <div class="mt-3 mx-4" id="notiflist">
     <table class="table">
         <?php
         if ($result) {

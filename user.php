@@ -46,10 +46,10 @@
     <div class="header-divider"></div>
     
     <div class="header-reports">
-        <h2 class="reports-header">User Management</h2>
+        <h2 class="reports-header ps-3">User Management</h2>
         <div class="reports-options">
             <!-- Modal -->
-            <button type="button" class="btn " data-bs-toggle="modal" data-bs-target="#exampleModal" id="addtask">ADD TASK</button>
+            <button type="button" class="btn ms-3 mt-2" data-bs-toggle="modal" data-bs-target="#exampleModal" id="addtask">ADD TASK</button>
           <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
               <div class="modal-content">
@@ -124,7 +124,7 @@
               </div>
             </div>
           </div>
-            <input type="text" class="search-bar" placeholder="Search...">
+            <input type="text" class="search-bar me-3" placeholder="Search...">
         </div>
     </div>
     
