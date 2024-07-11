@@ -48,10 +48,12 @@ html {
   cursor: pointer; /* Change cursor on hover */
   transition: background-color 0.3s ease; /* Smooth transition */
 }
+#login:hover {
+  background-color: #5e5e5e;
+}
 
 .submit-button:hover {
-  background-color: #d9d9d9; /* Change to your desired hover color */
-  color: rgb(0, 140, 255); /* Text color on hover */
+  color: rgb(251, 251, 252); /* Text color on hover */
 }
 /* LOGIN CSS */
 /* NAVBAR-SIDEBAR */
