@@ -270,7 +270,7 @@ mysqli_close($conn);
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-            <h5 class="modal-title" id="updateTaskModalLabel">Task ID: <span id="currentTaskID"></span></h5>
+            <h5 class="modal-title" id="updateTaskModalLabel">Update Task Status <span id="currentTaskID"></span></h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
