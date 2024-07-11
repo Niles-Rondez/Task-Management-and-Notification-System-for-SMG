@@ -163,9 +163,21 @@ html {
 #addtask,
 #sortDropdown {
   float: right;
-  background-color: #a1a1a1;
-  stroke: #a1a1a1;
+  background-color: #d9d9d9;
+  stroke: #d9d9d9;
   color: #000;
+}
+
+#addtask:hover {
+  background-color: #5e5e5e;
+  stroke: #5e5e5e;
+  color: #ffffff;
+}
+
+#sortDropdown:hover {
+  background-color: #5e5e5e;
+  stroke: #5e5e5e;
+  color: #ffffff;
 }
 
 #notiflist {
