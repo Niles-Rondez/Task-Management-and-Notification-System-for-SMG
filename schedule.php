@@ -79,13 +79,13 @@
     <div class="row">
        
         <div class="col-2 mt-5" id = "leftCal">
-          <div class="btn-group mt-3 mb-3">
-                  <button type="button" class="btn btn-primary" id="btnMonth">Month</button>
-                  <button type="button" class="btn btn-primary" id="btnWeek">Week</button>
-                  <button type="button" class="btn btn-primary" id="btnDay">Day</button>
+          <div class="btn-group my-1">
+                  <button type="button" class="btn btn-primary ps-4" id="btnMonth">Month</button>
+                  <button type="button" class="btn btn-primary ps-4" id="btnWeek">Week</button>
+                  <button type="button" class="btn btn-primary ps-4" id="btnDay">Day</button>
           </div>
             <!-- Modal -->
-          <button type="button" class="btn " data-bs-toggle="modal" data-bs-target="#exampleModal" id="addtaskSched"> Add Task </button>
+          <button type="button" class="btn my-2" data-bs-toggle="modal" data-bs-target="#exampleModal" id="addtaskSched"> Add Task </button>
           <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
               <div class="modal-content">
@@ -190,7 +190,7 @@
       </div>
 
         <div class="col-9">
-        <div id='calendar-container'>
+        <div id='calendar-container' class="ms-0">
             <div id='calendar'></div>
         </div>
         </div>
