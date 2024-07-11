@@ -6,6 +6,7 @@
     include('conn.php');
     include('header.php');
   ?>
+  <link href='./styles/user.css' rel='stylesheet'>
 </head>
 <body>
 <!--Navbar-->
