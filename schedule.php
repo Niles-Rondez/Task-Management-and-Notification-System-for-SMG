@@ -78,7 +78,7 @@
 
     <div class="row">
        
-        <div class="col-2 mt-5" id = "leftCal">
+        <div class="col-2 mt-5 " id = "leftCal">
           <div class="btn-group my-1">
                   <button type="button" class="btn btn-primary px-3" id="btnMonth">Month</button>
                   <button type="button" class="btn btn-primary px-3" id="btnWeek">Week</button>
@@ -191,7 +191,7 @@
 
         <div class="col-9">
         <div id='calendar-container' class="ms-0">
-            <div id='calendar'></div>
+            <div id='calendar' class=""></div>
         </div>
         </div>
     </div>

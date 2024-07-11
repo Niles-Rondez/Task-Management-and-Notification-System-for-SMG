@@ -181,7 +181,7 @@ html {
 }
 
 #notiflist {
-  max-height: 450px;
+  max-height: 625px;
   overflow-y: auto;
   border: 1px solid #ccc;
   border-radius: 10px;
