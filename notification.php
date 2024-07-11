@@ -45,9 +45,11 @@
   </nav>
   <!--End of Navbar-->
 
-<div class="header-notification">
-    <h2 class="notification-header">Notification Types</h2>
-    <h3 class="text-end pe-5 me-5">Alert for scheduled maintenance activities</h3>
+  <div class="header-divider"></div>
+
+    <div class="header-notification">
+        <h2 class="notification-header">Notification Types</h2>
+        <h3 class="text-end pe-5 me-5">Alert for scheduled maintenance activities</h3>
     
 
     <div class="notification-type pt-3">
