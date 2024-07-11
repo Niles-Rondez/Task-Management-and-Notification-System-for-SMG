@@ -239,14 +239,12 @@ mysqli_close($conn);
         <?php
         if ($result) {
             while ($row = mysqli_fetch_assoc($result)) {
-                echo '<tr>';
-                echo '<td>';
-                echo '<a href="#" data-bs-toggle="modal" data-bs-target="#updateTaskModal" onclick="fillModal(' . $row['taskID'] . ', \'' . htmlspecialchars($row['orderType']) . '\', \'' . htmlspecialchars($row['mainWorkCtr']) . '\')">';
-                echo '<p class="taskid">' . htmlspecialchars($row['taskID']) . '</p>';
-                echo '<p class="order-type">' . htmlspecialchars($row['orderType']) . ' <span class="main-work-ctr">' . htmlspecialchars($row['mainWorkCtr']) . '</span></p>';
-                echo '</a>';
-                echo '</td>';
-                echo '</tr>';
+              echo '<tr onclick="fillModal(' . $row['taskID'] . ', \'' . htmlspecialchars($row['orderType']) . '\', \'' . htmlspecialchars($row['mainWorkCtr']) . '\')" data-bs-toggle="modal" data-bs-target="#updateTaskModal">';
+              echo '<td>';
+              echo '<p class="taskid">' . htmlspecialchars($row['taskID']) . '</p>';
+              echo '<p class="order-type">' . htmlspecialchars($row['orderType']) . ' <span class="main-work-ctr">' . htmlspecialchars($row['mainWorkCtr']) . '</span></p>';
+              echo '</td>';
+              echo '</tr>';
 
                 echo '<tr style="height: 20px;"></tr>';
             }
