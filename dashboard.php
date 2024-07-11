@@ -364,8 +364,6 @@ mysqli_close($conn);
         // Set the value of hidden input field
         modal.find('#taskID').val(taskID);
     });
-</script
-<script>
     var offcanvasElement = document.getElementById('offcanvasExample');
     var offcanvas = new bootstrap.Offcanvas(offcanvasElement);
 </script>
