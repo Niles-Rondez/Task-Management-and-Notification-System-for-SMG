@@ -36,14 +36,14 @@
 }
 
 .reports-table-container {
-  padding: 20px;
+  padding: 5px;
   display: flex;
   justify-content: center; /* Center the table horizontally */
 }
 
 .reports-table {
-  width: 100%; /* Set the table width to 100% */
-  border-collapse: collapse;
+  width: 90%; /* Set the table width to 100% */
+  border-collapse:collapse;
   margin-bottom: 20px;
   background-color: #f9f9f9;
   border-radius: 10px;

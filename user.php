@@ -128,7 +128,7 @@
         </div>
     </div>
     
-    <div class="reports-table-container">
+    <div class="reports-table-container mx-0">
         <table class="reports-table">
             <thead>
                 <tr>
