@@ -31,11 +31,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Event Calendar</title>
-    <?php
-    include('conn.php');
-    include('header.php');
-  ?>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.0/fullcalendar.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Exo 2' rel='stylesheet'>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <!--Navbar-->
@@ -48,22 +50,22 @@
                 <div class="offcanvas-header" id="dash">
                     <!--Sidebar Burger-->
                     <img src="images/menu-bar.png" data-bs-toggle="offcanvas" href="#offcanvasExample" aria-controls="offcanvasExample" id="burger1">
-                    <h1 id="navheader">SCHEDULE</h1>
+                    DASHBOARD
                 </div>
                 <div class="offcanvas-body">
                     <div>
-                        <h5><a href="dashboard.php" id="hlink">DASHBOARD</a></h5>
-                        <h5><a href="schedule.php" id="selectedlink">SCHEDULE</a></h5>
-                        <h5><a href="notification.php" id="hlink">NOTIFICATIONS</a></h5>
+                        <h5><a href="dashboard.php" id="selectedlink">DASHBOARD</a></h5>
+                        <h5><a href="schedule.php" id="hlink">SCHEDULE</a></h5>
+                        <h5><a href="#" id="hlink">NOTIFICATIONS</a></h5>
                         <h5><a href="reports.php" id="hlink">REPORTS</a></h5>
-                        <h5><a href="user.php" id="hlink">USERS</a></h5>
+                        <h5><a href="#" id="hlink">USERS</a></h5>
                     </div>
                 </div>
             </div>
             
             <div class="collapse navbar-collapse" id="navbarNav">
                 <img src="images/San_Miguel_Corporation_logo.webp" id="navlogo"><br>
-                <a class="navbar-brand" id="tms" href="dashboard.php">Task Management System</a>
+                <a class="navbar-brand" id="tms">Task Management System</a>
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
                         <a class="nav-link" href="index.php" id="logout">Log Out</a>
@@ -76,11 +78,16 @@
     
     <div class="header-divider"></div>
 
-    <div class="container">
     <div class="row">
-        <div class="col">
+       
+        <div class="col-2 mt-5" id = "leftCal">
+          <div class="btn-group mt-3 mb-3">
+                  <button type="button" class="btn btn-primary" id="btnMonth">Month</button>
+                  <button type="button" class="btn btn-primary" id="btnWeek">Week</button>
+                  <button type="button" class="btn btn-primary" id="btnDay">Day</button>
+          </div>
             <!-- Modal -->
-          <button type="button" class="btn " data-bs-toggle="modal" data-bs-target="#exampleModal" id="addtask"> Add Task </button>
+          <button type="button" class="btn " data-bs-toggle="modal" data-bs-target="#exampleModal" id="addtaskSched"> Add Task </button>
           <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
               <div class="modal-content">
@@ -154,17 +161,42 @@
                 </div>
               </div>
             </div>
-          </div>
-        <!-- Modal -->
         </div>
+        <!-- Modal -->
+          <div id="notiflistCalc">
+          <table class="table">
+                <?php
+                $sql_tasks = "SELECT * FROM tasks";
+                $result_tasks = $conn->query($sql_tasks);
 
-        <div class="col-10">
+                if ($result_tasks->num_rows > 0) {
+                    while ($row = $result_tasks->fetch_assoc()) {
+                        echo '<tr>';
+                        echo '<td>';
+                        echo '<a href="#" data-bs-toggle="modal" data-bs-target="#updateTaskModal" onclick="fillModal(' . $row['taskID'] . ', \'' . htmlspecialchars($row['orderType']) . '\', \'' . htmlspecialchars($row['mainWorkCtr']) . '\')">';
+                        echo '<p class="taskid">' . htmlspecialchars($row['taskID']) . '</p>';
+                        echo '<p class="order-type">' . htmlspecialchars($row['orderType']) . ' <span class="main-work-ctr">' . htmlspecialchars($row['mainWorkCtr']) . '</span></p>';
+                        echo '</a>';
+                        echo '</td>';
+                        echo '</tr>';
+
+                        echo '<tr style="height: 20px;"></tr>';
+                    }
+                } else {
+                    echo '<tr><td colspan="2">No tasks found.</td></tr>';
+                }
+                ?>
+            </table>
+          </div>
+
+      </div>
+
+        <div class="col-9">
         <div id='calendar-container'>
             <div id='calendar'></div>
         </div>
         </div>
     </div>
-</div>
   
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -185,7 +217,19 @@
                     element.attr('title', 'TaskID: ' + event.id);
                 }
             });
+                  $('#btnMonth').on('click', function() {
+                  $('#calendar').fullCalendar('changeView', 'month');
+              });
+
+              $('#btnWeek').on('click', function() {
+                  $('#calendar').fullCalendar('changeView', 'agendaWeek');
+              });
+
+              $('#btnDay').on('click', function() {
+                  $('#calendar').fullCalendar('changeView', 'agendaDay');
+              });
         });
+        
     </script>
 
 </body>
