@@ -54,16 +54,16 @@
                     <div>
                         <h5><a href="dashboard.php" id="hlink">DASHBOARD</a></h5>
                         <h5><a href="schedule.php" id="selectedlink">SCHEDULE</a></h5>
-                        <h5><a href="#" id="hlink">NOTIFICATIONS</a></h5>
+                        <h5><a href="notification.php" id="hlink">NOTIFICATIONS</a></h5>
                         <h5><a href="reports.php" id="hlink">REPORTS</a></h5>
-                        <h5><a href="#" id="hlink">USERS</a></h5>
+                        <h5><a href="user.php" id="hlink">USERS</a></h5>
                     </div>
                 </div>
             </div>
             
             <div class="collapse navbar-collapse" id="navbarNav">
                 <img src="images/San_Miguel_Corporation_logo.webp" id="navlogo"><br>
-                <a class="navbar-brand" id="tms">Task Management System</a>
+                <a class="navbar-brand" id="tms" href="dashboard.php">Task Management System</a>
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
                         <a class="nav-link" href="index.php" id="logout">Log Out</a>
