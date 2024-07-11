@@ -61,7 +61,7 @@ mysqli_close($conn);
         <div class="offcanvas-header" id="dash">
           <!--Sidebar Burger-->
           <img src="images/menu-bar.png" data-bs-toggle="offcanvas" href="#offcanvasExample" aria-controls="offcanvasExample" id="burger1">
-          DASHBOARD
+          <h1 id="navheader">DASHBOARD</h1>
         </div>
         <div class="offcanvas-body">
           <div >

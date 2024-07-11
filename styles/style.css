@@ -3,7 +3,6 @@ html {
   height: 100%;
   margin: 0;
   font-family: "Exo 2" !important;
-  min-width: 1500px;
 }
 
 /* LOGIN CSS */
@@ -68,13 +67,16 @@ html {
   font-weight: bold;
   text-align: left;
   margin-left: 1%;
-  color: #000;
+  color: rgb(0, 0, 0);
+  cursor: default;
 }
+
 #burger {
   width: 40px;
   margin-right: 1%;
   min-width: 40px;
 }
+
 #burger1 {
   width: 40px;
   min-width: 40px;
@@ -90,17 +92,19 @@ html {
   margin-right: 20%;
 }
 #selectedlink {
-  font-size: 24px;
+  font-size: 26px;
   margin-left: 17%;
+  padding-bottom: 10px;
   text-decoration: none;
   color: #fad716;
 }
 #hlink {
-  font-size: 24px;
+  font-size: 26px;
   margin-left: 17%;
   text-decoration: none;
   color: #b43b32;
   margin-bottom: 10%;
+  padding-bottom: 10px;
 }
 #logo {
   width: 50px;
@@ -119,6 +123,21 @@ html {
 #navbarNav {
   border-bottom: #000;
   border-width: 1px;
+}
+
+#burger:hover {
+  cursor: pointer;
+}
+
+#burger1:hover {
+  cursor: pointer;
+}
+
+#navheader {
+  cursor: default;
+  color: #000000;
+  text-align: left;
+  align-items: start;
 }
 
 /* NAVBAR-SIDEBAR */

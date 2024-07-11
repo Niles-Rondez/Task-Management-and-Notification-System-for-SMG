@@ -26,7 +26,7 @@
                 <div class="offcanvas-header" id="dash">
                     <!-- Sidebar Burger -->
                     <img src="images/menu-bar.png" data-bs-toggle="offcanvas" href="#offcanvasExample" aria-controls="offcanvasExample" id="burger1">
-                    REPORTS
+                    <h1 id="navheader">REPORTS</h1>
                 </div>
                 <div class="offcanvas-body">
                     <div>
