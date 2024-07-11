@@ -33,7 +33,7 @@
                     </div>
                     <a href="#" id="fget" align="right"> Forget Password?</a>
                 </div>
-                <input type="submit" value="Log In"  class="submit-button w-button border-0 mt-2 p-1" id = "login">
+                <input type="submit" value="Log In" class="submit-button w-button border-0 mt-2 p-1" id = "login">
 
             </form>
 

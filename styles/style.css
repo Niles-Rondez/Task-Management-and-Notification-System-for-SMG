@@ -203,6 +203,11 @@ html {
   color: #ffffff;
   border-radius: 10px;
   box-shadow: 2px 2px 2px 2px #ccc;
+  cursor: pointer;
+}
+
+#notiflist td:hover {
+  background-color: rgba(103, 131, 80, 0.8);
 }
 
 #notiflist td .order-type {
