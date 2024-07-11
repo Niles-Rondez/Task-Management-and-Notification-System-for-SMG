@@ -49,12 +49,12 @@
   <!--End of Navbar-->
   <div class="header-divider"></div><br>
 
-    <div class="header-notification">
+    <div class="header-notification mt-0">
         <h2 class="notification-header ms-3">Notification Types</h2>
-        <h3 class="text-end pe-5 me-5">Alert for scheduled maintenance activities</h3>
+        <h3 class="text-end pe-5 me-5 my-0">Alert for scheduled maintenance activities</h3>
     
 
-    <div class="notification-type pt-3">
+    <div class="notification-type pt-2">
         <div class="options">
             <input class="form-check-input" type="checkbox" role="switch" id="maintenancealert" checked>
             <label class="form-check-label mx-1" for="maintenancealert"></label>
