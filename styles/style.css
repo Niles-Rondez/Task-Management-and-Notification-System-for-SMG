@@ -408,16 +408,21 @@ html {
   background-color: #a1a1a1;
   stroke: #a1a1a1;
   color: #000;
-  border-radius: 20px;
-  width: 250px;
+  border-radius: 5px;
+  width: 262px;
 }
 
 #leftCal {
+  display: flex;
+  flex-direction: column; /* Assuming you want to stack items vertically */
+  justify-content: center;
+  align-items: center;
   border: 2px solid #ced4da;
   border-radius: 20px;
-  padding: 15px;
-  margin-left: 35px;
+  padding: 5px;
+  margin-left: 40px;
 }
+
 
 #notiflistCalc {
   max-height: 600px;
@@ -430,13 +435,25 @@ html {
   color: #000;
 }
 
-#notiflistCalc table {
+#notiflistCalc2 {
+  max-height: 680px;
+  width: 300px;
+  overflow-y: auto;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 2px 2px 2px 2px #ccc;
+  padding: 10px;
+  padding-bottom: 20px;
+  color: #000;
+}
+
+#notiflistCalc2 table {
   width: 100%;
   border-collapse: collapse;
   margin-bottom: 20px; /* Margin bottom for each table */
 }
 
-#notiflistCalc td {
+#notiflistCalc2 td {
   background-color: rgba(131, 166, 103, 0.8);
   padding: 12px;
   color: #ffffff;
@@ -444,31 +461,31 @@ html {
   box-shadow: 2px 2px 2px 2px #ccc;
 }
 
-#notiflistCalc td .order-type {
+#notiflistCalc2 td .order-type {
   display: inline-block;
   margin-right: 10px;
   font-size: 25px;
   font-weight: bold;
 }
 
-#notiflistCalc td .main-work-ctr {
+#notiflistCalc2 td .main-work-ctr {
   font-size: 20px;
   font-weight: bold;
 }
 
-#notiflistCalc td .taskid {
+#notiflistCalc2 td .taskid {
   font-size: 26px;
   margin-bottom: 0;
   font-weight: bold;
 }
 
-#notiflistCalc tr {
+#notiflistCalc2 tr {
   margin-top: 2%;
   margin-bottom: 2%;
 }
 
-#notiflistCalc a,
-#notiflistCalc p {
+#notiflistCalc2 a,
+#notiflistCalc2 p {
   text-decoration: none; /* Remove underline */
   color: inherit; /* Use the default text color */
 }

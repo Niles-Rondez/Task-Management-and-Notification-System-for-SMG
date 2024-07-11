@@ -80,12 +80,12 @@
        
         <div class="col-2 mt-5 " id = "leftCal">
           <div class="btn-group my-1">
-                  <button type="button" class="btn btn-primary px-3" id="btnMonth">Month</button>
-                  <button type="button" class="btn btn-primary px-3" id="btnWeek">Week</button>
-                  <button type="button" class="btn btn-primary px-3" id="btnDay">Day</button>
+                  <button type="button" class="btn px-4 border border-secondary-subtle" id="btnMonth" style="background-color: #a1a1a1; color: black">Month</button>
+                  <button type="button" class="btn px-4 border border-secondary-subtle" id="btnWeek" style="background-color: #a1a1a1; color: black">Week</button>
+                  <button type="button" class="btn px-4 border border-secondary-subtle" id="btnDay" style="background-color: #a1a1a1; color: black">Day</button>
           </div>
             <!-- Modal -->
-          <button type="button" class="btn my-2" data-bs-toggle="modal" data-bs-target="#exampleModal" id="addtaskSched"> Add Task </button>
+          <button type="button" class="btn my-2 border border-secondary-subtle" data-bs-toggle="modal" data-bs-target="#exampleModal" id="addtaskSched"> Add Task </button>
           <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
               <div class="modal-content">
@@ -161,7 +161,7 @@
             </div>
         </div>
         <!-- Modal -->
-          <div id="notiflistCalc">
+          <div id="notiflistCalc2">
           <table class="table">
                 <?php
                 $sql_tasks = "SELECT * FROM tasks";
