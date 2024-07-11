@@ -57,38 +57,33 @@
     <div class="header-divider"></div>
     
     <div class="header-reports">
-        <h2 class="reports-header fw-bold">Report Types</h2>
-        <div class="reports-options">
+        <h2 class="reports-header fw-bold ps-3">Report Types</h2>
+        <div class="reports-options ps-3">
             <select class="rounded fw-bold" id="select-report-1">
                 <option value="Report1">REPORT</option>
-                <option value="Report2">Report2</option>
-                <option value="Report3">Report3</option>
+                <option value="Report2">REPORT ASC</option>
+                <option value="Report3">REPORT DESC</option>
             </select>
             <select class="rounded fw-bold" id="select-report-2">
                 <option value="Report1">TASK</option>
-                <option value="Report2">Report2</option>
-                <option value="Report3">Report3</option>
+                <option value="Report2">TASK ASC</option>
+                <option value="Report3">TASK DESC</option>
             </select>
             <select class="rounded fw-bold" id="select-report-3">
                 <option value="Report1">ASSIGNMENT</option>
-                <option value="Report2">Report2</option>
-                <option value="Report3">Report3</option>
+                <option value="Report2">ASSIGNMENT ASC</option>
+                <option value="Report3">ASSIGNMENT DESC</option>
             </select>
             <select class="rounded fw-bold" id="select-report-4">
                 <option value="Report1">START DATE</option>
-                <option value="Report2">Report2</option>
-                <option value="Report3">Report3</option>
+                <option value="Report2">START DATE ASC</option>
+                <option value="Report3">START DATE DESC</option>
             </select>
-            <select class="rounded fw-bold" id="select-report-5">
-                <option value="Report1">END DATE</option>
-                <option value="Report2">Report2</option>
-                <option value="Report3">Report3</option>
-            </select>
-            <button class="search-button">Search</button>
+            <button class="search-button me-4">Search</button>
         </div>
     </div>
     
-    <div class="reports-table-container" id="reports_table">
+    <div class="reports-table-container mx-1" id="reports_table">
         <table class="reports-table">
             <thead>
                 <tr>
@@ -120,9 +115,9 @@
         </table>
     </div>
     
-    <div class="export-buttons">
-      <a href="expexcel.php"> <button class="export-pdf-button">Export PDF</button></a> 
-        <button class="export-excel-button">Export Excel</button>
+    <div class="export-buttons ms-3 me">
+      <a href="expexcel.php"> <button class="export-pdf-button">EXPORT PDF</button></a> 
+        <button class="export-excel-button">EXPORT EXCEL</button>
     </div>
 
 
