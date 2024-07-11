@@ -1,16 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
     <title>Notification Settings</title>
+
     <?php
     include('conn.php');
     include('header.php');
   ?>
-  <link href='./styles/notification.css' rel='stylesheet'>
+  
 </head>
 <body>
- <!--Navbar-->
- <nav class="navbar navbar-expand-lg bg-body-tertiary">
+
+      <!--Navbar-->
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid" id="side-menu">
       <!--Burger in dashboard-->
       <img src="images/menu-bar.png" data-bs-toggle="offcanvas" href="#offcanvasExample" aria-controls="offcanvasExample" id="burger">
@@ -19,13 +22,13 @@
         <div class="offcanvas-header" id="dash">
           <!--Sidebar Burger-->
           <img src="images/menu-bar.png" data-bs-toggle="offcanvas" href="#offcanvasExample" aria-controls="offcanvasExample" id="burger1">
-          <h1 id="navheader">NOTIFICATIONS</h1>
+          <h1 id="navheader">DASHBOARD</h1>
         </div>
         <div class="offcanvas-body">
           <div >
-            <h5><a href="dashboard.php" id="hlink">DASHBOARD</a></h5>
+            <h5><a href="dashboard.php" id="selectedlink">DASHBOARD</a></h5>
             <h5><a href="schedule.php" id="hlink">SCHEDULE</a></h5>
-            <h5><a href="notification.php" id="selectedlink">NOTIFICATIONS</a></h5>
+            <h5><a href="notification.php" id="hlink">NOTIFICATIONS</a></h5>
             <h5><a href="reports.php" id="hlink">REPORTS</a></h5>
             <h5><a href="user.php" id="hlink">USERS</a></h5>
           </div>
@@ -33,7 +36,7 @@
       </div>
       
       <div class="collapse navbar-collapse" id="navbarNav">
-        <img src="./images/San_Miguel_Corporation_logo.webp" id="navlogo"><br>
+        <img src="images/San_Miguel_Corporation_logo.webp" id="navlogo"><br>
         <a class="navbar-brand" id="tms" href="dashboard.php">Task Management System</a>
         <ul class="navbar-nav ms-auto">
           <li class="nav-item">
@@ -44,8 +47,7 @@
     </div>
   </nav>
   <!--End of Navbar-->
-
-  <div class="header-divider"></div>
+  <div class="header-divider"></div><br>
 
     <div class="header-notification">
         <h2 class="notification-header ms-3">Notification Types</h2>
