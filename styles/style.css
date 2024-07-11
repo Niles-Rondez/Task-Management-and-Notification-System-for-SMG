@@ -314,6 +314,13 @@ html {
 }
 
 /* Calendar */
+#calendar-container {
+  display: flex;
+  height: calc(100vh - 120px); /* Adjust as needed based on your layout */
+  padding-right: 10px; /* Add space to the right */
+}
+
+/* Calendar */
 #calendar {
   max-width: 70%; /* Adjust max-width as needed */
   width: 100%;
@@ -357,7 +364,7 @@ html {
 .fc-unthemed td,
 .fc-unthemed th,
 .fc td.fc-today {
-  border-color: #000; /* Border color */
+ /* border-color: #000;  Border color */
   border-width: 2px; /* Border width */
   border-style: solid; /* Border style */
 }
@@ -366,4 +373,71 @@ html {
 .fc-right {
   color: red; /* Example: change text color */
   margin-top: 50px; /* Example: adjust margin */
+}
+
+#addtaskSched{
+  background-color: #A1A1A1;
+  stroke: #A1A1A1;
+  color: #000;
+  border-radius: 20px;
+  width: 250px;
+
+}
+
+#leftCal{
+  border: 2px solid #ced4da; border-radius: 20px; padding: 15px;
+  margin-left: 35px;
+}
+
+#notiflistCalc {
+  max-height: 600px;
+  overflow-y: auto;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 2px 2px 2px 2px #ccc;
+  padding: 10px;
+  padding-bottom: 20px;
+  color: #000;
+}
+
+#notiflistCalc table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px; /* Margin bottom for each table */
+}
+
+#notiflistCalc td {
+  background-color: rgba(131, 166, 103, 0.8);
+  padding: 12px;
+  color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 2px 2px 2px 2px #ccc;
+}
+
+#notiflistCalc td .order-type {
+  display: inline-block;
+  margin-right: 10px;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+#notiflistCalc td .main-work-ctr {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+#notiflistCalc td .taskid {
+  font-size: 26px;
+  margin-bottom: 0;
+  font-weight: bold;
+}
+
+#notiflistCalc tr {
+  margin-top: 2%;
+  margin-bottom: 2%;
+}
+
+#notiflistCalc a, #notiflistCalc p {
+  text-decoration: none; /* Remove underline */
+  color: inherit; /* Use the default text color */
 }
