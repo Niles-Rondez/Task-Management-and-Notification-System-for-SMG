@@ -122,7 +122,7 @@ mysqli_close($conn);
                 <div class="card-body">
                     <h5 class="card-title fw-bold">Completed Tasks</h5>
                     <h3 class="card-text"><?php echo $completedTasks; ?></h3>
-                    <h7>All Unifinished Task This Month</h7>
+                    <h7>All Finished Task This Month</h7>
                 </div>
             </div>
         </div>
