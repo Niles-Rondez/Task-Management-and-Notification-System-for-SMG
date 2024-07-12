@@ -1,9 +1,38 @@
 <?php
     include('conn.php');
-    $selquery = "SELECT * FROM reports";
-    $selresult = mysqli_query($conn, $selquery);
-    
+// Default SQL query to fetch all reports
+$query = "SELECT * FROM reports";
 
+// Check if sorting option is selected via GET parameter
+if (isset($_GET['sort'])) {
+    $sort = $_GET['sort'];
+    switch ($sort) {
+        case 'asc_task':
+            $query .= " ORDER BY taskID ASC";
+            break;
+        case 'desc_task':
+            $query .= " ORDER BY taskID DESC";
+            break;
+        case 'asc_assignment':
+            $query .= " ORDER BY userID ASC";
+            break;
+        case 'desc_assignment':
+            $query .= " ORDER BY userID DESC";
+            break;
+        case 'asc_date':
+            $query .= " ORDER BY completionDate ASC";
+            break;
+        case 'desc_date':
+            $query .= " ORDER BY completionDate DESC";
+            break;
+        default:
+            // Default sorting (if invalid sort option)
+            $query .= " ORDER BY reportID ASC";
+            break;
+    }
+}
+
+$result = mysqli_query($conn, $query);
 ?>
 
 <!DOCTYPE html>
@@ -55,31 +84,49 @@
     <!--End of Navbar-->
     
     <div class="header-divider"></div>
-    
     <div class="header-reports">
         <h2 class="reports-header fw-bold ps-3">Report Types</h2>
         <div class="reports-options ps-3">
-            <select class="rounded fw-bold" id="select-report-1">
-                <option value="Report1">REPORT</option>
-                <option value="Report2">REPORT ASC</option>
-                <option value="Report3">REPORT DESC</option>
-            </select>
-            <select class="rounded fw-bold" id="select-report-2">
-                <option value="Report1">TASK</option>
-                <option value="Report2">TASK ASC</option>
-                <option value="Report3">TASK DESC</option>
-            </select>
-            <select class="rounded fw-bold" id="select-report-3">
-                <option value="Report1">ASSIGNMENT</option>
-                <option value="Report2">ASSIGNMENT ASC</option>
-                <option value="Report3">ASSIGNMENT DESC</option>
-            </select>
-            <select class="rounded fw-bold" id="select-report-4">
-                <option value="Report1">START DATE</option>
-                <option value="Report2">START DATE ASC</option>
-                <option value="Report3">START DATE DESC</option>
-            </select>
-            <button class="search-button me-4">Search</button>
+            <!-- Dropdowns in the desired order: Report Type, Task ID, Assignment, Completion Date -->
+            <div class="dropdown">
+                <button class="btn dropdown-toggle rounded fw-bold" type="button" id="reportSortDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                    REPORT TYPE
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="reportSortDropdown">
+                    <li><a class="dropdown-item" href="reports.php?sort=asc_report">ASCENDING</a></li>
+                    <li><a class="dropdown-item" href="reports.php?sort=desc_report">DESCENDING</a></li>
+                </ul>
+            </div>
+            
+            <div class="dropdown">
+                <button class="btn dropdown-toggle rounded fw-bold" type="button" id="taskSortDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                    TASK ID
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="taskSortDropdown">
+                    <li><a class="dropdown-item" href="reports.php?sort=asc_task">ASCENDING</a></li>
+                    <li><a class="dropdown-item" href="reports.php?sort=desc_task">DESCENDING</a></li>
+                </ul>
+            </div>
+            
+            <div class="dropdown">
+                <button class="btn dropdown-toggle rounded fw-bold" type="button" id="assignmentSortDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                    ASSIGNMENT
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="assignmentSortDropdown">
+                    <li><a class="dropdown-item" href="reports.php?sort=asc_assignment">ASCENDING</a></li>
+                    <li><a class="dropdown-item" href="reports.php?sort=desc_assignment">DESCENDING</a></li>
+                </ul>
+            </div>
+            
+            <div class="dropdown">
+                <button class="btn dropdown-toggle rounded fw-bold" type="button" id="dateSortDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                    COMPLETION DATE
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dateSortDropdown">
+                    <li><a class="dropdown-item" href="reports.php?sort=asc_date">ASCENDING</a></li>
+                    <li><a class="dropdown-item" href="reports.php?sort=desc_date">DESCENDING</a></li>
+                </ul>
+            </div>
         </div>
     </div>
     
@@ -95,9 +142,9 @@
             </thead>
             <tbody>
             <?php
-    if($selresult) {
+    if($result) {
         // Fetching data row by row
-        while($row = mysqli_fetch_assoc($selresult)) {
+        while($row = mysqli_fetch_assoc($result)) {
             echo '<tr>';
             echo '<td>'.($row['reportID']). '</td>';
             echo '<td>'.($row['taskID']). '</td>';
