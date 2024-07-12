@@ -168,19 +168,28 @@
                 $sql_tasks = "SELECT * FROM tasks";
                 $result_tasks = $conn->query($sql_tasks);
 
-                if ($result_tasks->num_rows > 0) {
-                    while ($row = $result_tasks->fetch_assoc()) {
-                        echo '<tr>';
-                        echo '<td>';
-                        echo '<a href="#" data-bs-toggle="modal" data-bs-target="#updateTaskModal" onclick="fillModal(' . $row['taskID'] . ', \'' . htmlspecialchars($row['orderType']) . '\', \'' . htmlspecialchars($row['mainWorkCtr']) . '\')">';
-                        echo '<p class="taskid">' . htmlspecialchars($row['taskID']) . '</p>';
-                        echo '<p class="order-type">' . htmlspecialchars($row['orderType']) . ' <span class="main-work-ctr">' . htmlspecialchars($row['mainWorkCtr']) . '</span></p>';
-                        echo '</a>';
-                        echo '</td>';
-                        echo '</tr>';
-
-                        echo '<tr style="height: 20px;"></tr>';
-                    }
+                if ($result_tasks) {
+                  while ($row = mysqli_fetch_assoc($result_tasks)) {
+                    echo '<tr onclick="fillModal(' . $row['taskID'] . ', \'' . 
+                          (isset($row['orderType']) ? htmlspecialchars($row['orderType']) : '') . '\', \'' . 
+                          (isset($row['mainWorkCtr']) ? htmlspecialchars($row['mainWorkCtr']) : '') . '\', \'' . 
+                          (isset($row['orderDescription']) ? htmlspecialchars($row['orderDescription']) : '') . '\', \'' . 
+                          (isset($row['maintenance_plan']) ? htmlspecialchars($row['maintenance_plan']) : '') . '\', \'' . 
+                          (isset($row['mpDescription']) ? htmlspecialchars($row['mpDescription']) : '') . '\', \'' . 
+                          (isset($row['systemStatus']) ? htmlspecialchars($row['systemStatus']) : '') . '\', \'' . 
+                          (isset($row['ssDescription']) ? htmlspecialchars($row['ssDescription']) : '') . '\', \'' . 
+                          (isset($row['plannerGroup']) ? htmlspecialchars($row['plannerGroup']) : '') . '\', \'' . 
+                          (isset($row['costCenter']) ? htmlspecialchars($row['costCenter']) : '') . '\', \'' . 
+                          (isset($row['equipmentID']) ? htmlspecialchars($row['equipmentID']) : '') . '\', \'' . 
+                          (isset($row['taskStatus']) ? htmlspecialchars($row['taskStatus']) : '') . '\')" 
+                          data-bs-toggle="modal" data-bs-target="#updateTaskModal">';
+                      echo '<td>';
+                      echo '<p class="taskid">' . htmlspecialchars($row['taskID']) . '</p>';
+                      echo '<p class="order-type">' . htmlspecialchars($row['orderType']) . ' <span class="main-work-ctr">' . htmlspecialchars($row['mainWorkCtr']) . '</span></p>';
+                      echo '</td>';
+                      echo '</tr>';
+                      echo '<tr style="height: 20px;"></tr>';
+                  }
                 } else {
                     echo '<tr><td colspan="2">No tasks found.</td></tr>';
                 }
@@ -311,20 +320,20 @@
         
     </script>
 <script>
-    function fillModal(taskID, orderType, mainWorkCtr) {
-        // Set values in the modal form
+     function fillModal(taskID, orderType, mainWorkCtr, orderDesc, mplan, pdesc, sysstat, sysdesc, pgroup, cstcen, eqid, taskStatus) {
+        // Fill Modal Inputs with Data
         document.getElementById('taskID').value = taskID;
         document.getElementById('taskIDDisplay').value = taskID;
         document.getElementById('orderType').value = orderType;
-        document.getElementById('orderDesc').value = ''; // Replace with the appropriate value
-        document.getElementById('mplan').value = ''; // Replace with the appropriate value
-        document.getElementById('pdesc').value = ''; // Replace with the appropriate value
+        document.getElementById('orderDesc').value = orderDesc;
+        document.getElementById('mplan').value = mplan;
+        document.getElementById('pdesc').value = pdesc;
         document.getElementById('mainWorkCtr').value = mainWorkCtr;
-        document.getElementById('sysstat').value = ''; // Replace with the appropriate value
-        document.getElementById('sysdesc').value = ''; // Replace with the appropriate value
-        document.getElementById('pgroup').value = ''; // Replace with the appropriate value
-        document.getElementById('cstcen').value = ''; // Replace with the appropriate value
-        document.getElementById('eqid').value = ''; // Replace with the appropriate value
+        document.getElementById('sysstat').value = sysstat;
+        document.getElementById('sysdesc').value = sysdesc;
+        document.getElementById('pgroup').value = pgroup;
+        document.getElementById('cstcen').value = cstcen;
+        document.getElementById('eqid').value = eqid;
 
         // Clear previous selection of task status
         var radios = document.getElementsByName('taskStatus');
