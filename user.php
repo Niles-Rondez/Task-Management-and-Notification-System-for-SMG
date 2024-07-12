@@ -119,7 +119,7 @@
                     <th>EMAIL</th>
                     <th>ADDRESS</th>
                     <th>ROLE</th>
-                    <th>ACTIONS</th>
+                    <th style='min-width:165px;'>ACTIONS</th>
                 </tr>
             </thead>
             <tbody>
