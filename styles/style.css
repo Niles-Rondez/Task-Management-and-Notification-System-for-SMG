@@ -268,13 +268,12 @@ html {
   padding: 8px;
   border-radius: 10px;
   border: 1px solid gray; /* Gray outline */
-  background-color: lightgray; /* Lighter gray fill */
   width: 18%; /* Adjust width for larger dropdowns */
   margin-right: 10px; /* Add space between dropdowns */
 }
 
 #search-button {
-  background-color: gray; /* Gray color for search button */
+  background-color: rgba(131, 166, 103, 0.8);
   color: white;
   border: none;
   cursor: pointer;
@@ -632,12 +631,16 @@ html {
 }
 
 .search-button {
-  background-color: #4caf50;
+  background-color: rgba(131, 166, 103, 0.8);
   color: white;
   border: none;
   padding: 10px;
   cursor: pointer;
   border-radius: 5px;
+}
+.search-button:hover {
+  background-color: rgba(77, 116, 47, 0.8);
+
 }
 
 /* Users */
