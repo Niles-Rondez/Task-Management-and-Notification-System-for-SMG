@@ -31,6 +31,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <title>Schedule</title>
 <?php
     include('conn.php');
     include('addData.php');
@@ -76,7 +77,7 @@
     
     <div class="header-divider"></div>
 
-    <div class="row">
+    <div class="row" id="wrap">
        
         <div class="col-3 mt-5 ms-5 my-0" id = "leftCal">
           <div class="btn-group my-1">
