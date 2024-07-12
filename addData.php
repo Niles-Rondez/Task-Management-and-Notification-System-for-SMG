@@ -23,8 +23,19 @@ if(isset($_POST['submit'])){
               VALUES ('$taskid', '$date', '$ordertype', '$orderdesc', '$mplan', '$pdesc', '$mwctr', '$sysstat', '$sysdesc', '$pgroup', '$cstcen', '$eqid', 'Pending')";
     
     if(mysqli_query($conn, $query)) {
-        echo "<script>alert('Record inserted!');</script>";
-        echo "<script>window.location='dashboard.php';</script>"; 
+        // Determine the page to redirect based on HTTP_REFERER
+        $referer = $_SERVER['HTTP_REFERER'];
+        if(strpos($referer, 'dashboard.php') !== false) {
+            echo "<script>alert('Record inserted!');</script>";
+            echo "<script>window.location='dashboard.php';</script>";
+        } elseif(strpos($referer, 'schedule.php') !== false) {
+            echo "<script>alert('Record inserted!');</script>";
+            echo "<script>window.location='schedule.php';</script>";
+        } else {
+            // Default redirect if HTTP_REFERER doesn't match expected pages
+            echo "<script>alert('Record inserted!');</script>";
+            echo "<script>window.location='dashboard.php';</script>";
+        }
     } else {
         echo "<script>alert('Failed to insert record! " . mysqli_error($conn) . "');</script>";
         echo "Error: " . $query . "<br>" . mysqli_error($conn);
