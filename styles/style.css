@@ -337,7 +337,6 @@ html {
 /* Calendar */
 /* Calendar Container */
 #calendar-container {
-<<<<<<< HEAD
   display: flex;
   height: calc(100vh - 120px); /* Adjust as needed based on your layout */
   padding-right: ; /* Add space to the right */
@@ -346,26 +345,17 @@ html {
 /* Calendar */
 #calendar-container {
   display: flex;
-=======
->>>>>>> 63d8e6b7cb9a5f0c516d6c2b310d8352021b32ce
   height: calc(100vh - 120px); /* Adjust as needed based on your layout */
   padding-right: ; /* Add space to the right */
 }
 
 /* Calendar */
 #calendar {
-<<<<<<< HEAD
   margin-right: 10 px; /* Push calendar to the right */
-  width: 1200%;
-  height: 80%;
-=======
-  max-width: 100%; /* Adjust max-width as needed */
-  width: 80%;
-  margin-left: 50px; /* Push calendar to the right */
+  max-width: 1200%; /* Adjust max-width as needed */
+  margin-left: 10px; /* Push calendar to the right */
   height: 100%; /* Fill available height */
-  min-width: 80%;
   position: inherit;
->>>>>>> 63d8e6b7cb9a5f0c516d6c2b310d8352021b32ce
 }
 
 /* Month Title */

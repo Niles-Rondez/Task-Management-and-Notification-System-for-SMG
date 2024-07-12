@@ -75,7 +75,7 @@
     </nav>
     <!--End of Navbar-->
     
-    <div class="header-divider"></div>
+    <div class="header-divider mb-5"></div>
 
     <div class="row" id="wrap">
        
