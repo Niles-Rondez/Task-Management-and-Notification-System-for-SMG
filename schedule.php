@@ -280,7 +280,7 @@
     </div>
 </div>
         <div class="col-9">
-        <div id='calendar-container' class="ms-0">
+        <div id='calendar-container' class="mx-0 pe-0">
             <div id='calendar' class=""></div>
         </div>
         </div>
