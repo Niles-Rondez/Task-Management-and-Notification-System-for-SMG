@@ -117,7 +117,7 @@
     
     <div class="export-buttons ms-3 me">
       <a href="expexcel.php"> <button class="export-pdf-button" id = 'exportBtn'>EXPORT PDF</button></a> 
-        <button class="export-excel-button" id = 'exportBtn'>EXPORT EXCEL</button>
+      <a href="expexcel.php" target="_blank" class="export-excel-button">EXPORT EXCEL</a>
     </div>
 
 
