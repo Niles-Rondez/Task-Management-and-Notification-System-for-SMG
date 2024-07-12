@@ -50,7 +50,7 @@
   <div class="header-divider"></div><br>
 
     <div class="header-notification mt-0">
-        <h2 class="notification-header ms-3">Notification Types</h2>
+        <h2 class="notification-header ms-3 fw-bolder">Notification Types</h2>
         <h3 class="text-end pe-5 me-5 my-0">Alert for scheduled maintenance activities</h3>
     
 
