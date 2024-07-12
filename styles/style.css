@@ -706,7 +706,7 @@ html {
 }
 
 .edit-button {
-  background-color: green;
+  background-color: rgba(131, 166, 103, 0.8);
   color: white;
   border: none;
   padding: 5px 10px;
@@ -715,7 +715,7 @@ html {
 }
 
 .delete-button {
-  background-color: red;
+  background-color: #FF6961;
   color: white;
   border: none;
   padding: 5px 10px;
