@@ -713,6 +713,9 @@ html {
   border-radius: 5px;
   cursor: pointer;
 }
+.edit-button:hover {
+  background-color: rgba(98, 124, 77, 0.8);
+}
 
 .delete-button {
   background-color: #FF6961;
@@ -721,6 +724,9 @@ html {
   padding: 5px 10px;
   border-radius: 5px;
   cursor: pointer;
+}
+.delete-button:hover {
+  background-color: #b64640;
 }
 
 
