@@ -390,7 +390,6 @@ html {
 #calendar-container {
   height: calc(100vh - 120px); /* Adjust as needed based on your layout */
   padding-right: 0px; /* Add space to the right */
-  margin-right: 0px;
 }
 
 /* Calendar */
@@ -476,7 +475,8 @@ html {
 }
 
 #wrap {
-  min-width: 1500px;
+  min-width: auto;
+  max-width: fit-content;
 }
 
 #notiflistCalc {
