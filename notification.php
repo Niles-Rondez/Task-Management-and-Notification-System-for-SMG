@@ -52,7 +52,7 @@
         <h2 class="notification-header ms-3 fw-bolder">Notification Types</h2>
         <h3 class="text-end pe-5 me-5 my-0">Alert for scheduled maintenance activities</h3>
 
-        <div class="notification-type pt-2">
+        <div class="notification-type pt-0 ps-5">
             <div class="options">
                 <input class="form-check-input" type="checkbox" role="switch" id="maintenancealert" checked>
                 <label class="form-check-label mx-1" for="maintenancealert"></label>
@@ -77,7 +77,7 @@
             </div>
         </div>
 
-        <div class="notification-type">
+        <div class="notification-type ps-5">
             <div class="options">
                 <input class="form-check-input" type="checkbox" role="switch" id="replacementalert" checked>
                 <label class="form-check-label mx-1" for="replacementalert"></label>
@@ -102,7 +102,7 @@
             </div>
         </div>
 
-        <div class="notification-type">
+        <div class="notification-type ps-5">
             <div class="options">
                 <input class="form-check-input" type="checkbox" role="switch" id="cleaningalert" checked>
                 <label class="form-check-label mx-1" for="cleaningalert"></label>
@@ -127,7 +127,7 @@
             </div>
         </div>
 
-        <div class="notification-type">
+        <div class="notification-type ps-5">
             <div class="options">
                 <input class="form-check-input" type="checkbox" role="switch" id="performancealert" checked>
                 <label class="form-check-label mx-1" for="performancealert"></label>
@@ -152,7 +152,7 @@
             </div>
         </div>
 
-        <div class="notification-type">
+        <div class="notification-type ps-5">
             <div class="options">
                 <input class="form-check-input" type="checkbox" role="switch" id="emergencyalert" checked>
                 <label class="form-check-label mx-1" for="emergencyalert"></label>
@@ -177,7 +177,7 @@
             </div>
         </div>
 
-        <div class="notification-type">
+        <div class="notification-type ps-5">
             <div class="options">
                 <input class="form-check-input" type="checkbox" role="switch" id="inspectionalert" checked>
                 <label class="form-check-label mx-1" for="inspectionalert"></label>
@@ -202,7 +202,7 @@
             </div>
         </div>
 
-        <div class="notification-type">
+        <div class="notification-type ps-5">
             <div class="options">
                 <input class="form-check-input" type="checkbox" role="switch" id="customalert" checked>
                 <label class="form-check-label mx-1" for="customalert"></label>
@@ -227,7 +227,7 @@
             </div>
         </div>
 
-        <div class="notification-type">
+        <div class="notification-type ps-5 mb-0">
             <div class="options">
                 <input class="form-check-input" type="checkbox" role="switch" id="downalert" checked>
                 <label class="form-check-label mx-1" for="downalert"></label>
