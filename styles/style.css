@@ -181,7 +181,7 @@ html {
 }
 
 #notiflist {
-  max-height: 625px;
+  max-height: 590px;
   overflow-y: auto;
   border: 1px solid #ccc;
   border-radius: 10px;
@@ -325,7 +325,7 @@ html {
   margin-right: 10px;
 }
 #reports_table {
-  max-height: 650px;
+  max-height: 605px;
   overflow-y: auto;
   padding-bottom: 20px;
   color: #000;
@@ -501,7 +501,7 @@ html {
 .notification-type {
   display: flex;
   align-items: center;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
   margin-left: 100px;
 }
 
