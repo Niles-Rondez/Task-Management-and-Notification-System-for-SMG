@@ -431,15 +431,12 @@ html {
   border: 2px solid #ced4da;
   border-radius: 20px;
   padding: 5px;
-<<<<<<< HEAD
   margin-left: px;
   margin-right: 50px;
   max-width: 350px;;
   height: 1200px;
-=======
   margin-left: 40px;
   width: initial;
->>>>>>> 63d8e6b7cb9a5f0c516d6c2b310d8352021b32ce
 }
 
 #wrap {
@@ -655,8 +652,6 @@ html {
   background-color: #f9f9f9;
   border-radius: 10px;
   overflow: hidden;
-
-  
 }
 
 .reports-table th,
