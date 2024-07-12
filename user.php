@@ -25,11 +25,11 @@
         </div>
         <div class="offcanvas-body">
           <div >
-            <h5><a href="dashboard.php" id="selectedlink">DASHBOARD</a></h5>
+            <h5><a href="dashboard.php" id="hlink">DASHBOARD</a></h5>
             <h5><a href="schedule.php" id="hlink">SCHEDULE</a></h5>
             <h5><a href="notification.php" id="hlink">NOTIFICATIONS</a></h5>
             <h5><a href="reports.php" id="hlink">REPORTS</a></h5>
-            <h5><a href="user.php" id="hlink">USERS</a></h5>
+            <h5><a href="user.php" id="selectedlink">USERS</a></h5>
           </div>
         </div>
       </div>
@@ -205,5 +205,6 @@
         });
     });
     </script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
 </html>
