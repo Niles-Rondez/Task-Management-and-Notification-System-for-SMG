@@ -337,24 +337,17 @@ html {
 /* Calendar */
 /* Calendar Container */
 #calendar-container {
-  display: flex;
   height: calc(100vh - 120px); /* Adjust as needed based on your layout */
-  padding-right: ; /* Add space to the right */
-}
-
-/* Calendar */
-#calendar-container {
-  display: flex;
-  height: calc(100vh - 120px); /* Adjust as needed based on your layout */
-  padding-right: ; /* Add space to the right */
+  padding-right: 10px; /* Add space to the right */
 }
 
 /* Calendar */
 #calendar {
-  margin-right: 10 px; /* Push calendar to the right */
-  max-width: 1200%; /* Adjust max-width as needed */
-  margin-left: 10px; /* Push calendar to the right */
+  max-width: 100%; /* Adjust max-width as needed */
+  width: 80%;
+  margin-left: 50px; /* Push calendar to the right */
   height: 100%; /* Fill available height */
+  min-width: 80%;
   position: inherit;
 }
 
@@ -421,10 +414,6 @@ html {
   border: 2px solid #ced4da;
   border-radius: 20px;
   padding: 5px;
-  margin-left: px;
-  margin-right: 50px;
-  max-width: 350px;;
-  height: 1200px;
   margin-left: 40px;
   width: initial;
 }
@@ -445,7 +434,7 @@ html {
 }
 
 #notiflistCalc2 {
-  max-height: 1100px;
+  max-height: 680px;
   width: 300px;
   overflow-y: auto;
   border: 1px solid #ccc;
@@ -632,8 +621,6 @@ html {
   padding: 5px;
   display: flex;
   justify-content: center; /* Center the table horizontally */
-  overflow: auto;
-  max-height: 70%;
 }
 
 .reports-table {
@@ -648,56 +635,11 @@ html {
 
 .reports-table th,
 .reports-table td {
-  padding: 1px;
-  text-align: center;
+  padding: 12px;
+  text-align: left;
   border-bottom: 1px solid #ddd;
   font-size: 1.1em; /* Larger font size for table content */
 }
-
-.reports-table th:nth-child(1),
-    .reports-table td:nth-child(1) {
-        width: 50px; /* Adjust width of ID column */
-    }
-
-.reports-table th:nth-child(2),
-    .reports-table td:nth-child(2) {
-        width: 50px; /* Adjust width of FIRSTNAME column */
-    }
-
-.reports-table th:nth-child(3),
-    .reports-table td:nth-child(3) {
-        width: 50px; /* Adjust width of MIDDLENAME column */
-    }
-
-.reports-table th:nth-child(4),
-    .reports-table td:nth-child(4) {
-        width: 50px; /* Adjust width of LASTNAME column */
-    }
-
-.reports-table th:nth-child(5),
-    .reports-table td:nth-child(5) {
-        width: 50px; /* Adjust width of PHONE NO column */
-    }
-
-.reports-table th:nth-child(6),
-    .reports-table td:nth-child(6) {
-        width: 50px; /* Adjust width of EMAIL column */
-    }
-
-.reports-table th:nth-child(7),
-    .reports-table td:nth-child(7) {
-        width: 80px; /* Adjust width of ADDRESS column */
-    }
-
-.reports-table th:nth-child(8),
-    .reports-table td:nth-child(8) {
-        width: 50px; /* Adjust width of ROLE column */
-    }
-
-.reports-table th:nth-child(9),
-    .reports-table td:nth-child(9) {
-        width: 50px; /* Adjust width of ACTIONS column */
-    }
 
 .reports-table th {
   background-color: #f2f2f2;
