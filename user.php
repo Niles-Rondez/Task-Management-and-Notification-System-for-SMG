@@ -103,7 +103,7 @@
               </div>
             </div>
           </div>
-            <input type="text" class="search-bar me-4 my-0" style="width: 350px;" placeholder="Search...">
+            <input type="text" class="search-bar me-4 my-0" style="width: 350px;" placeholder="Search" id="searchInput">
         </div>
     </div>
     
@@ -209,6 +209,24 @@
                 };
                 
                 modal.show();
+            });
+        });
+
+        // Search functionality
+        document.getElementById('searchInput').addEventListener('input', function() {
+            const searchValue = this.value.toLowerCase();
+            const rows = document.querySelectorAll('.reports-table tbody tr');
+            rows.forEach(row => {
+                const userID = row.children[0].textContent.toLowerCase();
+                const firstName = row.children[1].textContent.toLowerCase();
+                const middleName = row.children[2].textContent.toLowerCase();
+                const lastName = row.children[3].textContent.toLowerCase();
+                
+                if (userID.includes(searchValue) || firstName.includes(searchValue) || middleName.includes(searchValue) || lastName.includes(searchValue)) {
+                    row.style.display = '';
+                } else {
+                    row.style.display = 'none';
+                }
             });
         });
     });
