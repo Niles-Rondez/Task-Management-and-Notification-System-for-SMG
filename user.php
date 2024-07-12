@@ -107,9 +107,9 @@
         </div>
     </div>
     
-    <div class="reports-table-container mx-0 pt-0">
+    <div class="reports-table-container mx-0 pt-0" id="user_table">
         <table class="reports-table">
-            <thead>
+            <thead class="center">
                 <tr>
                     <th>ID</th>
                     <th>FIRSTNAME</th>
