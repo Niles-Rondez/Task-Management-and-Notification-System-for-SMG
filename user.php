@@ -4,6 +4,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <title>Users</title>
 <?php
     include('conn.php');
     include('header.php');

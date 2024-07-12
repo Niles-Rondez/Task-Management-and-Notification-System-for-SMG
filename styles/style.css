@@ -337,24 +337,18 @@ html {
 /* Calendar */
 /* Calendar Container */
 #calendar-container {
-  display: flex;
-  height: calc(100vh - 120px); /* Adjust as needed based on your layout */
-  padding-right: 10px; /* Add space to the right */
-}
-
-/* Calendar */
-#calendar-container {
-  display: flex;
   height: calc(100vh - 120px); /* Adjust as needed based on your layout */
   padding-right: 10px; /* Add space to the right */
 }
 
 /* Calendar */
 #calendar {
-  max-width: 70%; /* Adjust max-width as needed */
-  width: 100%;
+  max-width: 100%; /* Adjust max-width as needed */
+  width: 80%;
   margin-left: 50px; /* Push calendar to the right */
   height: 100%; /* Fill available height */
+  min-width: 80%;
+  position: inherit;
 }
 
 /* Month Title */
@@ -421,8 +415,12 @@ html {
   border-radius: 20px;
   padding: 5px;
   margin-left: 40px;
+  width: initial;
 }
 
+#wrap {
+  min-width: 1500px;
+}
 
 #notiflistCalc {
   max-height: 600px;
@@ -633,8 +631,6 @@ html {
   background-color: #f9f9f9;
   border-radius: 10px;
   overflow: hidden;
-
-  
 }
 
 .reports-table th,
