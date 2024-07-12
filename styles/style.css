@@ -648,11 +648,56 @@ html {
 
 .reports-table th,
 .reports-table td {
-  padding: 12px;
-  text-align: left;
+  padding: 1px;
+  text-align: center;
   border-bottom: 1px solid #ddd;
   font-size: 1.1em; /* Larger font size for table content */
 }
+
+.reports-table th:nth-child(1),
+    .reports-table td:nth-child(1) {
+        width: 50px; /* Adjust width of ID column */
+    }
+
+.reports-table th:nth-child(2),
+    .reports-table td:nth-child(2) {
+        width: 50px; /* Adjust width of FIRSTNAME column */
+    }
+
+.reports-table th:nth-child(3),
+    .reports-table td:nth-child(3) {
+        width: 50px; /* Adjust width of MIDDLENAME column */
+    }
+
+.reports-table th:nth-child(4),
+    .reports-table td:nth-child(4) {
+        width: 50px; /* Adjust width of LASTNAME column */
+    }
+
+.reports-table th:nth-child(5),
+    .reports-table td:nth-child(5) {
+        width: 50px; /* Adjust width of PHONE NO column */
+    }
+
+.reports-table th:nth-child(6),
+    .reports-table td:nth-child(6) {
+        width: 50px; /* Adjust width of EMAIL column */
+    }
+
+.reports-table th:nth-child(7),
+    .reports-table td:nth-child(7) {
+        width: 80px; /* Adjust width of ADDRESS column */
+    }
+
+.reports-table th:nth-child(8),
+    .reports-table td:nth-child(8) {
+        width: 50px; /* Adjust width of ROLE column */
+    }
+
+.reports-table th:nth-child(9),
+    .reports-table td:nth-child(9) {
+        width: 50px; /* Adjust width of ACTIONS column */
+    }
 
 .reports-table th {
   background-color: #f2f2f2;

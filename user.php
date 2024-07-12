@@ -103,7 +103,7 @@
               </div>
             </div>
           </div>
-            <input type="text" class="search-bar me-3 my-0" style="width: 350px;" placeholder="Search...">
+            <input type="text" class="search-bar me-4 my-0" style="width: 350px;" placeholder="Search...">
         </div>
     </div>
     
