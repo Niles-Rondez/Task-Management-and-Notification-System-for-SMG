@@ -79,7 +79,7 @@
 
     <div class="row" id="wrap">
        
-        <div class="col-3 mt-5 ms-5 my-0" id = "leftCal">
+        <div class="col-3  ms-5 my-0" id = "leftCal">
           <div class="btn-group my-1">
                   <button type="button" class="btn px-4 border border-secondary-subtle" id="btnMonth" >Month</button>
                   <button type="button" class="btn px-4 border border-secondary-subtle" id="btnWeek" >Week</button>
