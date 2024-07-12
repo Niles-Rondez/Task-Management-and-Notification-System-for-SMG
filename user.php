@@ -6,7 +6,6 @@
 <head>
 <?php
     include('conn.php');
-    include('addData.php');
     include('header.php');
   ?>
 </head>
@@ -52,72 +51,48 @@
         <h2 class="reports-header ps-3 fw-bold">User Management</h2>
         <div class="reports-options my-0">
             <!-- Modal -->
-            <button type="button" class="btn ms-3 mt-2 mb-0" data-bs-toggle="modal" data-bs-target="#exampleModal" id="addtask">ADD TASK</button>
+            <button type="button" class="btn ms-3 mt-2 mb-0" data-bs-toggle="modal" data-bs-target="#exampleModal" id="addtask">ADD USER</button>
           <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
               <div class="modal-content">
                 <div class="modal-header">
-                  <h1 class="modal-title fs-5" id="exampleModalLabel">Add Task</h1>
+                  <h1 class="modal-title fs-5" id="exampleModalLabel">Add User</h1>
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                   <form  method="POST" action="addUser.php">
                     <div class="input-group mb-3">
-                      <span class="input-group-text" id="inputGroup-sizing-default">Task ID</span>
-                      <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="taskid">
+                      <span class="input-group-text" id="inputGroup-sizing-default">User ID</span>
+                      <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="userID">
                     </div>
                     <div class="input-group mb-3">
-                      <span class="input-group-text" id="inputGroup-sizing-default">Start Date</span>
-                      <input type="text" class="form-control" name="year" placeholder= "YYYY">
-                      <input type="text" class="form-control" name="month" placeholder= "MM">
-                      <input type="text" class="form-control" name="day" placeholder= "DD">
-
-                      </div>
-                    <div class="input-group mb-3">
-                      <span class="input-group-text" id="inputGroup-sizing-default">Order Type</span>
-                      <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="ordertype">
+                      <span class="input-group-text" id="inputGroup-sizing-default">First Name</span>
+                      <input type="text" class="form-control" name="firstName">
                     </div>
                     <div class="input-group mb-3">
-                      <span class="input-group-text" id="inputGroup-sizing-default">Order Description</span>
-                      <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="orderdesc">
+                      <span class="input-group-text" id="inputGroup-sizing-default">Middle Name</span>
+                      <input type="text" class="form-control" name="middleName">
                     </div>
                     <div class="input-group mb-3">
-                      <span class="input-group-text" id="inputGroup-sizing-default">Maintenance Plan</span>
-                      <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="mplan">
+                      <span class="input-group-text" id="inputGroup-sizing-default">Last Name</span>
+                      <input type="text" class="form-control" name="lastName">
                     </div>
                     <div class="input-group mb-3">
-                      <span class="input-group-text" id="inputGroup-sizing-default">Plan Description</span>
-                      <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="pdesc">
+                      <span class="input-group-text" id="inputGroup-sizing-default">Phone No</span>
+                      <input type="text" class="form-control" name="contact">
                     </div>
                     <div class="input-group mb-3">
-                      <span class="input-group-text" id="inputGroup-sizing-default">Main Work CTR</span>
-                      <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="mwctr">
+                      <span class="input-group-text" id="inputGroup-sizing-default">Email</span>
+                      <input type="email" class="form-control" name="email">
                     </div>
                     <div class="input-group mb-3">
-                      <span class="input-group-text" id="inputGroup-sizing-default">System Status</span>
-                      <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="sysstat">
+                      <span class="input-group-text" id="inputGroup-sizing-default">Address</span>
+                      <input type="text" class="form-control" name="address">
                     </div>
                     <div class="input-group mb-3">
-                      <span class="input-group-text" id="inputGroup-sizing-default">System Status Description</span>
-                      <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="sysdesc">
+                      <span class="input-group-text" id="inputGroup-sizing-default">Role</span>
+                      <input type="text" class="form-control" name="role">
                     </div>
-                    <div class="input-group mb-3">
-                      <span class="input-group-text" id="inputGroup-sizing-default">Planner Group</span>
-                      <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="pgroup">
-                    </div>
-                    <div class="input-group mb-3">
-                      <span class="input-group-text" id="inputGroup-sizing-default">Cost Center</span>
-                      <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="cstcen">
-                    </div>
-                    <div class="input-group mb-3">
-                      <span class="input-group-text" id="inputGroup-sizing-default">Equipment ID</span>
-                      <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="eqid">
-                    </div>
-                    <!--Aask status
-                    <div class="input-group mb-3">
-                      <span class="input-group-text" id="inputGroup-sizing-default">Task Status</span>
-                      <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="tskstat">
-                    </div>-->
                     <div class="modal-footer">
                       <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" name="close">Close</button>
                       <input type="submit" class="btn btn-primary" name="submit" value="SAVE"> 
@@ -146,6 +121,7 @@
                     <th>ACTIONS</th>
                 </tr>
             </thead>
+            <tbody>
             <?php
                 $sql_tasks = "SELECT * FROM users";
                 $result_tasks = $conn->query($sql_tasks);
@@ -165,12 +141,68 @@
                         echo '</tr>'; 
                     }
                 } else {
-                    echo '<tr><td colspan="2">No tasks found.</td></tr>';
+                    echo '<tr><td colspan="9">No users found.</td></tr>';
                 }
             ?>
-        
             </tbody>
         </table>
     </div>
+    
+    <!-- Add the JavaScript here -->
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        document.querySelectorAll('.edit-button').forEach(button => {
+            button.addEventListener('click', function() {
+                // Fetch the relevant row data
+                const row = this.closest('tr');
+                const userID = row.children[0].textContent;
+                const firstName = row.children[1].textContent;
+                const middleName = row.children[2].textContent;
+                const lastName = row.children[3].textContent;
+                const contact = row.children[4].textContent;
+                const email = row.children[5].textContent;
+                const address = row.children[6].textContent;
+                const role = row.children[7].textContent;
+
+                // Set the modal fields with the row data
+                const modal = document.querySelector('#exampleModal');
+                modal.querySelector('input[name="userID"]').value = userID;
+                modal.querySelector('input[name="firstName"]').value = firstName;
+                modal.querySelector('input[name="middleName"]').value = middleName;
+                modal.querySelector('input[name="lastName"]').value = lastName;
+                modal.querySelector('input[name="contact"]').value = contact;
+                modal.querySelector('input[name="email"]').value = email;
+                modal.querySelector('input[name="address"]').value = address;
+                modal.querySelector('input[name="role"]').value = role;
+                modal.querySelector('form').action = 'editUser.php';
+
+                // Show the modal
+                new bootstrap.Modal(modal).show();
+            });
+        });
+
+        document.querySelectorAll('.delete-button').forEach(button => {
+            button.addEventListener('click', function() {
+                // Fetch the relevant row data
+                const row = this.closest('tr');
+                const userID = row.children[0].textContent;
+
+                // Create a form to submit the delete request
+                const form = document.createElement('form');
+                form.method = 'POST';
+                form.action = 'deleteUser.php';
+                const input = document.createElement('input');
+                input.type = 'hidden';
+                input.name = 'userID';
+                input.value = userID;
+                form.appendChild(input);
+
+                // Append the form to the body and submit it
+                document.body.appendChild(form);
+                form.submit();
+            });
+        });
+    });
+    </script>
 </body>
 </html>
