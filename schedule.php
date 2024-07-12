@@ -86,6 +86,7 @@
                   <button type="button" class="btn px-4 border border-secondary-subtle" id="btnDay">Day</button>
           </div>
             <!-- Modal -->
+            <input type="text" class="search-bar mx-1 mt-1" style="width: 270px;" placeholder="Search Task...">
           <button type="button" class="btn my-2 border border-secondary-subtle" data-bs-toggle="modal" data-bs-target="#exampleModal" id="addtaskSched"> Add Task </button>
           <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
