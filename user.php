@@ -221,8 +221,9 @@
                 const firstName = row.children[1].textContent.toLowerCase();
                 const middleName = row.children[2].textContent.toLowerCase();
                 const lastName = row.children[3].textContent.toLowerCase();
+                const role = row.children[7].textContent.toLowerCase();
                 
-                if (userID.includes(searchValue) || firstName.includes(searchValue) || middleName.includes(searchValue) || lastName.includes(searchValue)) {
+                if (userID.includes(searchValue) || firstName.includes(searchValue) || middleName.includes(searchValue) || lastName.includes(searchValue) || role.includes(searchValue)) {
                     row.style.display = '';
                 } else {
                     row.style.display = 'none';
