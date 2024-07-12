@@ -20,8 +20,8 @@
       <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
         <div class="offcanvas-header" id="dash">
           <!--Sidebar Burger-->
-          <img src="images/menu-bar.png" data-bs-toggle="offcanvas" href="#offcanvasExample" aria-controls="offcanvasExample" id="burger1">
-          <h1 id="navheader">NOTIFICATIONS</h1>
+          <img src="images/menu-bar.png" data-bs-toggle="offcanvas" href="#offcanvasExample" aria-controls="offcanvasExample" id="burger1" class="ms-3 mt-0">
+          <h1 id="navheader" class="ms-2">NOTIFICATIONS</h1>
         </div>
         <div class="offcanvas-body">
           <div >
