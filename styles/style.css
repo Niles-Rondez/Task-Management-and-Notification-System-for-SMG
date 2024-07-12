@@ -339,22 +339,21 @@ html {
 #calendar-container {
   display: flex;
   height: calc(100vh - 120px); /* Adjust as needed based on your layout */
-  padding-right: 10px; /* Add space to the right */
+  padding-right: ; /* Add space to the right */
 }
 
 /* Calendar */
 #calendar-container {
   display: flex;
   height: calc(100vh - 120px); /* Adjust as needed based on your layout */
-  padding-right: 10px; /* Add space to the right */
+  padding-right: ; /* Add space to the right */
 }
 
 /* Calendar */
 #calendar {
-  max-width: 70%; /* Adjust max-width as needed */
-  width: 100%;
-  margin-left: 50px; /* Push calendar to the right */
-  height: 100%; /* Fill available height */
+  margin-right: 10 px; /* Push calendar to the right */
+  width: 1200%;
+  height: 80%;
 }
 
 /* Month Title */
@@ -420,7 +419,10 @@ html {
   border: 2px solid #ced4da;
   border-radius: 20px;
   padding: 5px;
-  margin-left: 40px;
+  margin-left: px;
+  margin-right: 50px;
+  max-width: 350px;;
+  height: 1200px;
 }
 
 
@@ -436,7 +438,7 @@ html {
 }
 
 #notiflistCalc2 {
-  max-height: 680px;
+  max-height: 1100px;
   width: 300px;
   overflow-y: auto;
   border: 1px solid #ccc;

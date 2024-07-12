@@ -78,7 +78,7 @@
 
     <div class="row">
        
-        <div class="col-2 mt-5 " id = "leftCal">
+        <div class="col-3 mt-5 ms-5 my-0" id = "leftCal">
           <div class="btn-group my-1">
                   <button type="button" class="btn px-4 border border-secondary-subtle" id="btnMonth" style="background-color: #a1a1a1; color: black">Month</button>
                   <button type="button" class="btn px-4 border border-secondary-subtle" id="btnWeek" style="background-color: #a1a1a1; color: black">Week</button>
@@ -210,6 +210,7 @@
                 selectable: false, // Disable event selection
                 selectHelper: false, // Disable selecting helper
                 events: 'schedule.php?action=fetch', // Fetch events from schedule.php?action=fetch
+                aspectRatio: 1.3,
                 eventRender: function(event, element) {
                     // Display taskID as a tooltip on the event
                     element.attr('title', 'TaskID: ' + event.id);
