@@ -188,23 +188,51 @@
                 const row = this.closest('tr');
                 const userID = row.children[0].textContent;
 
-                // Create a form to submit the delete request
-                const form = document.createElement('form');
-                form.method = 'POST';
-                form.action = 'deleteUser.php';
-                const input = document.createElement('input');
-                input.type = 'hidden';
-                input.name = 'userID';
-                input.value = userID;
-                form.appendChild(input);
+                // Show the confirmation modal
+                const modal = new bootstrap.Modal(document.getElementById('deleteModal'));
+                const confirmButton = document.getElementById('confirmDeleteButton');
+                
+                confirmButton.onclick = function() {
+                    // Create a form to submit the delete request
+                    const form = document.createElement('form');
+                    form.method = 'POST';
+                    form.action = 'deleteUser.php';
+                    const input = document.createElement('input');
+                    input.type = 'hidden';
+                    input.name = 'userID';
+                    input.value = userID;
+                    form.appendChild(input);
 
-                // Append the form to the body and submit it
-                document.body.appendChild(form);
-                form.submit();
+                    // Append the form to the body and submit it
+                    document.body.appendChild(form);
+                    form.submit();
+                };
+                
+                modal.show();
             });
         });
     });
     </script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    
+    <!-- Delete Confirmation Modal -->
+    <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="deleteModalLabel">Confirm Delete</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            Are you sure you want to delete this user?
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+            <button type="button" class="btn btn-danger" id="confirmDeleteButton">Delete</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
 </html>

@@ -1,18 +1,24 @@
 <?php
 include('conn.php');
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $userID = $_POST['userID'];
 
-    $sql = "DELETE FROM users WHERE userID='$userID'";
+    // Delete related reports first
+    $deleteReportsQuery = "DELETE FROM reports WHERE userID = ?";
+    $stmt = $conn->prepare($deleteReportsQuery);
+    $stmt->bind_param("s", $userID);
+    $stmt->execute();
+    $stmt->close();
 
-    if ($conn->query($sql) === TRUE) {
-        echo "User deleted successfully";
-    } else {
-        echo "Error: " . $sql . "<br>" . $conn->error;
-    }
+    // Now delete the user
+    $deleteUserQuery = "DELETE FROM users WHERE userID = ?";
+    $stmt = $conn->prepare($deleteUserQuery);
+    $stmt->bind_param("s", $userID);
+    $stmt->execute();
+    $stmt->close();
 
-    $conn->close();
-    header("Location: users.php");
+    header("Location: user.php");
+    exit();
 }
 ?>
