@@ -488,7 +488,7 @@ html {
   color: inherit; /* Use the default text color */
 }
 
-/*notifs*/
+/* Notifs */
 .header-notification {
   padding: 20px;
   margin-top: 20px;
@@ -502,12 +502,10 @@ html {
   display: flex;
   align-items: center;
   margin-bottom: 15px;
-  margin-left: 100px;
 }
 
 .notification-title {
   font-size: 1.5em;
-  margin: 0;
   margin-left: 20px;
 }
 
@@ -525,7 +523,6 @@ html {
 
 .options input[type="checkbox"] {
   display: none;
-  margin-right: 5px;
 }
 
 .options label {
@@ -579,7 +576,7 @@ html {
   border-radius: 5px;
 }
 
-/*users*/
+/* Users */
 .header-reports {
   padding: 20px;
   margin-top: 20px;
@@ -587,7 +584,7 @@ html {
 
 .reports-header {
   margin-bottom: 10px;
-  font-size: 1.75em; /* Larger font size for header */
+  font-size: 1.75em;
 }
 
 .reports-options {
@@ -601,30 +598,29 @@ html {
 .search-bar {
   padding: 8px;
   border-radius: 10px;
-  border: 1px solid gray; /* Gray outline */
 }
 
 .add-button {
-  background-color: gray; /* Gray color for add button */
+  background-color: gray;
   color: white;
   border: none;
   cursor: pointer;
 }
 
 .search-bar {
-  background-color: lightgray; /* Lighter gray fill */
-  width: 200px; /* Adjust width for search bar */
-  margin-left: auto; /* Align to the right */
+  background-color: lightgray;
+  width: 200px;
+  margin-left: auto;
 }
 
 .reports-table-container {
   padding: 5px;
   display: flex;
-  justify-content: center; /* Center the table horizontally */
+  justify-content: center;
 }
 
 .reports-table {
-  width: 97%; /* Set the table width to 100% */
+  width: 97%;
   max-height: 625px;
   border-collapse: collapse;
   margin-bottom: 20px;
@@ -638,7 +634,7 @@ html {
   padding: 12px;
   text-align: left;
   border-bottom: 1px solid #ddd;
-  font-size: 1.1em; /* Larger font size for table content */
+  font-size: 1.1em;
 }
 
 .reports-table th {
