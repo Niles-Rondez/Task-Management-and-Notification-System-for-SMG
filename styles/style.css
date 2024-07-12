@@ -399,11 +399,15 @@ html {
 }
 
 #addtaskSched {
-  background-color: #a1a1a1;
+  background-color: #d9d9d9;
   stroke: #a1a1a1;
   color: #000;
   border-radius: 5px;
   width: 262px;
+}
+
+#addtaskSched:hover {
+  background-color: #a1a1a1;
 }
 
 #leftCal {
@@ -658,3 +662,14 @@ html {
   border-radius: 5px;
   cursor: pointer;
 }
+
+
+#btnMonth, #btnWeek, #btnDay, #exportBtn {
+  background-color: #d9d9d9;
+  color: #000;
+}
+
+#btnMonth:hover, #btnWeek:hover, #btnDay:hover, #exportBtn:hover{
+  background-color: #a1a1a1;
+}
+

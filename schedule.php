@@ -81,9 +81,9 @@
        
         <div class="col-3 mt-5 ms-5 my-0" id = "leftCal">
           <div class="btn-group my-1">
-                  <button type="button" class="btn px-4 border border-secondary-subtle" id="btnMonth" style="background-color: #a1a1a1; color: black">Month</button>
-                  <button type="button" class="btn px-4 border border-secondary-subtle" id="btnWeek" style="background-color: #a1a1a1; color: black">Week</button>
-                  <button type="button" class="btn px-4 border border-secondary-subtle" id="btnDay" style="background-color: #a1a1a1; color: black">Day</button>
+                  <button type="button" class="btn px-4 border border-secondary-subtle" id="btnMonth" >Month</button>
+                  <button type="button" class="btn px-4 border border-secondary-subtle" id="btnWeek" >Week</button>
+                  <button type="button" class="btn px-4 border border-secondary-subtle" id="btnDay">Day</button>
           </div>
             <!-- Modal -->
           <button type="button" class="btn my-2 border border-secondary-subtle" data-bs-toggle="modal" data-bs-target="#exampleModal" id="addtaskSched"> Add Task </button>
