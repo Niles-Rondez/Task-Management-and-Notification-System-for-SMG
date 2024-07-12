@@ -189,7 +189,86 @@
           </div>
 
       </div>
+<!-- Update Task Modal -->
+<div class="modal fade" id="updateTaskModal" tabindex="-1" aria-labelledby="updateTaskModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="updateTaskModalLabel">Update Task Status</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form method="POST" action="editData.php" id="updateTaskForm">
+                    <!-- Hidden input field for taskID -->
+                    <input type="hidden" name="taskID" id="taskID">
 
+                    <!-- Display taskID (not editable) -->
+                    <div class="mb-3">
+                        <label for="taskIDDisplay" class="form-label">Task ID</label>
+                        <input type="text" class="form-control" id="taskIDDisplay" name="taskIDDisplay" >
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="orderType" class="form-label">Order Type</label>
+                        <input type="text" class="form-control" id="orderType" name="orderType" >
+                    </div>
+                    <div class="mb-3">
+                        <label for="orderDesc" class="form-label">Order Description</label>
+                        <input type="text" class="form-control" id="orderDesc" name="orderDesc" >
+                    </div>
+                    <div class="mb-3">
+                        <label for="mplan" class="form-label">Maintenance Plan</label>
+                        <input type="text" class="form-control" id="mplan" name="mplan" >
+                    </div>
+                    <div class="mb-3">
+                        <label for="pdesc" class="form-label">Plan Description</label>
+                        <input type="text" class="form-control" id="pdesc" name="pdesc" >
+                    </div>
+                    <div class="mb-3">
+                        <label for="mainWorkCtr" class="form-label">Main Work CTR</label>
+                        <input type="text" class="form-control" id="mainWorkCtr" name="mainWorkCtr" >
+                    </div>
+                    <div class="mb-3">
+                        <label for="sysstat" class="form-label">System Status</label>
+                        <input type="text" class="form-control" id="sysstat" name="sysstat" >
+                    </div>
+                    <div class="mb-3">
+                        <label for="sysdesc" class="form-label">System Status Description</label>
+                        <input type="text" class="form-control" id="sysdesc" name="sysdesc" >
+                    </div>
+                    <div class="mb-3">
+                        <label for="pgroup" class="form-label">Planner Group</label>
+                        <input type="text" class="form-control" id="pgroup" name="pgroup" >
+                    </div>
+                    <div class="mb-3">
+                        <label for="cstcen" class="form-label">Cost Center</label>
+                        <input type="text" class="form-control" id="cstcen" name="cstcen" >
+                    </div>
+                    <div class="mb-3">
+                        <label for="eqid" class="form-label">Equipment ID</label>
+                        <input type="text" class="form-control" id="eqid" name="eqid" >
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Task Status</label><br>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" id="taskStatusPending" name="taskStatus" value="Pending">
+                            <label class="form-check-label" for="taskStatusPending">Pending</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" id="taskStatusCompleted" name="taskStatus" value="Completed">
+                            <label class="form-check-label" for="taskStatusCompleted">Completed</label>
+                        </div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary" name="submit">Save changes</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
         <div class="col-9">
         <div id='calendar-container' class="ms-0">
             <div id='calendar' class=""></div>
@@ -231,7 +310,29 @@
         });
         
     </script>
+<script>
+    function fillModal(taskID, orderType, mainWorkCtr) {
+        // Set values in the modal form
+        document.getElementById('taskID').value = taskID;
+        document.getElementById('taskIDDisplay').value = taskID;
+        document.getElementById('orderType').value = orderType;
+        document.getElementById('orderDesc').value = ''; // Replace with the appropriate value
+        document.getElementById('mplan').value = ''; // Replace with the appropriate value
+        document.getElementById('pdesc').value = ''; // Replace with the appropriate value
+        document.getElementById('mainWorkCtr').value = mainWorkCtr;
+        document.getElementById('sysstat').value = ''; // Replace with the appropriate value
+        document.getElementById('sysdesc').value = ''; // Replace with the appropriate value
+        document.getElementById('pgroup').value = ''; // Replace with the appropriate value
+        document.getElementById('cstcen').value = ''; // Replace with the appropriate value
+        document.getElementById('eqid').value = ''; // Replace with the appropriate value
 
+        // Clear previous selection of task status
+        var radios = document.getElementsByName('taskStatus');
+        for (var i = 0; i < radios.length; i++) {
+            radios[i].checked = false;
+        }
+    }
+</script>
 </body>
 </html>
 
