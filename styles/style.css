@@ -632,6 +632,8 @@ html {
   padding: 5px;
   display: flex;
   justify-content: center; /* Center the table horizontally */
+  overflow: auto;
+  max-height: 70%;
 }
 
 .reports-table {
