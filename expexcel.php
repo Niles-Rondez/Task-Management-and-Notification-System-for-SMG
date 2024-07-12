@@ -1,8 +1,8 @@
 <?php
-// Include database connection and any required files
-require('conn.php');
+// Include database connection
+include('conn.php');
 
-// Fetch data from your database based on filter criteria
+// Fetch data based on filter criteria (if any)
 $query = "SELECT reportID, taskID, userID, completionDate FROM reports";
 // You can add WHERE clauses to $query based on filter criteria
 
@@ -11,41 +11,25 @@ $result = mysqli_query($conn, $query);
 if (!$result) {
     die('Query failed: ' . mysqli_error($conn));
 }
-?>
 
-<form id="export-form" action="expexcel.php" method="post">
-    <input type="hidden" name="query" value="<?php echo htmlspecialchars($query); ?>">
-    <input type="hidden" name="filtered" value="true">
-    <button type="submit" name="export_excel">Export Excel</button>
-</form>
+// Set headers for CSV file download
+header('Content-Type: text/csv');
+header('Content-Disposition: attachment; filename="reports.csv"');
+header('Cache-Control: max-age=0');
 
-<div class="reports-table-container" id="reports_table">
-    <table class="reports-table">
-        <thead>
-            <tr>
-                <th>Report Type</th>
-                <th>Task ID</th>
-                <th>Assignment</th>
-                <th>Date</th>
-            </tr>
-        </thead>
-        <tbody>
-        <?php
-        // Start generating table rows
-        while ($row = mysqli_fetch_assoc($result)) {
-            echo '<tr>';
-            echo '<td>' . $row['reportID'] . '</td>';
-            echo '<td>' . $row['taskID'] . '</td>';
-            echo '<td>' . $row['userID'] . '</td>';
-            echo '<td>' . $row['completionDate'] . '</td>';
-            echo '</tr>';
-        }
-        ?>
-        </tbody>
-    </table>
-</div>
+// Create a file pointer connected to the output stream
+$file = fopen('php://output', 'w');
 
-<?php
-// Close the MySQL connection
-mysqli_close($conn);
+// Output CSV column headers
+fputcsv($file, array('Report ID', 'Task ID', 'User ID', 'Completion Date'));
+
+// Fetching and outputting data row by row
+while ($row = mysqli_fetch_assoc($result)) {
+    fputcsv($file, $row);
+}
+
+// Close the file pointer
+fclose($file);
+
+exit;
 ?>
