@@ -513,7 +513,14 @@ html {
   color: #ffffff;
   border-radius: 10px;
   box-shadow: 2px 2px 2px 2px #ccc;
+  cursor: pointer;
 }
+
+#notiflistCalc2 td:hover {
+  background-color: rgba(103, 131, 80, 0.8);
+  cursor: pointer;
+}
+
 
 #notiflistCalc2 td .order-type {
   display: inline-block;
