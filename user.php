@@ -109,10 +109,10 @@
     
     <div class="reports-table-container mx-0 pt-0" id="user_table">
         <table class="reports-table">
-            <thead class="center">
+            <thead>
                 <tr>
                     <th>ID</th>
-                    <th>FIRSTNAME</th>
+                    <th>FIRST NAME</th>
                     <th>MIDDLE NAME</th>
                     <th>LAST NAME</th>
                     <th>PHONE NO</th>
