@@ -62,12 +62,6 @@
                 </div>
             </div>
             <div class="options-right">
-                <select class="rounded" id="select-option-1">
-                    <option value="" disabled selected>Select Method</option>
-                    <option value="SMS">SMS</option>
-                    <option value="Text">Text</option>
-                    <option value="Email">Email</option>
-                </select>
                 <select class="rounded" id="select-option-2">
                     <option value="" disabled selected>Select Frequency</option>
                     <option value="hourly">Hourly</option>
@@ -87,12 +81,6 @@
                 </div>
             </div>
             <div class="options-right">
-                <select class="rounded" id="select-option-3">
-                    <option value="" disabled selected>Select Method</option>
-                    <option value="SMS">SMS</option>
-                    <option value="Text">Text</option>
-                    <option value="Email">Email</option>
-                </select>
                 <select class="rounded" id="select-option-4">
                     <option value="" disabled selected>Select Frequency</option>
                     <option value="hourly">Hourly</option>
@@ -112,12 +100,6 @@
                 </div>
             </div>
             <div class="options-right">
-                <select class="rounded" id="select-option-5">
-                    <option value="" disabled selected>Select Method</option>
-                    <option value="SMS">SMS</option>
-                    <option value="Text">Text</option>
-                    <option value="Email">Email</option>
-                </select>
                 <select class="rounded" id="select-option-6">
                     <option value="" disabled selected>Select Frequency</option>
                     <option value="hourly">Hourly</option>
@@ -137,12 +119,6 @@
                 </div>
             </div>
             <div class="options-right">
-                <select class="rounded" id="select-option-7">
-                    <option value="" disabled selected>Select Method</option>
-                    <option value="SMS">SMS</option>
-                    <option value="Text">Text</option>
-                    <option value="Email">Email</option>
-                </select>
                 <select class="rounded" id="select-option-8">
                     <option value="" disabled selected>Select Frequency</option>
                     <option value="hourly">Hourly</option>
@@ -162,12 +138,6 @@
                 </div>
             </div>
             <div class="options-right">
-                <select class="rounded" id="select-option-9">
-                    <option value="" disabled selected>Select Method</option>
-                    <option value="SMS">SMS</option>
-                    <option value="Text">Text</option>
-                    <option value="Email">Email</option>
-                </select>
                 <select class="rounded" id="select-option-10">
                     <option value="" disabled selected>Select Frequency</option>
                     <option value="hourly">Hourly</option>
@@ -187,12 +157,6 @@
                 </div>
             </div>
             <div class="options-right">
-                <select class="rounded" id="select-option-11">
-                    <option value="" disabled selected>Select Method</option>
-                    <option value="SMS">SMS</option>
-                    <option value="Text">Text</option>
-                    <option value="Email">Email</option>
-                </select>
                 <select class="rounded" id="select-option-12">
                     <option value="" disabled selected>Select Frequency</option>
                     <option value="hourly">Hourly</option>
@@ -212,12 +176,6 @@
                 </div>
             </div>
             <div class="options-right">
-                <select class="rounded" id="select-option-13">
-                    <option value="" disabled selected>Select Method</option>
-                    <option value="SMS">SMS</option>
-                    <option value="Text">Text</option>
-                    <option value="Email">Email</option>
-                </select>
                 <select class="rounded" id="select-option-14">
                     <option value="" disabled selected>Select Frequency</option>
                     <option value="hourly">Hourly</option>
@@ -237,12 +195,6 @@
                 </div>
             </div>
             <div class="options-right">
-                <select class="rounded" id="select-option-15">
-                    <option value="" disabled selected>Select Method</option>
-                    <option value="SMS">SMS</option>
-                    <option value="Text">Text</option>
-                    <option value="Email">Email</option>
-                </select>
                 <select class="rounded" id="select-option-16">
                     <option value="" disabled selected>Select Frequency</option>
                     <option value="hourly">Hourly</option>
