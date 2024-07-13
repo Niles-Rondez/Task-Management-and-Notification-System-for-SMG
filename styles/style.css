@@ -381,6 +381,8 @@ html {
   padding-bottom: 20px;
   color: #000;
 }
+
+
 /* End of Reports CSS */
 
 /*Calendar*/
@@ -734,14 +736,16 @@ html {
 }
 
 
-#btnMonth, #btnWeek, #btnDay, #exportBtn {
+#btnMonth, #btnWeek, #btnDay, #exportBtn, #reportSortDropdown, #taskSortDropdown, #assignmentSortDropdown, #dateSortDropdown {
   background-color: #d9d9d9;
   color: #000;
 }
 
-#btnMonth:hover, #btnWeek:hover, #btnDay:hover, #exportBtn:hover{
+#btnMonth:hover, #btnWeek:hover, #btnDay:hover, #exportBtn:hover, #reportSortDropdown:hover, #taskSortDropdown:hover, #assignmentSortDropdown:hover, #dateSortDropdown:hover {
   background-color: #a1a1a1;
 }
+
+
 
 .export-excel-button {
   display: inline-block;
