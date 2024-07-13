@@ -89,7 +89,7 @@ $result = mysqli_query($conn, $query);
         <div class="reports-options ps-3">
             <!-- Dropdowns in the desired order: Report Type, Task ID, Assignment, Completion Date -->
             <div class="dropdown">
-                <button class="btn dropdown-toggle rounded fw-bold mb-0" type="button" id="reportSortDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                <button class="btn dropdown-toggle rounded mb-0" type="button" id="reportSortDropdown" data-bs-toggle="dropdown" aria-expanded="false">
                     REPORT TYPE
                 </button>
                 <ul class="dropdown-menu" aria-labelledby="reportSortDropdown">
@@ -99,7 +99,7 @@ $result = mysqli_query($conn, $query);
             </div>
             
             <div class="dropdown">
-                <button class="btn dropdown-toggle rounded fw-bold mb-0" type="button" id="taskSortDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                <button class="btn dropdown-toggle rounded mb-0" type="button" id="taskSortDropdown" data-bs-toggle="dropdown" aria-expanded="false">
                     TASK ID
                 </button>
                 <ul class="dropdown-menu" aria-labelledby="taskSortDropdown">
@@ -109,7 +109,7 @@ $result = mysqli_query($conn, $query);
             </div>
             
             <div class="dropdown">
-                <button class="btn dropdown-toggle rounded fw-bold mb-0" type="button" id="assignmentSortDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                <button class="btn dropdown-toggle rounded mb-0" type="button" id="assignmentSortDropdown" data-bs-toggle="dropdown" aria-expanded="false">
                     ASSIGNMENT
                 </button>
                 <ul class="dropdown-menu" aria-labelledby="assignmentSortDropdown">
@@ -119,7 +119,7 @@ $result = mysqli_query($conn, $query);
             </div>
             
             <div class="dropdown">
-                <button class="btn dropdown-toggle rounded fw-bold me-5 mb-0" type="button" id="dateSortDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                <button class="btn dropdown-toggle rounded me-5 mb-0" type="button" id="dateSortDropdown" data-bs-toggle="dropdown" aria-expanded="false">
                     COMPLETION DATE
                 </button>
                 <ul class="dropdown-menu" aria-labelledby="dateSortDropdown">
