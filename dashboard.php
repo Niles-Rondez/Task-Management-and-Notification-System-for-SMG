@@ -80,8 +80,40 @@ mysqli_close($conn);
     include('addData.php');
     include('header.php');
   ?>
+    <script src="./assets/js/jquery.min.js"></script>
+    <script src="./assets/js/bootstrap.min.js"></script>
 </head>
 <body>
+<?php
+       $find_notifications = "Select * from tasks where TaskStatus = 'Pending'";
+       $result = mysqli_query($conn,$find_notifications);
+       $count_active = '';
+       $notifications_data = array(); 
+       $deactive_notifications_dump = array();
+        while($rows = mysqli_fetch_assoc($result)){
+                $count_active = mysqli_num_rows($result);
+                $notifications_data[] = array(
+                            "taskID" => $rows['taskID'],
+                            "orderType"=>$rows['orderType'],
+                            "orderDescription"=>$rows['orderDescription']
+                );
+        }
+        //only five specific posts
+        $deactive_notifications = "Select * from tasks where TaskStatus = 'Pending' ORDER BY taskID DESC LIMIT 0,5";
+        $result = mysqli_query($conn,$deactive_notifications);
+        while($rows = mysqli_fetch_assoc($result)){
+          $deactive_notifications_dump[] = array(
+            "taskID" => $rows['taskID'],
+            "orderType"=>$rows['orderType'],
+            "orderDescription"=>$rows['orderDescription']
+          );
+        }
+
+     ?>
+
+
+
+
   <!--Navbar-->
   <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid" id="side-menu">
@@ -108,6 +140,50 @@ mysqli_close($conn);
       <div class="collapse navbar-collapse" id="navbarNav">
         <img src="images/San_Miguel_Corporation_logo.webp" id="navlogo"><br>
         <a class="navbar-brand" id="tms" href="dashboard.php">Task Management System</a>
+        <ul class="nav navbar-nav navbar-right">
+        <li><img src="images/bell.webp" class="fa fa-bell" id="burger" data-value ="<?php echo $count_active;?>" style="z-index:-99 !important;font-size:32px;color:white;margin:0.5rem 0.4rem !important;"></img></li>  
+          <?php if(!empty($count_active)){?>
+                    <div class="round" id="bell-count" data-value ="<?php echo $count_active;?>"><span><?php echo $count_active; ?></span></div>
+                    <?php }?>
+                     
+                    <?php if(!empty($count_active)){?>
+                      <div id="list">
+                       <?php
+                          foreach($notifications_data as $list_rows){?>
+                            <li id="message_items">
+                            <div class="message alert alert-warning" data-id=<?php echo $list_rows['taskID'];?>>
+                              <span><?php echo $list_rows['orderType'];?></span>
+                              <div class="msg">
+                                <p><?php 
+                                  echo $list_rows['orderDescription'];
+                                ?></p>
+                              </div>
+                            </div>
+                            </li>
+                         <?php }
+                       ?> 
+                       </div> 
+                     <?php }else{?>
+                        <!--old Messages-->
+                        <div id="list">
+                        <?php
+                          foreach($deactive_notifications_dump as $list_rows){?>
+                            <li id="message_items">
+                            <div class="message alert alert-danger" data-id=<?php echo $list_rows['taskID'];?>>
+                              <span><?php echo $list_rows['orderType'];?></span>
+                              <div class="msg">
+                                <p><?php 
+                                  echo $list_rows['orderDescription'];
+                                ?></p>
+                              </div>
+                            </div>
+                            </li>
+                         <?php }
+                       ?>
+                        <!--old Messages-->
+                     
+                     <?php } ?>
+        </ul>
         <ul class="navbar-nav ms-auto">
           <li class="nav-item">
             <a class="nav-link" href="index.php" id="logout">Log Out</a>
@@ -490,6 +566,61 @@ mysqli_close($conn);
     document.getElementById('urgency').value = urgency;
 
 }
+
+$(document).ready(function(){
+    var ids = new Array();
+    $('#over').on('click',function(){
+           $('#list').toggle();  
+       });
+
+   //Message with Ellipsis
+   $('div.msg').each(function(){
+       var len =$(this).text().trim(" ").split(" ");
+      if(len.length > 12){
+         var add_elip =  $(this).text().trim().substring(0, 65) + "…";
+         $(this).text(add_elip);
+      }
+     
+}); 
+
+
+   $("#bell-count").on('click',function(e){
+        e.preventDefault();
+
+        let belvalue = $('#bell-count').attr('data-value');
+        
+        if(belvalue == ''){
+         
+          console.log("inactive");
+        }else{
+          $(".round").css('display','none');
+          $("#list").css('display','block');
+          
+          // $('.message').each(function(){
+          // var i = $(this).attr("data-id");
+          // ids.push(i);
+          
+          // });
+          //Ajax
+          $('.message').click(function(e){
+            e.preventDefault();
+              $.ajax({
+                url:'./connection/deactive.php',
+                type:'POST',
+                data:{"id":$(this).attr('data-id')},
+                success:function(data){
+                 
+                    console.log(data);
+                    location.reload();
+                }
+            });
+        });
+     }
+   });
+
+
+
+
 </script>
 </body>
 </html>
