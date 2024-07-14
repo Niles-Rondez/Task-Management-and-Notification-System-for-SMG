@@ -168,7 +168,8 @@ html {
   color: #000;
 }
 
-#statusDropdown {
+#statusDropdown,
+#urgencyDropdown {
   float: right;
   background-color: #d9d9d9;
   stroke: #d9d9d9;
@@ -188,6 +189,12 @@ html {
 }
 
 #statusDropdown:hover {
+  background-color: #5e5e5e;
+  stroke: #5e5e5e;
+  color: #ffffff;
+}
+
+#urgencyDropdown:hover {
   background-color: #5e5e5e;
   stroke: #5e5e5e;
   color: #ffffff;
