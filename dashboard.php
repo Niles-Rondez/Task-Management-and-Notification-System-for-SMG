@@ -8,9 +8,11 @@ $selectedStatus = isset($_GET['status']) ? $_GET['status'] : 'all'; // Default t
 $currentDate = date('Y-m-d');
 $tomorrowDate = date('Y-m-d', strtotime('+1 day'));
 $weekEndDate = date('Y-m-d', strtotime('+1 week'));
+$firstDayOfMonth = date('Y-m-01');
+$lastDayOfMonth = date('Y-m-t');
 
 // Build base query
-$query = "SELECT * FROM tasks WHERE 1=1";
+$query = "SELECT * FROM tasks WHERE startDate BETWEEN '$firstDayOfMonth' AND '$lastDayOfMonth'";
 
 // Apply sorting based on selected filter
 switch ($selectedSort) {
@@ -43,23 +45,23 @@ switch ($selectedStatus) {
 
 $result = mysqli_query($conn, $query);
 
-// Fetch counts for total, pending, upcoming, completed tasks
-$sqlTotalTasks = "SELECT COUNT(*) AS totalTasks FROM tasks";
+// Fetch counts for total, pending, upcoming, completed tasks within the current month
+$sqlTotalTasks = "SELECT COUNT(*) AS totalTasks FROM tasks WHERE startDate BETWEEN '$firstDayOfMonth' AND '$lastDayOfMonth'";
 $resultTotalTasks = mysqli_query($conn, $sqlTotalTasks);
 $rowTotalTasks = mysqli_fetch_assoc($resultTotalTasks);
 $totalTasks = $rowTotalTasks['totalTasks'];
 
-$sqlPendingTasks = "SELECT COUNT(*) AS pendingTasks FROM tasks WHERE startDate = '$currentDate'";
+$sqlPendingTasks = "SELECT COUNT(*) AS pendingTasks FROM tasks WHERE startDate = '$currentDate' AND startDate BETWEEN '$firstDayOfMonth' AND '$lastDayOfMonth'";
 $resultPendingTasks = mysqli_query($conn, $sqlPendingTasks);
 $rowPendingTasks = mysqli_fetch_assoc($resultPendingTasks);
 $pendingTasks = $rowPendingTasks['pendingTasks'];
 
-$sqlUpcomingTasks = "SELECT COUNT(*) AS upcomingTasks FROM tasks WHERE startDate = '$tomorrowDate'";
+$sqlUpcomingTasks = "SELECT COUNT(*) AS upcomingTasks FROM tasks WHERE startDate = '$tomorrowDate' AND startDate BETWEEN '$firstDayOfMonth' AND '$lastDayOfMonth'";
 $resultUpcomingTasks = mysqli_query($conn, $sqlUpcomingTasks);
 $rowUpcomingTasks = mysqli_fetch_assoc($resultUpcomingTasks);
 $upcomingTasks = $rowUpcomingTasks['upcomingTasks'];
 
-$sqlCompletedTasks = "SELECT COUNT(*) AS completedTasks FROM tasks WHERE taskStatus = 'Completed'";
+$sqlCompletedTasks = "SELECT COUNT(*) AS completedTasks FROM tasks WHERE taskStatus = 'Completed' AND startDate BETWEEN '$firstDayOfMonth' AND '$lastDayOfMonth'";
 $resultCompletedTasks = mysqli_query($conn, $sqlCompletedTasks);
 $rowCompletedTasks = mysqli_fetch_assoc($resultCompletedTasks);
 $completedTasks = $rowCompletedTasks['completedTasks'];
