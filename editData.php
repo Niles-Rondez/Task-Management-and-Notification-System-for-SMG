@@ -3,17 +3,40 @@ include_once 'conn.php';
 
 if (isset($_POST['submit'])) {
     $taskID = $_POST['taskID']; 
-    $orderType = mysqli_real_escape_string($conn, $_POST['orderType']);
-    $mainWorkCtr = mysqli_real_escape_string($conn, $_POST['mainWorkCtr']);
-    $taskStatus = isset($_POST['taskStatus']) ? mysqli_real_escape_string($conn, $_POST['taskStatus']) : 'Pending'; // Default to Pending if not set
+    $referer = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : '';
 
-    $sql = "UPDATE tasks SET orderType='$orderType', mainWorkCtr='$mainWorkCtr', taskStatus='$taskStatus' WHERE taskID='$taskID'";
+    // Check if the update is from dashboard.php or schedule.php
+    if (strpos($referer, 'dashboard.php') !== false) {
+        // Update only taskStatus and urgency
+        $taskStatus = isset($_POST['taskStatus']) ? mysqli_real_escape_string($conn, $_POST['taskStatus']) : 'Pending'; // Default to Pending if not set
+        $urgency = mysqli_real_escape_string($conn, $_POST['urgency']); // Get the urgency level
+
+        $sql = "UPDATE tasks SET taskStatus='$taskStatus', urgency='$urgency' WHERE taskID='$taskID'";
+    } elseif (strpos($referer, 'schedule.php') !== false) {
+        // Allow any changes
+        $orderType = mysqli_real_escape_string($conn, $_POST['orderType']);
+        $orderDesc = mysqli_real_escape_string($conn, $_POST['orderDesc']);
+        $mplan = mysqli_real_escape_string($conn, $_POST['mplan']);
+        $pdesc = mysqli_real_escape_string($conn, $_POST['pdesc']);
+        $mainWorkCtr = mysqli_real_escape_string($conn, $_POST['mainWorkCtr']);
+        $sysstat = mysqli_real_escape_string($conn, $_POST['sysstat']);
+        $sysdesc = mysqli_real_escape_string($conn, $_POST['sysdesc']);
+        $pgroup = mysqli_real_escape_string($conn, $_POST['pgroup']);
+        $cstcen = mysqli_real_escape_string($conn, $_POST['cstcen']);
+        $eqid = mysqli_real_escape_string($conn, $_POST['eqid']);
+        $taskStatus = isset($_POST['taskStatus']) ? mysqli_real_escape_string($conn, $_POST['taskStatus']) : 'Pending'; // Default to Pending if not set
+      /*  $urgency = mysqli_real_escape_string($conn, $_POST['urgency']); // Get the urgency level*/
+
+      $sql = "UPDATE tasks SET orderType='$orderType', orderDescription='$orderDesc', maintenance_plan='$mplan', mpDescription='$pdesc', mainWorkCtr='$mainWorkCtr', systemStatus='$sysstat', ssDescription='$sysdesc', plannerGroup='$pgroup', costCenter='$cstcen', equipmentID='$eqid', TaskStatus='$taskStatus' WHERE taskID='$taskID'";
+    } else {
+        // Redirect if accessed directly without proper referer
+        header("Location: schedule.php");
+        exit();
+    }
+
     $update = mysqli_query($conn, $sql);
 
     if ($update) {
-        // Determine where to redirect based on referer
-        $referer = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : '';
-
         if (strpos($referer, 'dashboard.php') !== false) {
             echo "<script>alert('Update Successful!');</script>";
             echo "<script>window.location='dashboard.php';</script>";

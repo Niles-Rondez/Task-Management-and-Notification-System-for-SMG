@@ -1,28 +1,26 @@
 <?php
-include('conn.php'); 
+include('conn.php');
 
-if(isset($_POST['submit'])){
-    $taskid = $_POST['taskid'];
-    $year = $_POST['year'];
-    $month = $_POST['month'];
-    $day = $_POST['day'];
-
-    $date = "$year-$month-$day";
-    $ordertype = $_POST['ordertype'];
-    $orderdesc = $_POST['orderdesc'];
+if (isset($_POST['submit'])) {
+    // Retrieve form data
+    $taskID = $_POST['taskid'];
+    $startDate = $_POST['year'] . '-' . $_POST['month'] . '-' . $_POST['day'];
+    $orderType = $_POST['ordertype'];
+    $orderDesc = $_POST['orderdesc'];
     $mplan = $_POST['mplan'];
     $pdesc = $_POST['pdesc'];
-    $mwctr = $_POST['mwctr'];
+    $mainWorkCtr = $_POST['mwctr'];
     $sysstat = $_POST['sysstat'];
     $sysdesc = $_POST['sysdesc'];
     $pgroup = $_POST['pgroup'];
     $cstcen = $_POST['cstcen'];
     $eqid = $_POST['eqid'];
-   
-    $query = "INSERT INTO `tasks`(`taskID`, `startDate`, `orderType`, `orderDescription`, `maintenance_plan`, `mpDescription`, `mainWorkCtr`, `systemStatus`, `ssDescription`, `plannerGroup`, `costCenter`, `equipmentID`, `TaskStatus`) 
-              VALUES ('$taskid', '$date', '$ordertype', '$orderdesc', '$mplan', '$pdesc', '$mwctr', '$sysstat', '$sysdesc', '$pgroup', '$cstcen', '$eqid', 'Pending')";
-    
-    if(mysqli_query($conn, $query)) {
+    $urgency = $_POST['urgency']; // Add this line to capture urgency
+
+    // Insert data into database
+    $sql = "INSERT INTO tasks (taskID, startDate, orderType, orderDescription, maintenance_plan, mpDescription, mainWorkCtr, systemStatus, ssDescription, plannerGroup, costCenter, equipmentID,TaskStatus, urgency) 
+            VALUES ('$taskID', '$startDate', '$orderType', '$orderDesc', '$mplan', '$pdesc', '$mainWorkCtr', '$sysstat', '$sysdesc', '$pgroup', '$cstcen', '$eqid','Pending', '$urgency')";
+    if(mysqli_query($conn, $sql)) {
         // Determine the page to redirect based on HTTP_REFERER
         $referer = $_SERVER['HTTP_REFERER'];
         if(strpos($referer, 'dashboard.php') !== false) {

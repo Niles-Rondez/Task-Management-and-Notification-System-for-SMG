@@ -778,3 +778,25 @@ html {
   border-radius: 4px; /* Button border radius */
   cursor: pointer;
 }
+
+
+/*urgency Status*/
+.default-urgency {
+  background-color: rgba(131, 166, 103, 0.8);
+}
+
+.low-urgency {
+  background-color: rgba(131, 166, 103, 0.8);
+  color: white;
+}
+
+.medium-urgency {
+  background-color: #F97719;
+  color: black;
+}
+
+.high-urgency {
+  background-color: #EF4035;
+  color: white;
+}
+

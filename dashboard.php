@@ -165,7 +165,7 @@ mysqli_close($conn);
       <div class="col">
       <h4 class="fw-bold">Task List</h4>
       </div>
-      <div class="col-auto ">
+      <div class="col-auto pt-2">
         <p>SORT BY:</p>
       </div>
       <div class="col-auto">
@@ -258,6 +258,14 @@ mysqli_close($conn);
                       <span class="input-group-text" id="inputGroup-sizing-default">Equipment ID</span>
                       <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="eqid">
                     </div>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="inputGroup-sizing-default">Urgency</span>
+                        <select class="form-select" name="urgency">
+                            <option value="Low">Low</option>
+                            <option value="Medium">Medium</option>
+                            <option value="High">High</option>
+                        </select>
+                    </div>
                     <!--Aask status
                     <div class="input-group mb-3">
                       <span class="input-group-text" id="inputGroup-sizing-default">Task Status</span>
@@ -265,7 +273,7 @@ mysqli_close($conn);
                     </div>-->
                     <div class="modal-footer">
                       <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" name="close">Close</button>
-                      <input type="submit" class="btn btn-primary" name="submit" value="SAVE"> 
+                      <input type="submit" class="btn btn-primary" name="submit" value="ADD"> 
                     </div>
                   </form>
                 </div>
@@ -283,30 +291,40 @@ mysqli_close($conn);
     <table class="table">
         <?php
         if ($result) {
-            while ($row = mysqli_fetch_assoc($result)) {
+          while ($row = mysqli_fetch_assoc($result)) {
+              $urgencyClass = '';
+              if ($row['urgency'] === 'Low') {
+                  $urgencyClass = 'low-urgency';
+              } elseif ($row['urgency'] === 'Medium') {
+                  $urgencyClass = 'medium-urgency';
+              } elseif ($row['urgency'] === 'High') {
+                  $urgencyClass = 'high-urgency';
+              } else {
+                  $urgencyClass = 'default-urgency';
+              }
               echo '<tr onclick="fillModal(' . $row['taskID'] . ', \'' . 
-                    (isset($row['orderType']) ? htmlspecialchars($row['orderType']) : '') . '\', \'' . 
-                    (isset($row['mainWorkCtr']) ? htmlspecialchars($row['mainWorkCtr']) : '') . '\', \'' . 
-                    (isset($row['orderDescription']) ? htmlspecialchars($row['orderDescription']) : '') . '\', \'' . 
-                    (isset($row['maintenance_plan']) ? htmlspecialchars($row['maintenance_plan']) : '') . '\', \'' . 
-                    (isset($row['mpDescription']) ? htmlspecialchars($row['mpDescription']) : '') . '\', \'' . 
-                    (isset($row['systemStatus']) ? htmlspecialchars($row['systemStatus']) : '') . '\', \'' . 
-                    (isset($row['ssDescription']) ? htmlspecialchars($row['ssDescription']) : '') . '\', \'' . 
-                    (isset($row['plannerGroup']) ? htmlspecialchars($row['plannerGroup']) : '') . '\', \'' . 
-                    (isset($row['costCenter']) ? htmlspecialchars($row['costCenter']) : '') . '\', \'' . 
-                    (isset($row['equipmentID']) ? htmlspecialchars($row['equipmentID']) : '') . '\', \'' . 
-                    (isset($row['taskStatus']) ? htmlspecialchars($row['taskStatus']) : '') . '\')" 
-                    data-bs-toggle="modal" data-bs-target="#updateTaskModal">';
-                echo '<td>';
-                echo '<p class="taskid">' . htmlspecialchars($row['taskID']) . '</p>';
-                echo '<p class="order-type">' . htmlspecialchars($row['orderType']) . ' <span class="main-work-ctr">' . htmlspecialchars($row['mainWorkCtr']) . '</span></p>';
-                echo '</td>';
-                echo '</tr>';
-                echo '<tr style="height: 20px;"></tr>';
-            }
-        } else {
-            echo '<tr><td colspan="2">Failed to fetch data from database.</td></tr>';
-        }
+              (isset($row['orderType']) ? htmlspecialchars($row['orderType']) : '') . '\', \'' . 
+              (isset($row['mainWorkCtr']) ? htmlspecialchars($row['mainWorkCtr']) : '') . '\', \'' . 
+              (isset($row['orderDescription']) ? htmlspecialchars($row['orderDescription']) : '') . '\', \'' . 
+              (isset($row['maintenance_plan']) ? htmlspecialchars($row['maintenance_plan']) : '') . '\', \'' . 
+              (isset($row['mpDescription']) ? htmlspecialchars($row['mpDescription']) : '') . '\', \'' . 
+              (isset($row['systemStatus']) ? htmlspecialchars($row['systemStatus']) : '') . '\', \'' . 
+              (isset($row['ssDescription']) ? htmlspecialchars($row['ssDescription']) : '') . '\', \'' . 
+              (isset($row['plannerGroup']) ? htmlspecialchars($row['plannerGroup']) : '') . '\', \'' . 
+              (isset($row['costCenter']) ? htmlspecialchars($row['costCenter']) : '') . '\', \'' . 
+              (isset($row['equipmentID']) ? htmlspecialchars($row['equipmentID']) : '') . '\', \'' . 
+              (isset($row['taskStatus']) ? htmlspecialchars($row['taskStatus']) : '') . '\')" 
+              data-bs-toggle="modal" data-bs-target="#updateTaskModal" class="' . $urgencyClass . '">';
+              echo '<td>';
+              echo '<p class="taskid">' . htmlspecialchars($row['taskID']) . '</p>';
+              echo '<p class="order-type">' . htmlspecialchars($row['orderType']) . ' <span class="main-work-ctr">' . htmlspecialchars($row['mainWorkCtr']) . '</span></p>';
+              echo '</td>';
+              echo '</tr>';
+              echo '<tr style="height: 20px;"></tr>';
+          }
+      } else {
+          echo '<tr><td colspan="2">Failed to fetch data from database.</td></tr>';
+      }
         ?>
     </table>
 </div>
@@ -319,74 +337,82 @@ mysqli_close($conn);
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form method="POST" action="editData.php" id="updateTaskForm">
-                    <!-- Hidden input field for taskID -->
-                    <input type="hidden" name="taskID" id="taskID">
+    <form method="POST" action="editData.php" id="updateTaskForm">
+        <!-- Hidden input field for taskID -->
+        <input type="hidden" name="taskID" id="taskID">
 
-                    <!-- Display taskID (not editable) -->
-                    <div class="mb-3">
-                        <label for="taskIDDisplay" class="form-label">Task ID</label>
-                        <input type="text" class="form-control" id="taskIDDisplay" disabled>
-                    </div>
+        <!-- Display taskID (not editable) -->
+        <div class="mb-3">
+            <label for="taskIDDisplay" class="form-label">Task ID</label>
+            <input type="text" class="form-control" id="taskIDDisplay" disabled>
+        </div>
 
-                    <div class="mb-3">
-                        <label for="orderType" class="form-label">Order Type</label>
-                        <input type="text" class="form-control" id="orderType" name="orderType" disabled>
-                    </div>
-                    <div class="mb-3">
-                        <label for="orderDesc" class="form-label">Order Description</label>
-                        <input type="text" class="form-control" id="orderDesc" name="orderDesc" disabled>
-                    </div>
-                    <div class="mb-3">
-                        <label for="mplan" class="form-label">Maintenance Plan</label>
-                        <input type="text" class="form-control" id="mplan" name="mplan" disabled>
-                    </div>
-                    <div class="mb-3">
-                        <label for="pdesc" class="form-label">Plan Description</label>
-                        <input type="text" class="form-control" id="pdesc" name="pdesc" disabled>
-                    </div>
-                    <div class="mb-3">
-                        <label for="mainWorkCtr" class="form-label">Main Work CTR</label>
-                        <input type="text" class="form-control" id="mainWorkCtr" name="mainWorkCtr" disabled>
-                    </div>
-                    <div class="mb-3">
-                        <label for="sysstat" class="form-label">System Status</label>
-                        <input type="text" class="form-control" id="sysstat" name="sysstat" disabled>
-                    </div>
-                    <div class="mb-3">
-                        <label for="sysdesc" class="form-label">System Status Description</label>
-                        <input type="text" class="form-control" id="sysdesc" name="sysdesc" disabled>
-                    </div>
-                    <div class="mb-3">
-                        <label for="pgroup" class="form-label">Planner Group</label>
-                        <input type="text" class="form-control" id="pgroup" name="pgroup" disabled>
-                    </div>
-                    <div class="mb-3">
-                        <label for="cstcen" class="form-label">Cost Center</label>
-                        <input type="text" class="form-control" id="cstcen" name="cstcen" disabled>
-                    </div>
-                    <div class="mb-3">
-                        <label for="eqid" class="form-label">Equipment ID</label>
-                        <input type="text" class="form-control" id="eqid" name="eqid" disabled>
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label">Task Status</label><br>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox" id="taskStatusPending" name="taskStatus" value="Pending">
-                            <label class="form-check-label" for="taskStatusPending">Pending</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox" id="taskStatusCompleted" name="taskStatus" value="Completed">
-                            <label class="form-check-label" for="taskStatusCompleted">Completed</label>
-                        </div>
-                    </div>
-
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary" name="submit">Save changes</button>
-                    </div>
-                </form>
+        <div class="mb-3">
+            <label for="orderType" class="form-label">Order Type</label>
+            <input type="text" class="form-control" id="orderType" name="orderType" disabled>
+        </div>
+        <div class="mb-3">
+            <label for="orderDesc" class="form-label">Order Description</label>
+            <input type="text" class="form-control" id="orderDesc" name="orderDesc" disabled>
+        </div>
+        <div class="mb-3">
+            <label for="mplan" class="form-label">Maintenance Plan</label>
+            <input type="text" class="form-control" id="mplan" name="mplan" disabled>
+        </div>
+        <div class="mb-3">
+            <label for="pdesc" class="form-label">Plan Description</label>
+            <input type="text" class="form-control" id="pdesc" name="pdesc" disabled>
+        </div>
+        <div class="mb-3">
+            <label for="mainWorkCtr" class="form-label">Main Work CTR</label>
+            <input type="text" class="form-control" id="mainWorkCtr" name="mainWorkCtr" disabled>
+        </div>
+        <div class="mb-3">
+            <label for="sysstat" class="form-label">System Status</label>
+            <input type="text" class="form-control" id="sysstat" name="sysstat" disabled>
+        </div>
+        <div class="mb-3">
+            <label for="sysdesc" class="form-label">System Status Description</label>
+            <input type="text" class="form-control" id="sysdesc" name="sysdesc" disabled>
+        </div>
+        <div class="mb-3">
+            <label for="pgroup" class="form-label">Planner Group</label>
+            <input type="text" class="form-control" id="pgroup" name="pgroup" disabled>
+        </div>
+        <div class="mb-3">
+            <label for="cstcen" class="form-label">Cost Center</label>
+            <input type="text" class="form-control" id="cstcen" name="cstcen" disabled>
+        </div>
+        <div class="mb-3">
+            <label for="eqid" class="form-label">Equipment ID</label>
+            <input type="text" class="form-control" id="eqid" name="eqid" disabled>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Task Status</label><br>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" id="taskStatusPending" name="taskStatus" value="Pending" checked>
+                <label class="form-check-label" for="taskStatusPending">Pending</label>
             </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" id="taskStatusCompleted" name="taskStatus" value="Completed">
+                <label class="form-check-label" for="taskStatusCompleted">Completed</label>
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="urgency" class="form-label">Urgency</label>
+            <select class="form-select" id="urgency" name="urgency">
+                <option value="Low" selected>Low</option>
+                <option value="Medium">Medium</option>
+                <option value="High">High</option>
+            </select>
+        </div>
+
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary" name="submit">Save changes</button>
+        </div>
+    </form>
+</div>
         </div>
     </div>
 </div>
@@ -417,24 +443,51 @@ mysqli_close($conn);
     var offcanvas = new bootstrap.Offcanvas(offcanvasElement);
 
     function fillModal(taskID, orderType, mainWorkCtr, orderDesc, mplan, pdesc, sysstat, sysdesc, pgroup, cstcen, eqid, taskStatus) {
-        // Fill Modal Inputs with Data
-        document.getElementById('taskID').value = taskID;
-        document.getElementById('taskIDDisplay').value = taskID;
-        document.getElementById('orderType').value = orderType;
-        document.getElementById('orderDesc').value = orderDesc;
-        document.getElementById('mplan').value = mplan;
-        document.getElementById('pdesc').value = pdesc;
-        document.getElementById('mainWorkCtr').value = mainWorkCtr;
-        document.getElementById('sysstat').value = sysstat;
-        document.getElementById('sysdesc').value = sysdesc;
-        document.getElementById('pgroup').value = pgroup;
-        document.getElementById('cstcen').value = cstcen;
-        document.getElementById('eqid').value = eqid;
-
-        // Set Task Status Checkbox
-        document.getElementById('taskStatusPending').checked = (taskStatus === 'Pending');
-        document.getElementById('taskStatusCompleted').checked = (taskStatus === 'Completed');
+    // Check if taskID is provided
+    if (!taskID) {
+        alert('No task selected. Please select a task to update.');
+        return false; // Prevent further execution
     }
+
+    // Store the initial values from the modal
+    var initialOrderType = document.getElementById('orderType').value;
+    var initialOrderDesc = document.getElementById('orderDesc').value;
+    var initialMPlan = document.getElementById('mplan').value;
+    var initialPDesc = document.getElementById('pdesc').value;
+    var initialMainWorkCtr = document.getElementById('mainWorkCtr').value;
+    var initialSysStat = document.getElementById('sysstat').value;
+    var initialSysDesc = document.getElementById('sysdesc').value;
+    var initialPGroup = document.getElementById('pgroup').value;
+    var initialCstCen = document.getElementById('cstcen').value;
+    var initialEqID = document.getElementById('eqid').value;
+    var initialTaskStatus = document.querySelector('input[name="taskStatus"]:checked').value;
+    var initialUrgency = document.getElementById('urgency').value;
+
+    // Fill Modal Inputs with Data
+    document.getElementById('taskID').value = taskID;
+    document.getElementById('taskIDDisplay').value = taskID;
+    document.getElementById('orderType').value = orderType;
+    document.getElementById('orderDesc').value = orderDesc;
+    document.getElementById('mplan').value = mplan;
+    document.getElementById('pdesc').value = pdesc;
+    document.getElementById('mainWorkCtr').value = mainWorkCtr;
+    document.getElementById('sysstat').value = sysstat;
+    document.getElementById('sysdesc').value = sysdesc;
+    document.getElementById('pgroup').value = pgroup;
+    document.getElementById('cstcen').value = cstcen;
+    document.getElementById('eqid').value = eqid;
+
+    // Set the current task status
+    if (taskStatus === 'Pending') {
+        document.getElementById('taskStatusPending').checked = true;
+    } else if (taskStatus === 'Completed') {
+        document.getElementById('taskStatusCompleted').checked = true;
+    }
+
+    // Set the urgency dropdown value
+    document.getElementById('urgency').value = urgency;
+
+}
 </script>
 </body>
 </html>
