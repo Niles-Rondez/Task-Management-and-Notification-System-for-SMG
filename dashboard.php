@@ -49,12 +49,12 @@ $resultTotalTasks = mysqli_query($conn, $sqlTotalTasks);
 $rowTotalTasks = mysqli_fetch_assoc($resultTotalTasks);
 $totalTasks = $rowTotalTasks['totalTasks'];
 
-$sqlPendingTasks = "SELECT COUNT(*) AS pendingTasks FROM tasks WHERE taskStatus = 'Pending'";
+$sqlPendingTasks = "SELECT COUNT(*) AS pendingTasks FROM tasks WHERE startDate = '$currentDate'";
 $resultPendingTasks = mysqli_query($conn, $sqlPendingTasks);
 $rowPendingTasks = mysqli_fetch_assoc($resultPendingTasks);
 $pendingTasks = $rowPendingTasks['pendingTasks'];
 
-$sqlUpcomingTasks = "SELECT COUNT(*) AS upcomingTasks FROM tasks WHERE startDate > '$currentDate'";
+$sqlUpcomingTasks = "SELECT COUNT(*) AS upcomingTasks FROM tasks WHERE startDate = '$tomorrowDate'";
 $resultUpcomingTasks = mysqli_query($conn, $sqlUpcomingTasks);
 $rowUpcomingTasks = mysqli_fetch_assoc($resultUpcomingTasks);
 $upcomingTasks = $rowUpcomingTasks['upcomingTasks'];
