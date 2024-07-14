@@ -4,6 +4,7 @@ include('conn.php');
 // Initialize default values
 $selectedSort = isset($_GET['sort']) ? $_GET['sort'] : 'all'; // Default to 'all' if not set
 $selectedStatus = isset($_GET['status']) ? $_GET['status'] : 'all'; // Default to 'all' if not set
+$selectedUrgency = isset($_GET['urgency']) ? $_GET['urgency'] : 'all'; // Default to 'all' if not set
 
 $currentDate = date('Y-m-d');
 $tomorrowDate = date('Y-m-d', strtotime('+1 day'));
@@ -39,6 +40,22 @@ switch ($selectedStatus) {
         $query .= " AND taskStatus = 'Completed'";
         break;
     // 'all' case does not add any status filter
+    default:
+        break;
+}
+
+// Apply urgency filter based on selected urgency
+switch ($selectedUrgency) {
+    case 'low':
+        $query .= " AND urgency = 'Low'";
+        break;
+    case 'medium':
+        $query .= " AND urgency = 'Medium'";
+        break;
+    case 'high':
+        $query .= " AND urgency = 'High'";
+        break;
+    // 'all' case does not add any urgency filter
     default:
         break;
 }
@@ -171,31 +188,49 @@ mysqli_close($conn);
         <p>SORT BY:</p>
       </div>
       <div class="col-auto">
-    <div class="dropdown">
-        <button class="btn dropdown-toggle" type="button" id="sortDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-            <?php echo strtoupper($selectedSort === 'all' ? 'ALL TASKS' : $selectedSort); ?>
-        </button>
-        <ul class="dropdown-menu" aria-labelledby="sortDropdown">
-            <li><a class="dropdown-item" href="dashboard.php?sort=all&status=<?php echo $selectedStatus; ?>">ALL TASKS</a></li>
-            <li><a class="dropdown-item" href="dashboard.php?sort=today&status=<?php echo $selectedStatus; ?>">TODAY</a></li>
-            <li><a class="dropdown-item" href="dashboard.php?sort=tomorrow&status=<?php echo $selectedStatus; ?>">TOMORROW</a></li>
-            <li><a class="dropdown-item" href="dashboard.php?sort=week&status=<?php echo $selectedStatus; ?>">WITHIN THIS WEEK</a></li>
-        </ul>
-    </div>
-</div>
-
-<div class="col-auto">
-    <div class="dropdown">
-        <button class="btn dropdown-toggle" type="button" id="sortDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-            <?php echo strtoupper($selectedStatus === 'all' ? 'ALL STATUS' : $selectedStatus); ?>
-        </button>
-        <ul class="dropdown-menu" aria-labelledby="statusDropdown">
-            <li><a class="dropdown-item" href="dashboard.php?status=all&sort=<?php echo $selectedSort; ?>">ALL STATUS</a></li>
-            <li><a class="dropdown-item" href="dashboard.php?status=pending&sort=<?php echo $selectedSort; ?>">PENDING</a></li>
-            <li><a class="dropdown-item" href="dashboard.php?status=completed&sort=<?php echo $selectedSort; ?>">COMPLETED</a></li>
-        </ul>
-    </div>
-</div>
+        <div class="dropdown">
+            <button class="btn dropdown-toggle" type="button" id="sortDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                <?php echo strtoupper($selectedSort === 'all' ? 'ALL TASKS' : $selectedSort); ?>
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="sortDropdown">
+                <li><a class="dropdown-item" href="dashboard.php?sort=all&status=<?php echo $selectedStatus; ?>&urgency=<?php echo $selectedUrgency; ?>">ALL TASKS</a></li>
+                <li><a class="dropdown-item" href="dashboard.php?sort=today&status=<?php echo $selectedStatus; ?>&urgency=<?php echo $selectedUrgency; ?>">TODAY</a></li>
+                <li><a class="dropdown-item" href="dashboard.php?sort=tomorrow&status=<?php echo $selectedStatus; ?>&urgency=<?php echo $selectedUrgency; ?>">TOMORROW</a></li>
+                <li><a class="dropdown-item" href="dashboard.php?sort=week&status=<?php echo $selectedStatus; ?>&urgency=<?php echo $selectedUrgency; ?>">THIS WEEK</a></li>
+            </ul>
+        </div>
+      </div>
+      <div class="col-auto pt-2">
+        <p>STATUS:</p>
+      </div>
+      <div class="col-auto">
+        <div class="dropdown">
+            <button class="btn dropdown-toggle" type="button" id="statusDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                <?php echo strtoupper($selectedStatus === 'all' ? 'ALL' : $selectedStatus); ?>
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="statusDropdown">
+                <li><a class="dropdown-item" href="dashboard.php?sort=<?php echo $selectedSort; ?>&status=all&urgency=<?php echo $selectedUrgency; ?>">ALL</a></li>
+                <li><a class="dropdown-item" href="dashboard.php?sort=<?php echo $selectedSort; ?>&status=pending&urgency=<?php echo $selectedUrgency; ?>">PENDING</a></li>
+                <li><a class="dropdown-item" href="dashboard.php?sort=<?php echo $selectedSort; ?>&status=completed&urgency=<?php echo $selectedUrgency; ?>">COMPLETED</a></li>
+            </ul>
+        </div>
+      </div>
+      <div class="col-auto pt-2">
+        <p>URGENCY:</p>
+      </div>
+      <div class="col-auto">
+        <div class="dropdown">
+            <button class="btn dropdown-toggle" type="button" id="urgencyDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                <?php echo strtoupper($selectedUrgency === 'all' ? 'ALL' : $selectedUrgency); ?>
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="urgencyDropdown">
+                <li><a class="dropdown-item" href="dashboard.php?sort=<?php echo $selectedSort; ?>&status=<?php echo $selectedStatus; ?>&urgency=all">ALL</a></li>
+                <li><a class="dropdown-item" href="dashboard.php?sort=<?php echo $selectedSort; ?>&status=<?php echo $selectedStatus; ?>&urgency=low">LOW</a></li>
+                <li><a class="dropdown-item" href="dashboard.php?sort=<?php echo $selectedSort; ?>&status=<?php echo $selectedStatus; ?>&urgency=medium">MEDIUM</a></li>
+                <li><a class="dropdown-item" href="dashboard.php?sort=<?php echo $selectedSort; ?>&status=<?php echo $selectedStatus; ?>&urgency=high">HIGH</a></li>
+            </ul>
+        </div>
+      </div>
 
       <div class="col-auto">
         <!-- Modal -->
