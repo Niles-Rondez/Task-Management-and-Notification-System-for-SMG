@@ -211,7 +211,7 @@ html {
 }
 
 #notiflist td {
-  background-color: rgba(131, 166, 103, 0.8);
+  /*background-color: rgba(131, 166, 103, 0.8);*/
   padding: 12px;
   color: #ffffff;
   border-radius: 10px;
@@ -220,7 +220,7 @@ html {
 }
 
 #notiflist td:hover {
-  background-color: rgba(103, 131, 80, 0.8);
+  /*background-color: rgba(103, 131, 80, 0.8);*/
 }
 
 #notiflist td .order-type {
@@ -779,7 +779,6 @@ html {
   cursor: pointer;
 }
 
-
 /*urgency Status*/
 .default-urgency {
   background-color: rgba(131, 166, 103, 0.8);
@@ -791,12 +790,11 @@ html {
 }
 
 .medium-urgency {
-  background-color: #F97719;
+  background-color: #f97619ad;
   color: black;
 }
 
 .high-urgency {
-  background-color: #EF4035;
+  background-color: #ef4135b7;
   color: white;
 }
-
