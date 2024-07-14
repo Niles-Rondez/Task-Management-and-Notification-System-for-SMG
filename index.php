@@ -31,8 +31,26 @@
                     <div class="col">
                         <input type="password" id="password"  name ="password" class="form-control" placeholder="">
                     </div>
+                    <a href="#" id="fget" align="right" data-bs-toggle="modal" data-bs-target="#forgetPasswordModal"> Forget Password?</a>
+                    <div class="modal fade" id="forgetPasswordModal" tabindex="-1" aria-labelledby="forgetPasswordModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="forgetPasswordModalLabel">Forget Password?</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <p>Please contact a higher-up or the IT department to reset your password.</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
-                <input type="submit" value="Log In" class="submit-button w-button border-0 mt-4 p-1" id = "login">
+                <input type="submit" value="Log In" class="submit-button w-button border-0 mt-2 p-1" id = "login">
 
             </form>
 
