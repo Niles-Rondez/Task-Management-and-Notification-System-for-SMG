@@ -1,37 +1,55 @@
 <?php
 include('conn.php');
 
-$query = "SELECT * FROM tasks";
+// Initialize default values
+$selectedSort = isset($_GET['sort']) ? $_GET['sort'] : 'all'; // Default to 'all' if not set
+$selectedStatus = isset($_GET['status']) ? $_GET['status'] : 'all'; // Default to 'all' if not set
 
 $currentDate = date('Y-m-d');
 $tomorrowDate = date('Y-m-d', strtotime('+1 day'));
 $weekEndDate = date('Y-m-d', strtotime('+1 week'));
 
-$query = "SELECT * FROM tasks";
+// Build base query
+$query = "SELECT * FROM tasks WHERE 1=1";
 
-if (isset($_GET['sort'])) {
-    $sort = $_GET['sort'];
-    if ($sort === 'asc') {
-        $query .= " ORDER BY taskID ASC";
-    } elseif ($sort === 'desc') {
-        $query .= " ORDER BY taskID DESC";
-    } elseif ($sort === 'today') {
-        $query .= " WHERE startDate = '$currentDate'";
-    } elseif ($sort === 'tomorrow') {
-        $query .= " WHERE startDate = '$tomorrowDate'";
-    } elseif ($sort === 'week') {
-        $query .= " WHERE startDate <= '$weekEndDate' AND startDate >= '$currentDate'";
-    }
+// Apply sorting based on selected filter
+switch ($selectedSort) {
+    case 'today':
+        $query .= " AND startDate = '$currentDate'";
+        break;
+    case 'tomorrow':
+        $query .= " AND startDate = '$tomorrowDate'";
+        break;
+    case 'week':
+        $query .= " AND startDate BETWEEN '$currentDate' AND '$weekEndDate'";
+        break;
+    // 'all' case does not add any date filter
+    default:
+        break;
+}
+
+// Apply status filter based on selected status
+switch ($selectedStatus) {
+    case 'pending':
+        $query .= " AND taskStatus = 'Pending'";
+        break;
+    case 'completed':
+        $query .= " AND taskStatus = 'Completed'";
+        break;
+    // 'all' case does not add any status filter
+    default:
+        break;
 }
 
 $result = mysqli_query($conn, $query);
 
+// Fetch counts for total, pending, upcoming, completed tasks
 $sqlTotalTasks = "SELECT COUNT(*) AS totalTasks FROM tasks";
 $resultTotalTasks = mysqli_query($conn, $sqlTotalTasks);
 $rowTotalTasks = mysqli_fetch_assoc($resultTotalTasks);
 $totalTasks = $rowTotalTasks['totalTasks'];
 
-$sqlPendingTasks = "SELECT COUNT(*) AS pendingTasks FROM tasks WHERE  taskStatus = 'Pending'";
+$sqlPendingTasks = "SELECT COUNT(*) AS pendingTasks FROM tasks WHERE taskStatus = 'Pending'";
 $resultPendingTasks = mysqli_query($conn, $sqlPendingTasks);
 $rowPendingTasks = mysqli_fetch_assoc($resultPendingTasks);
 $pendingTasks = $rowPendingTasks['pendingTasks'];
@@ -48,6 +66,7 @@ $completedTasks = $rowCompletedTasks['completedTasks'];
 
 mysqli_close($conn);
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -144,25 +163,38 @@ mysqli_close($conn);
   <div class="mx-4 mt-5">
     <div class="row">
       <div class="col">
-      <h4 class="fw-bold">Notification List</h4>
+      <h4 class="fw-bold">Task List</h4>
       </div>
       <div class="col-auto ">
         <p>SORT BY:</p>
       </div>
       <div class="col-auto">
-          <div class="dropdown">
-            <button class="btn dropdown-toggle" type="button" id="sortDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                DEFAULT
-            </button>
-            <ul class="dropdown-menu" aria-labelledby="sortDropdown">
-              <li><a class="dropdown-item" href="dashboard.php?sort=asc">ASCENDING</a></li>
-              <li><a class="dropdown-item" href="dashboard.php?sort=desc">DESCENDING</a></li>
-              <li><a class="dropdown-item" href="dashboard.php?sort=today">TODAY</a></li>
-              <li><a class="dropdown-item" href="dashboard.php?sort=tomorrow">TOMORROW</a></li>
-              <li><a class="dropdown-item" href="dashboard.php?sort=week">WITHIN THIS WEEK</a></li>
-            </ul>
-        </div>
-      </div>
+    <div class="dropdown">
+        <button class="btn dropdown-toggle" type="button" id="sortDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+            <?php echo strtoupper($selectedSort === 'all' ? 'ALL TASKS' : $selectedSort); ?>
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="sortDropdown">
+            <li><a class="dropdown-item" href="dashboard.php?sort=all&status=<?php echo $selectedStatus; ?>">ALL TASKS</a></li>
+            <li><a class="dropdown-item" href="dashboard.php?sort=today&status=<?php echo $selectedStatus; ?>">TODAY</a></li>
+            <li><a class="dropdown-item" href="dashboard.php?sort=tomorrow&status=<?php echo $selectedStatus; ?>">TOMORROW</a></li>
+            <li><a class="dropdown-item" href="dashboard.php?sort=week&status=<?php echo $selectedStatus; ?>">WITHIN THIS WEEK</a></li>
+        </ul>
+    </div>
+</div>
+
+<div class="col-auto">
+    <div class="dropdown">
+        <button class="btn dropdown-toggle" type="button" id="sortDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+            <?php echo strtoupper($selectedStatus === 'all' ? 'ALL STATUS' : $selectedStatus); ?>
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="statusDropdown">
+            <li><a class="dropdown-item" href="dashboard.php?status=all&sort=<?php echo $selectedSort; ?>">ALL STATUS</a></li>
+            <li><a class="dropdown-item" href="dashboard.php?status=pending&sort=<?php echo $selectedSort; ?>">PENDING</a></li>
+            <li><a class="dropdown-item" href="dashboard.php?status=completed&sort=<?php echo $selectedSort; ?>">COMPLETED</a></li>
+        </ul>
+    </div>
+</div>
+
       <div class="col-auto">
         <!-- Modal -->
           <button type="button" class="btn " data-bs-toggle="modal" data-bs-target="#exampleModal" id="addtask">ADD TASK</button>

@@ -168,6 +168,13 @@ html {
   color: #000;
 }
 
+#statusDropdown {
+  float: right;
+  background-color: #d9d9d9;
+  stroke: #d9d9d9;
+  color: #000;
+}
+
 #addtask:hover {
   background-color: #5e5e5e;
   stroke: #5e5e5e;
@@ -175,6 +182,12 @@ html {
 }
 
 #sortDropdown:hover {
+  background-color: #5e5e5e;
+  stroke: #5e5e5e;
+  color: #ffffff;
+}
+
+#statusDropdown:hover {
   background-color: #5e5e5e;
   stroke: #5e5e5e;
   color: #ffffff;
@@ -308,49 +321,49 @@ html {
 }
 
 .reports-table th:nth-child(1),
-    .reports-table td:nth-child(1) {
-        width: 50px; /* Adjust width of ID column */
-    }
+.reports-table td:nth-child(1) {
+  width: 50px; /* Adjust width of ID column */
+}
 
 .reports-table th:nth-child(2),
-    .reports-table td:nth-child(2) {
-        width: 150px; /* Adjust width of FIRSTNAME column */
-    }
+.reports-table td:nth-child(2) {
+  width: 150px; /* Adjust width of FIRSTNAME column */
+}
 
 .reports-table th:nth-child(3),
-    .reports-table td:nth-child(3) {
-        width: 150px; /* Adjust width of MIDDLENAME column */
-    }
+.reports-table td:nth-child(3) {
+  width: 150px; /* Adjust width of MIDDLENAME column */
+}
 
 .reports-table th:nth-child(4),
-    .reports-table td:nth-child(4) {
-        width: 150px; /* Adjust width of LASTNAME column */
-    }
+.reports-table td:nth-child(4) {
+  width: 150px; /* Adjust width of LASTNAME column */
+}
 
 .reports-table th:nth-child(5),
-    .reports-table td:nth-child(5) {
-        width: 120px; /* Adjust width of PHONE NO column */
-    }
+.reports-table td:nth-child(5) {
+  width: 120px; /* Adjust width of PHONE NO column */
+}
 
 .reports-table th:nth-child(6),
-    .reports-table td:nth-child(6) {
-        width: 200px; /* Adjust width of EMAIL column */
-    }
+.reports-table td:nth-child(6) {
+  width: 200px; /* Adjust width of EMAIL column */
+}
 
 .reports-table th:nth-child(7),
-    .reports-table td:nth-child(7) {
-        width: 250px; /* Adjust width of ADDRESS column */
-    }
+.reports-table td:nth-child(7) {
+  width: 250px; /* Adjust width of ADDRESS column */
+}
 
 .reports-table th:nth-child(8),
-    .reports-table td:nth-child(8) {
-        width: 100px; /* Adjust width of ROLE column */
-    }
+.reports-table td:nth-child(8) {
+  width: 100px; /* Adjust width of ROLE column */
+}
 
 .reports-table th:nth-child(9),
-    .reports-table td:nth-child(9) {
-        width: 150px; /* Adjust width of ACTIONS column */
-    }
+.reports-table td:nth-child(9) {
+  width: 150px; /* Adjust width of ACTIONS column */
+}
 
 .export-buttons {
   display: flex;
@@ -381,7 +394,6 @@ html {
   padding-bottom: 20px;
   color: #000;
 }
-
 
 /* End of Reports CSS */
 
@@ -524,7 +536,6 @@ html {
   cursor: pointer;
 }
 
-
 #notiflistCalc2 td .order-type {
   display: inline-block;
   margin-right: 10px;
@@ -643,7 +654,6 @@ html {
 }
 .search-button:hover {
   background-color: rgba(77, 116, 47, 0.8);
-
 }
 
 /* Users */
@@ -724,7 +734,7 @@ html {
 }
 
 .delete-button {
-  background-color: #FF6961;
+  background-color: #ff6961;
   color: white;
   border: none;
   padding: 5px 10px;
@@ -735,17 +745,28 @@ html {
   background-color: #b64640;
 }
 
-
-#btnMonth, #btnWeek, #btnDay, #exportBtn, #reportSortDropdown, #taskSortDropdown, #assignmentSortDropdown, #dateSortDropdown {
+#btnMonth,
+#btnWeek,
+#btnDay,
+#exportBtn,
+#reportSortDropdown,
+#taskSortDropdown,
+#assignmentSortDropdown,
+#dateSortDropdown {
   background-color: #d9d9d9;
   color: #000;
 }
 
-#btnMonth:hover, #btnWeek:hover, #btnDay:hover, #exportBtn:hover, #reportSortDropdown:hover, #taskSortDropdown:hover, #assignmentSortDropdown:hover, #dateSortDropdown:hover {
+#btnMonth:hover,
+#btnWeek:hover,
+#btnDay:hover,
+#exportBtn:hover,
+#reportSortDropdown:hover,
+#taskSortDropdown:hover,
+#assignmentSortDropdown:hover,
+#dateSortDropdown:hover {
   background-color: #a1a1a1;
 }
-
-
 
 .export-excel-button {
   display: inline-block;
@@ -756,5 +777,4 @@ html {
   border: 1px solid #d9d9d9; /* Button border color */
   border-radius: 4px; /* Button border radius */
   cursor: pointer;
-
 }
