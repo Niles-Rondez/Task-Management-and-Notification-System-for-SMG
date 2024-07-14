@@ -165,36 +165,47 @@
         <!-- Modal -->
           <div id="notiflistCalc2">
           <table class="table">
-                <?php
-                $sql_tasks = "SELECT * FROM tasks";
-                $result_tasks = $conn->query($sql_tasks);
+          <?php
+$sql_tasks = "SELECT * FROM tasks";
+$result_tasks = $conn->query($sql_tasks);
 
-                if ($result_tasks) {
-                  while ($row = mysqli_fetch_assoc($result_tasks)) {
-                    echo '<tr onclick="fillModal(' . $row['taskID'] . ', \'' . 
-                          (isset($row['orderType']) ? htmlspecialchars($row['orderType']) : '') . '\', \'' . 
-                          (isset($row['mainWorkCtr']) ? htmlspecialchars($row['mainWorkCtr']) : '') . '\', \'' . 
-                          (isset($row['orderDescription']) ? htmlspecialchars($row['orderDescription']) : '') . '\', \'' . 
-                          (isset($row['maintenance_plan']) ? htmlspecialchars($row['maintenance_plan']) : '') . '\', \'' . 
-                          (isset($row['mpDescription']) ? htmlspecialchars($row['mpDescription']) : '') . '\', \'' . 
-                          (isset($row['systemStatus']) ? htmlspecialchars($row['systemStatus']) : '') . '\', \'' . 
-                          (isset($row['ssDescription']) ? htmlspecialchars($row['ssDescription']) : '') . '\', \'' . 
-                          (isset($row['plannerGroup']) ? htmlspecialchars($row['plannerGroup']) : '') . '\', \'' . 
-                          (isset($row['costCenter']) ? htmlspecialchars($row['costCenter']) : '') . '\', \'' . 
-                          (isset($row['equipmentID']) ? htmlspecialchars($row['equipmentID']) : '') . '\', \'' . 
-                          (isset($row['taskStatus']) ? htmlspecialchars($row['taskStatus']) : '') . '\')" 
-                          data-bs-toggle="modal" data-bs-target="#updateTaskModal">';
-                      echo '<td>';
-                      echo '<p class="taskid">' . htmlspecialchars($row['taskID']) . '</p>';
-                      echo '<p class="order-type">' . htmlspecialchars($row['orderType']) . ' <span class="main-work-ctr">' . htmlspecialchars($row['mainWorkCtr']) . '</span></p>';
-                      echo '</td>';
-                      echo '</tr>';
-                      echo '<tr style="height: 20px;"></tr>';
-                  }
-                } else {
-                    echo '<tr><td colspan="2">No tasks found.</td></tr>';
-                }
-                ?>
+if ($result_tasks) {
+    while ($row = mysqli_fetch_assoc($result_tasks)) {
+        $urgencyClass = '';
+        if ($row['urgency'] === 'Low') {
+            $urgencyClass = 'low-urgency';
+        } elseif ($row['urgency'] === 'Medium') {
+            $urgencyClass = 'medium-urgency';
+        } elseif ($row['urgency'] === 'High') {
+            $urgencyClass = 'high-urgency';
+        } else {
+            $urgencyClass = 'default-urgency';
+        }
+
+        echo '<tr onclick="fillModal(' . $row['taskID'] . ', \'' . 
+            (isset($row['orderType']) ? htmlspecialchars($row['orderType']) : '') . '\', \'' . 
+            (isset($row['mainWorkCtr']) ? htmlspecialchars($row['mainWorkCtr']) : '') . '\', \'' . 
+            (isset($row['orderDescription']) ? htmlspecialchars($row['orderDescription']) : '') . '\', \'' . 
+            (isset($row['maintenance_plan']) ? htmlspecialchars($row['maintenance_plan']) : '') . '\', \'' . 
+            (isset($row['mpDescription']) ? htmlspecialchars($row['mpDescription']) : '') . '\', \'' . 
+            (isset($row['systemStatus']) ? htmlspecialchars($row['systemStatus']) : '') . '\', \'' . 
+            (isset($row['ssDescription']) ? htmlspecialchars($row['ssDescription']) : '') . '\', \'' . 
+            (isset($row['plannerGroup']) ? htmlspecialchars($row['plannerGroup']) : '') . '\', \'' . 
+            (isset($row['costCenter']) ? htmlspecialchars($row['costCenter']) : '') . '\', \'' . 
+            (isset($row['equipmentID']) ? htmlspecialchars($row['equipmentID']) : '') . '\', \'' . 
+            (isset($row['taskStatus']) ? htmlspecialchars($row['taskStatus']) : '') . '\')" 
+            data-bs-toggle="modal" data-bs-target="#updateTaskModal" class="' . $urgencyClass . '">';
+        echo '<td>';
+        echo '<p class="taskid">' . htmlspecialchars($row['taskID']) . '</p>';
+        echo '<p class="order-type">' . htmlspecialchars($row['orderType']) . ' <span class="main-work-ctr">' . htmlspecialchars($row['mainWorkCtr']) . '</span></p>';
+        echo '</td>';
+        echo '</tr>';
+        echo '<tr style="height: 20px;"></tr>';
+    }
+} else {
+    echo '<tr><td colspan="2">No tasks found.</td></tr>';
+}
+?>
             </table>
           </div>
 
@@ -321,7 +332,7 @@
         
     </script>
 <script>
-     function fillModal(taskID, orderType, mainWorkCtr, orderDesc, mplan, pdesc, sysstat, sysdesc, pgroup, cstcen, eqid, taskStatus) {
+    function fillModal(taskID, orderType, mainWorkCtr, orderDesc, mplan, pdesc, sysstat, sysdesc, pgroup, cstcen, eqid, taskStatus) {
         // Fill Modal Inputs with Data
         document.getElementById('taskID').value = taskID;
         document.getElementById('taskIDDisplay').value = taskID;
@@ -336,10 +347,13 @@
         document.getElementById('cstcen').value = cstcen;
         document.getElementById('eqid').value = eqid;
 
-        // Clear previous selection of task status
+        // Select the correct Task Status radio button
         var radios = document.getElementsByName('taskStatus');
         for (var i = 0; i < radios.length; i++) {
-            radios[i].checked = false;
+            if (radios[i].value === taskStatus) {
+                radios[i].checked = true;
+                break;
+            }
         }
     }
 </script>
