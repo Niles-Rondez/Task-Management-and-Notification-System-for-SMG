@@ -3,18 +3,28 @@ include('conn.php');
 
 $query = "SELECT * FROM tasks";
 
+$currentDate = date('Y-m-d');
+$tomorrowDate = date('Y-m-d', strtotime('+1 day'));
+$weekEndDate = date('Y-m-d', strtotime('+1 week'));
+
+$query = "SELECT * FROM tasks";
+
 if (isset($_GET['sort'])) {
     $sort = $_GET['sort'];
     if ($sort === 'asc') {
         $query .= " ORDER BY taskID ASC";
     } elseif ($sort === 'desc') {
         $query .= " ORDER BY taskID DESC";
+    } elseif ($sort === 'today') {
+        $query .= " WHERE startDate = '$currentDate'";
+    } elseif ($sort === 'tomorrow') {
+        $query .= " WHERE startDate = '$tomorrowDate'";
+    } elseif ($sort === 'week') {
+        $query .= " WHERE startDate <= '$weekEndDate' AND startDate >= '$currentDate'";
     }
 }
 
 $result = mysqli_query($conn, $query);
-
-$currentDate = date('Y-m-d');
 
 $sqlTotalTasks = "SELECT COUNT(*) AS totalTasks FROM tasks";
 $resultTotalTasks = mysqli_query($conn, $sqlTotalTasks);
@@ -134,7 +144,7 @@ mysqli_close($conn);
   <div class="mx-4 mt-5">
     <div class="row">
       <div class="col">
-      <h4 class="fw-bold">Task List</h4>
+      <h4 class="fw-bold">Notification List</h4>
       </div>
       <div class="col-auto ">
         <p>SORT BY:</p>
@@ -145,8 +155,11 @@ mysqli_close($conn);
                 DEFAULT
             </button>
             <ul class="dropdown-menu" aria-labelledby="sortDropdown">
-                <li><a class="dropdown-item" href="dashboard.php?sort=asc">ASCENDING</a></li>
-                <li><a class="dropdown-item" href="dashboard.php?sort=desc">DESCENDING</a></li>
+              <li><a class="dropdown-item" href="dashboard.php?sort=asc">ASCENDING</a></li>
+              <li><a class="dropdown-item" href="dashboard.php?sort=desc">DESCENDING</a></li>
+              <li><a class="dropdown-item" href="dashboard.php?sort=today">TODAY</a></li>
+              <li><a class="dropdown-item" href="dashboard.php?sort=tomorrow">TOMORROW</a></li>
+              <li><a class="dropdown-item" href="dashboard.php?sort=week">WITHIN THIS WEEK</a></li>
             </ul>
         </div>
       </div>
