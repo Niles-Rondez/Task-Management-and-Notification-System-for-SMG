@@ -134,7 +134,7 @@ mysqli_close($conn);
   <div class="mx-4 mt-5">
     <div class="row">
       <div class="col">
-      <h4 class="fw-bold">Notification List</h4>
+      <h4 class="fw-bold">Task List</h4>
       </div>
       <div class="col-auto ">
         <p>SORT BY:</p>
