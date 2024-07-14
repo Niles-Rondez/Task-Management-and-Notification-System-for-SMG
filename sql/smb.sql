@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 10, 2024 at 08:49 AM
--- Server version: 10.4.28-MariaDB
--- PHP Version: 8.0.28
+-- Generation Time: Jul 14, 2024 at 06:09 PM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -89,45 +89,45 @@ CREATE TABLE `tasks` (
   `plannerGroup` varchar(255) DEFAULT NULL,
   `costCenter` varchar(255) DEFAULT NULL,
   `equipmentID` int(11) DEFAULT NULL,
-  `TaskStatus` varchar(20) DEFAULT NULL
+  `taskStatus` enum('Pending','Completed') NOT NULL DEFAULT 'Pending',
+  `urgency` enum('Low','Medium','High') NOT NULL DEFAULT 'Low'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `tasks`
 --
 
-INSERT INTO `tasks` (`taskID`, `startDate`, `orderType`, `orderDescription`, `maintenance_plan`, `mpDescription`, `mainWorkCtr`, `systemStatus`, `ssDescription`, `plannerGroup`, `costCenter`, `equipmentID`, `TaskStatus`) VALUES
-(22102839, '2024-07-22', 'PM2', '', '', '', 'afdaffd', '', '', '', '', 0, 'Completed'),
-(601071480, '2024-05-15', 'PM14', 'Servicing of Hoist Drive Motor(1y)', '6PKGE-PAL201', 'Drive Motors', 'MDE-031', 'REL NMAT PRC SETC', 'Palletizer 2', 'P14', '610-3151', 20075229, 'Pending'),
-(601071481, '2024-05-18', 'PM14', 'Servicing of Cross Travel Drive Motor(1y)', '6PKGE-PAL202', 'Drive Motors', 'MDE-031', 'REL NMAT PRC SETC', 'Palletizer 2', 'P14', '610-3151', 20075229, '0'),
-(601071499, '2024-05-18', 'PM14', 'Servicing of Conveyor Motor(1y)', '6PKGE-UNC304', 'Drive Motors', 'MDE-033', 'REL NMAT PRC SETC', 'Uncaser 3', 'P14', '610-3152', 20075253, '0'),
-(601071500, '2024-05-18', 'PM14', 'Servicing of Main Drive Motor(1y)', '6PKGE-UNC305', 'Drive Motors', 'MDE-033', 'REL NMAT PRC SETC', 'Uncaser 3', 'P14', '610-3152', 20075253, '0'),
-(601094854, '2024-05-02', 'PM14', 'Servicing of Crowner Mill Drive (1y)', '6PKGE-FLR301', 'Drive Crown Mill Motor', 'MDE-031', 'REL NMAT PRC SETC', 'Filler 3', 'P14', '610-3151', 20058927, '0'),
-(601094911, '2024-05-03', 'PM14', 'Servicing of Geared Motor Brake(6m)', '6PKGE-UNC306', 'Drive Motors', 'MDE-033', 'REL NMAT PRC SETC', 'Uncaser 3', 'P14', '610-3152', 20075253, '0'),
-(601095968, '2024-05-04', 'PM14', 'INSPECT/CLEAN/TIGHTEN MCC CONTROLS 182D:', '6EL-PCV02017', 'Geared Motors', 'MDE-033', 'REL NMAT PRC SETC', 'PCE, Loading Table to DPL-3,4 & P-Turner', 'P14', '610-3152', 20042910, '0'),
-(601099762, '2024-05-26', 'PM14', 'INSPECT/SERVICE MOTOR BRAKE 63D:', '6EL-PCV02005', 'Geared Motors', 'MDE-033', 'REL NMAT PRC SETC', 'PCE, DPL Out, P-Turner-4 to 7 & P-Magazine', 'P14', '610-3152', 20042911, '0'),
-(601099763, '2024-05-26', 'PM14', 'INSPECT/SERVICE MOTOR BRAKE 63D:', '6EL-PCV02006', 'Geared Motors', 'MDE-033', 'REL NMAT PRC SETC', 'PCE, DPL-3, In-Machine Conveyor', 'P14', '610-3152', 20042912, '0'),
-(601099765, '2024-05-26', 'PM14', 'INSPECT/SERVICE MOTOR BRAKE 63D:', '6EL-PCV02008', 'Geared Motors', 'MDE-033', 'REL NMAT PRC SETC', 'PCE, Pallet Magazine, (Loading/Unloading)', 'P14', '610-3152', 20042913, '0'),
-(601099766, '2024-05-26', 'PM14', 'INSPECT/SERVICE MOTOR BRAKE 63D:', '6EL-PCV02009', 'Geared Motors', 'MDE-033', 'REL NMAT PRC SETC', 'PCF, PAL-3 & 4 Outfeed to Unloading Table', 'P14', '610-3152', 20042914, '0'),
-(601099767, '2024-05-13', 'PM14', 'PCE, DPL3-4, Infd, Load/M-Tst, Chk Consol, 2m', '6EL-PCV02010', 'Geared Motors', 'MDE-033', 'REL NMAT PRC SETC', 'PCE, Loading Table to DPL-3,4 & P-Turner', 'P14', '610-3152', 20042910, '0'),
-(601099768, '2024-05-16', 'PM14', 'PCE, DPL3 In-Mac, Load/M-Tst, Chk Consol, 2m', '6EL-PCV02011', 'Geared Motors', 'MDE-033', 'REL NMAT PRC SETC', 'PCE, DPL-3, In-Machine Conveyor', 'P14', '610-3152', 20042912, '0'),
-(601099769, '2024-05-19', 'PM14', 'PCE, DPL4 In-Mac, Load/M-Tst, Chk Consol, 2m', '6EL-PCV02012', 'Geared Motors', 'MDE-033', 'REL NMAT PRC SETC', 'PCE, DPL-4 In-Machine Conveyor', 'P14', '610-3152', 20042915, '0'),
-(601099770, '2024-05-16', 'PM14', 'PCE, DPL3-4, PAL3-4 Load/M-Tst, Chk Cnsol, 2m', '6EL-PCV02013', 'Geared Motors', 'MDE-033', 'REL NMAT PRC SETC', 'PCE, DPL Out, P-Turner-4 to 7 & P-Magazine', 'P14', '610-3152', 20042911, '0'),
-(601099771, '2024-05-19', 'PM14', 'PCE, Mke-up/PAL3-4 Load/M-Tst, Chk Cnsol, 2m', '6EL-PCV02014', 'Geared Motors', 'MDE-033', 'REL NMAT PRC SETC', 'PCE, Pallet Magazine, (Loading/Unloading)', 'P14', '610-3152', 20042913, '0'),
-(601099772, '2024-05-16', 'PM14', 'PCF, PAL3-4 Outfd, Load/M-Tst, Chk Cnsol, 2m', '6EL-PCV02015', 'Geared Motors', 'MDE-033', 'REL NMAT PRC SETC', 'PCF, PAL-3 & 4 Outfeed to Unloading Table', 'P14', '610-3152', 20042914, '0'),
-(601100284, '2024-05-03', 'PM14', 'Serv of Crowner Height Adj. Motor(1.5y)', '6PKGE-FLR204', 'Height Adjustment Corker Motor', 'MDE-031', 'REL NMAT PRC SETC', 'Filler 2', 'P14', '610-3151', 20058876, '0'),
-(601100419, '2024-05-12', 'PM14', 'KEG, Inspect / Service of Motors, (3m)', '6EL-KEG01003', 'Electrical & Controls', 'MDE-033', 'REL NMAT PRC SETC', 'KEG Racking, Electrical', 'P14', '610-3151', 20023241, '0'),
-(601101635, '2024-05-15', 'PM14', 'Servicing of Head Table Drive Motor(2m)', '6PKGE-PAL203', 'Drive Motors', 'MDE-031', 'REL NMAT PRC SETC', 'Palletizer 2', 'P14', '610-3151', 20075229, '0'),
-(601101636, '2024-05-15', 'PM14', 'Servicing of Case Row Pusher Drive Motor', '6PKGE-PAL205', 'Drive Motors', 'MDE-031', 'REL NMAT PRC SETC', 'Palletizer 2', 'P14', '610-3151', 20075229, '0'),
-(601101640, '2024-05-14', 'PM14', 'Load Monitoring of Motors (2m)', '6PKGE-PAL406', 'Drive Motors', 'MDE-033', 'REL NMAT PRC SETC', 'Palletizer 4', 'P14', '610-3152', 20075244, '0'),
-(601101744, '2024-05-13', 'PM14', 'Load Monitoring(2m)', '6PKGE-UNC301', 'Drive Motors', 'MDE-033', 'REL NMAT PRC SETC', 'Uncaser 3', 'P14', '610-3152', 20075253, '0'),
-(601108963, '2024-05-10', 'PM14', 'Load Monitoring of Drive Motors(2m)', '6PKGE-DPL105', 'Drive Motors', 'MDE-033', 'REL NMAT PRC SETC', 'Depalletizer 1', 'P14', '610-3151', 20073726, '0'),
-(601108964, '2024-05-10', 'PM14', 'Load Monitoring of Drive Motors(2m)', '6PKGE-DPL206', 'Drive Motors', 'MDE-033', 'REL NMAT PRC SETC', 'Depalletizer 2', 'P14', '610-3151', 20073746, '0'),
-(601108965, '2024-05-07', 'PM14', 'Load Monitoring of Drive Motors(2m)', '6PKGE-DPL306', 'Drive Motors', 'MDE-033', 'REL NMAT PRC SETC', 'Depalletizer 3', 'P14', '610-3152', 20074477, '0'),
-(601108966, '2024-05-07', 'PM14', 'Load Monitoring of Drive Motors(2m)', '6PKGE-DPL406', 'Drive Motors', 'MDE-033', 'REL NMAT PRC SETC', 'Depalletizer 4', 'P14', '610-3152', 20074514, '0'),
-(601108967, '2024-05-10', 'PM14', 'Load Monitoring of Motors (2m)', '6PKGE-PAL106', 'Drive Motors', 'MDE-033', 'REL NMAT PRC SETC', 'Palletizer 1', 'P14', '610-3151', 20075217, '0'),
-(601108968, '2024-05-19', 'PM14', 'Service of Geared Motor Brakes (3m)', '6PKGE-PAL109', 'Drive Motors', 'MDE-033', 'REL NMAT PRC SETC', 'Palletizer 1', 'P14', '610-3151', 20075217, '0'),
-(601108969, '2024-05-10', 'PM14', 'Load Monitoring of Motors (2m)', '6PKGE-PAL206', 'Drive Motors', 'MDE-031', 'REL NMAT PRC SETC', 'Palletizer 2', 'P14', '610-3151', 20075229, '0');
+INSERT INTO `tasks` (`taskID`, `startDate`, `orderType`, `orderDescription`, `maintenance_plan`, `mpDescription`, `mainWorkCtr`, `systemStatus`, `ssDescription`, `plannerGroup`, `costCenter`, `equipmentID`, `taskStatus`, `urgency`) VALUES
+(601071480, '2024-07-15', 'PM14', 'Servicing of Hoist Drive Motor(1y)', '6PKGE-PAL201', 'Drive Motors', 'MDE-031', 'REL NMAT PRC SETC', 'Palletizer 2', 'P14', '610-3151', 20075229, 'Pending', 'Low'),
+(601071481, '2024-07-18', 'PM14', 'Servicing of Cross Travel Drive Motor(1y)', '6PKGE-PAL202', 'Drive Motors', 'MDE-031', 'REL NMAT PRC SETC', 'Palletizer 2', 'P14', '610-3151', 20075229, 'Pending', 'Low'),
+(601071499, '2024-07-18', 'PM14', 'Servicing of Conveyor Motor(1y)', '6PKGE-UNC304', 'Drive Motors', 'MDE-033', 'REL NMAT PRC SETC', 'Uncaser 3', 'P14', '610-3152', 20075253, 'Pending', 'Low'),
+(601071500, '2024-07-18', 'PM14', 'Servicing of Main Drive Motor(1y)', '6PKGE-UNC305', 'Drive Motors', 'MDE-033', 'REL NMAT PRC SETC', 'Uncaser 3', 'P14', '610-3152', 20075253, 'Pending', 'Low'),
+(601094854, '2024-07-02', 'PM14', 'Servicing of Crowner Mill Drive (1y)', '6PKGE-FLR301', 'Drive Crown Mill Motor', 'MDE-031', 'REL NMAT PRC SETC', 'Filler 3', 'P14', '610-3151', 20058927, 'Completed', 'Low'),
+(601094911, '2024-07-03', 'PM14', 'Servicing of Geared Motor Brake(6m)', '6PKGE-UNC306', 'Drive Motors', 'MDE-033', 'REL NMAT PRC SETC', 'Uncaser 3', 'P14', '610-3152', 20075253, 'Completed', 'Low'),
+(601095968, '2024-07-04', 'PM14', 'INSPECT/CLEAN/TIGHTEN MCC CONTROLS 182D:', '6EL-PCV02017', 'Geared Motors', 'MDE-033', 'REL NMAT PRC SETC', 'PCE, Loading Table to DPL-3,4 & P-Turner', 'P14', '610-3152', 20042910, 'Completed', 'Low'),
+(601099762, '2024-07-26', 'PM14', 'INSPECT/SERVICE MOTOR BRAKE 63D:', '6EL-PCV02005', 'Geared Motors', 'MDE-033', 'REL NMAT PRC SETC', 'PCE, DPL Out, P-Turner-4 to 7 & P-Magazine', 'P14', '610-3152', 20042911, 'Pending', 'Low'),
+(601099763, '2024-07-26', 'PM14', 'INSPECT/SERVICE MOTOR BRAKE 63D:', '6EL-PCV02006', 'Geared Motors', 'MDE-033', 'REL NMAT PRC SETC', 'PCE, DPL-3, In-Machine Conveyor', 'P14', '610-3152', 20042912, 'Pending', 'Low'),
+(601099765, '2024-07-26', 'PM14', 'INSPECT/SERVICE MOTOR BRAKE 63D:', '6EL-PCV02008', 'Geared Motors', 'MDE-033', 'REL NMAT PRC SETC', 'PCE, Pallet Magazine, (Loading/Unloading)', 'P14', '610-3152', 20042913, 'Pending', 'Low'),
+(601099766, '2024-07-26', 'PM14', 'INSPECT/SERVICE MOTOR BRAKE 63D:', '6EL-PCV02009', 'Geared Motors', 'MDE-033', 'REL NMAT PRC SETC', 'PCF, PAL-3 & 4 Outfeed to Unloading Table', 'P14', '610-3152', 20042914, 'Pending', 'Low'),
+(601099767, '2024-07-13', 'PM14', 'PCE, DPL3-4, Infd, Load/M-Tst, Chk Consol, 2m', '6EL-PCV02010', 'Geared Motors', 'MDE-033', 'REL NMAT PRC SETC', 'PCE, Loading Table to DPL-3,4 & P-Turner', 'P14', '610-3152', 20042910, 'Completed', 'Low'),
+(601099768, '2024-07-16', 'PM14', 'PCE, DPL3 In-Mac, Load/M-Tst, Chk Consol, 2m', '6EL-PCV02011', 'Geared Motors', 'MDE-033', 'REL NMAT PRC SETC', 'PCE, DPL-3, In-Machine Conveyor', 'P14', '610-3152', 20042912, 'Pending', 'Low'),
+(601099769, '2024-07-19', 'PM14', 'PCE, DPL4 In-Mac, Load/M-Tst, Chk Consol, 2m', '6EL-PCV02012', 'Geared Motors', 'MDE-033', 'REL NMAT PRC SETC', 'PCE, DPL-4 In-Machine Conveyor', 'P14', '610-3152', 20042915, 'Pending', 'Low'),
+(601099770, '2024-07-16', 'PM14', 'PCE, DPL3-4, PAL3-4 Load/M-Tst, Chk Cnsol, 2m', '6EL-PCV02013', 'Geared Motors', 'MDE-033', 'REL NMAT PRC SETC', 'PCE, DPL Out, P-Turner-4 to 7 & P-Magazine', 'P14', '610-3152', 20042911, 'Pending', 'Low'),
+(601099771, '2024-07-19', 'PM14', 'PCE, Mke-up/PAL3-4 Load/M-Tst, Chk Cnsol, 2m', '6EL-PCV02014', 'Geared Motors', 'MDE-033', 'REL NMAT PRC SETC', 'PCE, Pallet Magazine, (Loading/Unloading)', 'P14', '610-3152', 20042913, 'Pending', 'Low'),
+(601099772, '2024-07-16', 'PM14', 'PCF, PAL3-4 Outfd, Load/M-Tst, Chk Cnsol, 2m', '6EL-PCV02015', 'Geared Motors', 'MDE-033', 'REL NMAT PRC SETC', 'PCF, PAL-3 & 4 Outfeed to Unloading Table', 'P14', '610-3152', 20042914, 'Pending', 'Low'),
+(601100284, '2024-07-03', 'PM14', 'Serv of Crowner Height Adj. Motor(1.5y)', '6PKGE-FLR204', 'Height Adjustment Corker Motor', 'MDE-031', 'REL NMAT PRC SETC', 'Filler 2', 'P14', '610-3151', 20058876, 'Completed', 'Low'),
+(601100419, '2024-07-12', 'PM14', 'KEG, Inspect / Service of Motors, (3m)', '6EL-KEG01003', 'Electrical & Controls', 'MDE-033', 'REL NMAT PRC SETC', 'KEG Racking, Electrical', 'P14', '610-3151', 20023241, 'Completed', 'Low'),
+(601101635, '2024-07-15', 'PM14', 'Servicing of Head Table Drive Motor(2m)', '6PKGE-PAL203', 'Drive Motors', 'MDE-031', 'REL NMAT PRC SETC', 'Palletizer 2', 'P14', '610-3151', 20075229, 'Pending', 'Low'),
+(601101636, '2024-07-15', 'PM14', 'Servicing of Case Row Pusher Drive Motor', '6PKGE-PAL205', 'Drive Motors', 'MDE-031', 'REL NMAT PRC SETC', 'Palletizer 2', 'P14', '610-3151', 20075229, 'Pending', 'Low'),
+(601101640, '2024-07-14', 'PM14', 'Load Monitoring of Motors (2m)', '6PKGE-PAL406', 'Drive Motors', 'MDE-033', 'REL NMAT PRC SETC', 'Palletizer 4', 'P14', '610-3152', 20075244, 'Completed', 'Low'),
+(601101744, '2024-07-13', 'PM14', 'Load Monitoring(2m)', '6PKGE-UNC301', 'Drive Motors', 'MDE-033', 'REL NMAT PRC SETC', 'Uncaser 3', 'P14', '610-3152', 20075253, 'Completed', 'Low'),
+(601108963, '2024-07-10', 'PM14', 'Load Monitoring of Drive Motors(2m)', '6PKGE-DPL105', 'Drive Motors', 'MDE-033', 'REL NMAT PRC SETC', 'Depalletizer 1', 'P14', '610-3151', 20073726, 'Completed', 'Low'),
+(601108964, '2024-07-10', 'PM14', 'Load Monitoring of Drive Motors(2m)', '6PKGE-DPL206', 'Drive Motors', 'MDE-033', 'REL NMAT PRC SETC', 'Depalletizer 2', 'P14', '610-3151', 20073746, 'Completed', 'Low'),
+(601108965, '2024-07-07', 'PM14', 'Load Monitoring of Drive Motors(2m)', '6PKGE-DPL306', 'Drive Motors', 'MDE-033', 'REL NMAT PRC SETC', 'Depalletizer 3', 'P14', '610-3152', 20074477, 'Completed', 'Low'),
+(601108966, '2024-07-07', 'PM14', 'Load Monitoring of Drive Motors(2m)', '6PKGE-DPL406', 'Drive Motors', 'MDE-033', 'REL NMAT PRC SETC', 'Depalletizer 4', 'P14', '610-3152', 20074514, 'Completed', 'Low'),
+(601108967, '2024-07-10', 'PM14', 'Load Monitoring of Motors (2m)', '6PKGE-PAL106', 'Drive Motors', 'MDE-033', 'REL NMAT PRC SETC', 'Palletizer 1', 'P14', '610-3151', 20075217, 'Completed', 'Low'),
+(601108968, '2024-07-19', 'PM14', 'Service of Geared Motor Brakes (3m)', '6PKGE-PAL109', 'Drive Motors', 'MDE-033', 'REL NMAT PRC SETC', 'Palletizer 1', 'P14', '610-3151', 20075217, 'Pending', 'Low'),
+(601108969, '2024-07-10', 'PM14', 'Load Monitoring of Motors (2m)', '6PKGE-PAL206', 'Drive Motors', 'MDE-031', 'REL NMAT PRC SETC', 'Palletizer 2', 'P14', '610-3151', 20075229, 'Completed', 'Low');
 
 -- --------------------------------------------------------
 
