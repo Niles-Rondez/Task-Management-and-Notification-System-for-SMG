@@ -148,6 +148,14 @@
                       <span class="input-group-text" id="inputGroup-sizing-default">Equipment ID</span>
                       <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="eqid">
                     </div>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="inputGroup-sizing-default">Urgency</span>
+                        <select class="form-select" name="urgency">
+                            <option value="Low">Low</option>
+                            <option value="Medium">Medium</option>
+                            <option value="High">High</option>
+                        </select>
+                    </div>
                     <!--Aask status
                     <div class="input-group mb-3">
                       <span class="input-group-text" id="inputGroup-sizing-default">Task Status</span>
@@ -269,7 +277,7 @@ if ($result_tasks) {
                         <label for="eqid" class="form-label">Equipment ID</label>
                         <input type="text" class="form-control" id="eqid" name="eqid" >
                     </div>
-                    <div class="mb-3">
+                    <div class="mb-1">
                         <label class="form-label">Task Status</label><br>
                         <div class="form-check form-check-inline">
                             <input class="form-check-input" type="radio" id="taskStatusPending" name="taskStatus" value="Pending">
@@ -279,6 +287,14 @@ if ($result_tasks) {
                             <input class="form-check-input" type="radio" id="taskStatusCompleted" name="taskStatus" value="Completed">
                             <label class="form-check-label" for="taskStatusCompleted">Completed</label>
                         </div>
+                    </div>
+                    <div class="mb-3">
+                        <span class="input-group-text bg-white border border-0 ps-1" id="inputGroup-sizing-default">Urgency</span>
+                        <select class="form-select" name="urgency">
+                            <option value="Low">Low</option>
+                            <option value="Medium">Medium</option>
+                            <option value="High">High</option>
+                        </select>
                     </div>
 
                     <div class="modal-footer">
