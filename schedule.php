@@ -163,7 +163,7 @@
                     </div>-->
                     <div class="modal-footer">
                       <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" name="close">Close</button>
-                      <input type="submit" class="btn btn-primary" name="submit" value="SAVE"> 
+                      <input type="submit" class="btn btn-primary" name="submit" value="ADD"> 
                     </div>
                   </form>
                 </div>
@@ -297,7 +297,7 @@ if ($result_tasks) {
                         </select>
                     </div>
                     <div class="modal fade" id="deleteTaskModal" tabindex="-1" aria-labelledby="deleteTaskModalLabel" aria-hidden="true">
-                        
+
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
