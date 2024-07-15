@@ -10,9 +10,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST['email'];
     $address = $_POST['address'];
     $role = $_POST['role'];
+    $password = $_POST['password'];
 
-    $sql = "INSERT INTO users (userID, firstName, middleName, lastName, contact, email, address, role) 
-            VALUES ('$userID', '$firstName', '$middleName', '$lastName', '$contact', '$email', '$address', '$role')";
+    $sql = "INSERT INTO users (userID, firstName, middleName, lastName, contact, email, address, role, password) 
+            VALUES ('$userID', '$firstName', '$middleName', '$lastName', '$contact', '$email', '$address', '$role', '$password')";
 
     if ($conn->query($sql) === TRUE) {
         echo "New user added successfully";
