@@ -84,7 +84,7 @@ $rowCompletedTasks = mysqli_fetch_assoc($resultCompletedTasks);
 $completedTasks = $rowCompletedTasks['completedTasks'];
 
 $queryNotif = "
-SELECT tasks.taskID, tasks.orderType, tasks.equipmentID, tasks.startDate
+SELECT tasks.taskID, tasks.orderType, tasks.equipmentID, tasks.startDate, tasks.urgency
 FROM tasks
 WHERE DATE(tasks.startDate) = CURDATE();"
     ;
@@ -149,6 +149,7 @@ mysqli_close($conn);
     </div>
   </nav>
   <!--End of Navbar-->
+
   <div class="modal fade" id="notificationModal" tabindex="-1" aria-labelledby="notificationModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-xl">
         <div class="modal-content">
@@ -163,7 +164,7 @@ mysqli_close($conn);
                             <th>Task ID</th>
                             <th>Order Type</th>
                             <th>Equipment ID</th>
-                           <!-- <th>Notify Time</th> -->
+                           <th>Urgency</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -173,7 +174,7 @@ mysqli_close($conn);
                                     <td><?php echo htmlspecialchars($row['taskID']); ?></td>
                                     <td><?php echo htmlspecialchars($row['orderType']); ?></td>
                                     <td><?php echo htmlspecialchars($row['equipmentID']); ?></td>
-                                   <!-- <td><?php echo htmlspecialchars($row['notifyDate']); ?></td> -->
+                                    <td><?php echo htmlspecialchars($row['urgency']); ?></td>
                                 </tr>
                             <?php endwhile; ?>
                         <?php else: ?>
