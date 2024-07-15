@@ -163,7 +163,7 @@ $result = mysqli_query($conn, $query);
     </div>
     
     <div class="export-buttons ms-3 me">
-      <a href="expexcel.php"> <button class="export-pdf-button" id = 'exportBtn'>EXPORT PDF</button></a> 
+      <!-- <a href="expexcel.php"> <button class="export-pdf-button" id = 'exportBtn'>EXPORT PDF</button></a>  -->
       <a href="expexcel.php" target="_blank" class="export-excel-button">EXPORT EXCEL</a>
     </div>
 
