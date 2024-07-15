@@ -137,8 +137,8 @@ mysqli_close($conn);
         <ul class="navbar-nav ms-auto">
         <li class="nav-item">
                     <!-- Bell icon -->
-                    <a class="nav-link" href="#" id="bell-icon" data-bs-toggle="modal" data-bs-target="#notificationModal">
-                        <i class="bi bi-bell">bell</i>
+                    <a class="nav-link me-5" href="#" id="bell-icon" data-bs-toggle="modal" data-bs-target="#notificationModal">
+                        <img src="./images/beer.png" alt="" id='beer'>
                     </a>
                 </li>
           <li class="nav-item">

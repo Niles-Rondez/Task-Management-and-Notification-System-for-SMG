@@ -805,3 +805,11 @@ html {
   background-color: #ef4135b7;
   color: white;
 }
+
+
+#beer, #bell-icon, .nav-link {
+  width: 40px;
+  height: 40px;
+  max-width: 40px;
+  max-height: 40px;
+}
