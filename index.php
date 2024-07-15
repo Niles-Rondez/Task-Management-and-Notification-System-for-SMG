@@ -33,35 +33,12 @@
                         <input type="password" id="password" name="password" class="form-control" placeholder="">
                     </div>
                     <a href="#" id="fget" align="right"> Forget Password?</a>
-                    <div class="modal fade" id="forgetPasswordModal" tabindex="-1" aria-labelledby="forgetPasswordModalLabel" aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="forgetPasswordModalLabel">Forget Password?</h5>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
-                                    Contact a higher up or the IT department.
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
                 <input type="submit" value="Log In" class="submit-button w-button border-0 mt-2 p-1" id="login">
             </form>
         </div>
     </div>
 
-    <script>
-    $(document).ready(function() {
-        $('#fget').click(function() {
-            $('#forgetPasswordModal').modal('show');
-        });
-    });
-    </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
 </html>
@@ -97,4 +74,3 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 ?>
-
