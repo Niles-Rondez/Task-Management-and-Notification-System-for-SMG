@@ -32,7 +32,7 @@
                     <div class="col">
                         <input type="password" id="password" name="password" class="form-control" placeholder="">
                     </div>
-                    <a href="#" id="fget" align="right"> Forget Password?</a>
+                    <!-- <a href="#" id="fget" align="right"> Forget Password?</a> -->
                 </div>
                 <input type="submit" value="Log In" class="submit-button w-button border-0 mt-2 p-1" id="login">
             </form>
