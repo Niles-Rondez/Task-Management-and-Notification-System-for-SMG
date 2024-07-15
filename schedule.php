@@ -86,7 +86,7 @@
                   <button type="button" class="btn px-4 border border-secondary-subtle" id="btnDay">Day</button>
           </div>
             <!-- Modal -->
-            <input type="text" class="search-bar mx-1 mt-1" style="width: 270px;" placeholder="Search Task...">
+            <!-- <input type="text" class="search-bar mx-1 mt-1" style="width: 270px;" placeholder="Search Task..." id="searchInput"> -->
           <button type="button" class="btn my-2 border border-secondary-subtle" data-bs-toggle="modal" data-bs-target="#exampleModal" id="addtaskSched"> Add Task </button>
           <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
@@ -296,7 +296,10 @@ if ($result_tasks) {
                             <option value="High">High</option>
                         </select>
                     </div>
-                    <button type="button" class="btn btn-danger my-2" data-bs-toggle="modal" data-bs-target="#deleteTaskModal" id="deleteTaskButton"> Delete Task </button>
+                    
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-danger my-2" data-bs-toggle="modal" data-bs-target="#deleteTaskModal" id="deleteTaskButton"> Delete Task </button>
                     <div class="modal fade" id="deleteTaskModal" tabindex="-1" aria-labelledby="deleteTaskModalLabel" aria-hidden="true">
                         <div class="modal-dialog">
                             <div class="modal-content">
@@ -318,8 +321,6 @@ if ($result_tasks) {
                             </div>
                         </div>
                     </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                         <button type="submit" class="btn btn-primary" name="submit">Save changes</button>
                     </div>
                 </form>
