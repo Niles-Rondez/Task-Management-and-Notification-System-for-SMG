@@ -67,16 +67,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Set session variables
         $_SESSION['userID'] = $row['userID'];
         $_SESSION['userName'] = $row['firstName'];
-        $_SESSION['role'] = $row['role']; // Set the role in the session
-
-        // Redirect based on role
-        if ($_SESSION['role'] == 'admin') {
-            header("Location: dashboard.php");
-            exit();
-        } else {
-            header("Location: userAcc.php");
-            exit();
-        }
+        header("Location: dashboard.php");
+        exit();
     } else {
         echo "<script>alert('Incorrect Username or Password. Please try again.');</script>";
     }
