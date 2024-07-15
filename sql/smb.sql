@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 14, 2024 at 06:09 PM
--- Server version: 10.4.32-MariaDB
--- PHP Version: 8.2.12
+-- Generation Time: Jul 15, 2024 at 09:00 AM
+-- Server version: 10.4.24-MariaDB
+-- PHP Version: 8.1.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -32,7 +32,7 @@ CREATE TABLE `reports` (
   `userID` int(11) DEFAULT NULL,
   `taskID` int(11) DEFAULT NULL,
   `completionDate` date DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `reports`
@@ -91,14 +91,14 @@ CREATE TABLE `tasks` (
   `equipmentID` int(11) DEFAULT NULL,
   `taskStatus` enum('Pending','Completed') NOT NULL DEFAULT 'Pending',
   `urgency` enum('Low','Medium','High') NOT NULL DEFAULT 'Low'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `tasks`
 --
 
 INSERT INTO `tasks` (`taskID`, `startDate`, `orderType`, `orderDescription`, `maintenance_plan`, `mpDescription`, `mainWorkCtr`, `systemStatus`, `ssDescription`, `plannerGroup`, `costCenter`, `equipmentID`, `taskStatus`, `urgency`) VALUES
-(601071480, '2024-07-15', 'PM14', 'Servicing of Hoist Drive Motor(1y)', '6PKGE-PAL201', 'Drive Motors', 'MDE-031', 'REL NMAT PRC SETC', 'Palletizer 2', 'P14', '610-3151', 20075229, 'Pending', 'Low'),
+(601071480, '2024-07-15', 'PM16', 'Servicing of Hoist Drive Motor(1y)', '6PKGE-PAL201', 'Drive Motors', 'MDE-031', 'REL NMAT PRC SETC', 'Palletizer 2', 'P14', '610-3151', 20075229, 'Pending', 'Medium'),
 (601071481, '2024-07-18', 'PM14', 'Servicing of Cross Travel Drive Motor(1y)', '6PKGE-PAL202', 'Drive Motors', 'MDE-031', 'REL NMAT PRC SETC', 'Palletizer 2', 'P14', '610-3151', 20075229, 'Pending', 'Low'),
 (601071499, '2024-07-18', 'PM14', 'Servicing of Conveyor Motor(1y)', '6PKGE-UNC304', 'Drive Motors', 'MDE-033', 'REL NMAT PRC SETC', 'Uncaser 3', 'P14', '610-3152', 20075253, 'Pending', 'Low'),
 (601071500, '2024-07-18', 'PM14', 'Servicing of Main Drive Motor(1y)', '6PKGE-UNC305', 'Drive Motors', 'MDE-033', 'REL NMAT PRC SETC', 'Uncaser 3', 'P14', '610-3152', 20075253, 'Pending', 'Low'),
@@ -145,14 +145,15 @@ CREATE TABLE `users` (
   `email` varchar(255) DEFAULT NULL,
   `role` varchar(255) DEFAULT NULL,
   `password` varchar(20) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`userID`, `firstName`, `middleName`, `lastName`, `contact`, `address`, `email`, `role`, `password`) VALUES
-(1000000001, 'Jimmy', 'Ando', 'Montebon', 2147483647, '789 Ramos Street, Cebu City', 'jimmymontebon@yahoo.com', 'superintendent', '4afe2148'),
+(1, 'Admin', 'mname', 'lname', 0, 'HQ', 'admin@gmail.com', 'Admin', 'admin'),
+(1000000001, 'Carlo', 'Ando', 'Montebon', 2147483647, '789 Ramos Street, Cebu City', 'jimmymontebon@yahoo.com', 'superintendent', 'test'),
 (1000000002, 'Maria', 'Dela Cruz', 'Santos', 2147483647, '456 Gorordo Avenue, Cebu City', 'mariadelacruz@gmail.com', 'technician', 'ecc8367a'),
 (1000000003, 'Juan', 'Carlos', 'Perez', 2147483647, '123 Osmeña Boulevard, Cebu City', 'juancarlosperez@hotmail.com', 'manager', 'b7c3579e'),
 (1000000004, 'Sofia', 'Garcia', 'Reyes', 2147483647, '987 Archbishop Reyes Avenue, Cebu City', 'sofiagr@gmail.com', 'technician', 'ba64fe18'),
