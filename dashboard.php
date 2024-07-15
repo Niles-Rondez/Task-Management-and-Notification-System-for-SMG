@@ -83,7 +83,16 @@ $resultCompletedTasks = mysqli_query($conn, $sqlCompletedTasks);
 $rowCompletedTasks = mysqli_fetch_assoc($resultCompletedTasks);
 $completedTasks = $rowCompletedTasks['completedTasks'];
 
+$queryNotif = "
+SELECT tasks.taskID, tasks.orderType, tasks.equipmentID, tasks.startDate
+FROM tasks
+WHERE DATE(tasks.startDate) = CURDATE();"
+    ;
+
+$resultNotif = mysqli_query($conn, $queryNotif);
+
 mysqli_close($conn);
+
 ?>
 
 
@@ -126,6 +135,12 @@ mysqli_close($conn);
         <img src="images/San_Miguel_Corporation_logo.webp" id="navlogo"><br>
         <a class="navbar-brand" id="tms" href="dashboard.php">Task Management System</a>
         <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+                    <!-- Bell icon -->
+                    <a class="nav-link" href="#" id="bell-icon" data-bs-toggle="modal" data-bs-target="#notificationModal">
+                        <i class="bi bi-bell">bell</i>
+                    </a>
+                </li>
           <li class="nav-item">
             <a class="nav-link" href="index.php" id="logout">Log Out</a>
           </li>
@@ -134,7 +149,46 @@ mysqli_close($conn);
     </div>
   </nav>
   <!--End of Navbar-->
+  <div class="modal fade" id="notificationModal" tabindex="-1" aria-labelledby="notificationModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-xl">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="notificationModalLabel">Notifications</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body overflow-auto">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Task ID</th>
+                            <th>Order Type</th>
+                            <th>Equipment ID</th>
+                           <!-- <th>Notify Time</th> -->
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php if ($resultNotif && mysqli_num_rows($resultNotif) > 0): ?>
+                            <?php while ($row = mysqli_fetch_assoc($resultNotif)): ?>
+                                <tr>
+                                    <td><?php echo htmlspecialchars($row['taskID']); ?></td>
+                                    <td><?php echo htmlspecialchars($row['orderType']); ?></td>
+                                    <td><?php echo htmlspecialchars($row['equipmentID']); ?></td>
+                                   <!-- <td><?php echo htmlspecialchars($row['notifyDate']); ?></td> -->
+                                </tr>
+                            <?php endwhile; ?>
+                        <?php else: ?>
+                            <tr><td colspan="4">No notifications found.</td></tr>
+                        <?php endif; ?>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
   <div class="header-divider"></div><br>
+  
   <!--tasks-->
   <div class="container text-center">
     <div class="row">
