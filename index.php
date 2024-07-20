@@ -11,8 +11,8 @@
 <body>
     <div class="container user-select-none" id="cont">
         <div align="center">
-            <img src="images/San_Miguel_Corporation_logo.webp" id="logo-login"><br>
-            <h1> SAN MIGUEL <span id="corp">CORPORATION</span></h1>
+            <img src="images/aquadolce.png" id="logo-login"><br>
+            <h1> Aqua Dolce <span id="corp">Water Station</span></h1>
             <p>Task Management System</p>
 
             <form method="POST">
@@ -44,7 +44,6 @@
 </html>
 
 <?php
-session_start();
 include('conn.php');
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {

@@ -1,5 +1,5 @@
-body,
-html {
+body,html {
+  background-color: beige!important;
   height: 100%;
   margin: 0;
   font-family: "Exo 2" !important;
